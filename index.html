@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twibbon Generator PK LPDP 280</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lpdp: {
+                            navy: '#0B2545',
+                            darkNavy: '#06172E',
+                            gold: '#D4AF37',
+                            lightGold: '#F3E5AB',
+                            emerald: '#006B3F',
+                            accent: '#134074'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col antialiased">
+
+    <!-- Header Navigation -->
+    <header class="bg-lpdp-darkNavy border-b border-lpdp-gold/20 shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-lpdp-gold to-yellow-200 flex items-center justify-center text-lpdp-navy font-bold text-lg shadow-md border border-yellow-300">
+                    280
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-2">
+                        PK LPDP <span class="text-lpdp-gold">280</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 font-medium">Twibbon Generator Resmi</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-lpdp-gold transition-colors text-sm flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-lpdp-gold/50 bg-slate-800/50">
+                    <i class="fa-brands fa-github text-base"></i>
+                    <span class="hidden sm:inline font-medium">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Preview Canvas Section (Left / Top) -->
+        <section class="lg:col-span-7 flex flex-col items-center">
+            <div class="w-full max-w-lg bg-slate-800/80 rounded-2xl p-4 sm:p-6 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+                <!-- Status Badge & Tip -->
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
+                    <span id="canvas-status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse" id="status-indicator"></span>
+                        <span id="status-text">Unggah foto kamu terlebih dahulu</span>
+                    </span>
+                    <span class="text-slate-400 hidden sm:flex items-center gap-1">
+                        <i class="fa-solid fa-hand-pointer text-lpdp-gold"></i> Drag / Pinch untuk Atur Foto
+                    </span>
+                </div>
+
+                <!-- Canvas Preview Box -->
+                <div class="relative w-full aspect-square bg-slate-950 rounded-xl overflow-hidden border-2 border-dashed border-slate-700 hover:border-lpdp-gold/50 transition-all group shadow-inner flex items-center justify-center select-none" id="canvas-wrapper">
+                    
+                    <!-- Interactive Canvas -->
+                    <canvas id="twibbon-canvas" class="w-full h-full object-contain cursor-grab active:cursor-grabbing relative z-10 touch-none"></canvas>
+
+                    <!-- Initial Placeholder State (Before Photo Upload) -->
+                    <div id="canvas-placeholder" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-20 pointer-events-none bg-slate-900/90 backdrop-blur-xs transition-opacity duration-300">
+                        <div class="w-16 h-16 rounded-full bg-lpdp-navy/80 border border-lpdp-gold/40 flex items-center justify-center mb-4 text-lpdp-gold text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-1">Pilih Foto Kamu</h3>
+                        <p class="text-xs text-slate-400 max-w-xs mb-4">Format JPG, PNG, atau WEBP. Foto dapat digeser, diperbesar/dikecilkan & diputar secara langsung.</p>
+                        <button onclick="document.getElementById('photo-input').click()" class="pointer-events-auto px-5 py-2.5 bg-gradient-to-r from-lpdp-gold to-amber-500 hover:from-amber-400 hover:to-amber-600 text-slate-950 font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fa-solid fa-image"></i>
+                            <span>Upload Foto</span>
+                        </button>
+                    </div>
+
+                    <!-- Visual Dragging Helper Overlay (Fades out after user starts dragging) -->
+                    <div id="gesture-hint" class="hidden absolute top-3 left-3 z-20 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700 text-[11px] text-slate-300 pointer-events-none transition-opacity duration-500">
+                        <i class="fa-solid fa-arrows-up-down-left-right text-lpdp-gold mr-1"></i> Drag foto untuk menggeser
+                    </div>
+                </div>
+
+                <!-- Canvas Control Quick Bar (Below Canvas) -->
+                <div class="mt-4 flex items-center justify-between text-xs text-slate-400 bg-slate-900/60 rounded-xl p-2.5 border border-slate-700/50">
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-slate-300"><i class="fa-solid fa-magnifying-glass text-lpdp-gold mr-1"></i> Zoom:</span>
+                        <span id="zoom-value" class="font-bold text-white w-10">100%</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="btn-zoom-out" title="Perkecil" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-200 flex items-center justify-center transition-colors border border-slate-700">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input type="range" id="zoom-slider" min="10" max="300" value="100" class="w-24 sm:w-32 accent-amber-400 cursor-pointer">
+                        <button id="btn-zoom-in" title="Perbesar" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-200 flex items-center justify-center transition-colors border border-slate-700">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Control Panel Section (Right / Bottom) -->
+        <section class="lg:col-span-5 flex flex-col gap-6">
+            
+            <!-- Upload Card -->
+            <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                <h2 class="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-upload text-lpdp-gold"></i> 1. Unggah Foto
+                </h2>
+                
+                <!-- File Dropzone -->
+                <div id="dropzone" class="border-2 border-dashed border-slate-600 hover:border-lpdp-gold bg-slate-900/50 rounded-xl p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-center group">
+                    <input type="file" id="photo-input" accept="image/*" class="hidden">
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400 group-hover:text-lpdp-gold mb-2 transition-colors"></i>
+                    <p class="text-xs font-semibold text-slate-200">Klik atau seret foto ke sini</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Mendukung format JPG, PNG, WEBP</p>
+                </div>
+            </div>
+
+            <!-- Position & Fine Control Adjustments Card -->
+            <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm flex flex-col gap-4">
+                <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-lpdp-gold"></i> 2. Penyesuaian Foto
+                </h2>
+
+                <!-- Control Buttons Grid -->
+                <div class="grid grid-cols-2 gap-2.5">
+                    <!-- Rotate Left -->
+                    <button id="btn-rotate-left" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-rotate-left text-lpdp-gold"></i>
+                        <span>Putar Kiri</span>
+                    </button>
+                    <!-- Rotate Right -->
+                    <button id="btn-rotate-right" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-rotate-right text-lpdp-gold"></i>
+                        <span>Putar Kanan</span>
+                    </button>
+
+                    <!-- Flip Horizontal -->
+                    <button id="btn-flip-h" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-arrows-left-right text-lpdp-gold"></i>
+                        <span>Cermin Horisontal</span>
+                    </button>
+
+                    <!-- Reset Center -->
+                    <button id="btn-reset" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-rose-900/40 border border-slate-700 hover:border-rose-500/50 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-arrows-to-dot text-rose-400"></i>
+                        <span>Reset Posisi</span>
+                    </button>
+                </div>
+
+                <!-- Frame Selection Optional Info -->
+                <div class="pt-2 border-t border-slate-700/60">
+                    <div class="flex items-center justify-between text-xs mb-2">
+                        <span class="text-slate-300 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-layer-group text-lpdp-gold"></i> Frame Twibbon:
+                        </span>
+                        <span class="text-lpdp-gold font-semibold bg-lpdp-gold/10 px-2 py-0.5 rounded border border-lpdp-gold/30">
+                            PK LPDP 280
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <button id="btn-change-frame" type="button" class="w-full py-1.5 px-2 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 hover:border-lpdp-gold/50 rounded-lg text-xs text-slate-300 transition-colors flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-folder-open text-lpdp-gold"></i>
+                            <span>Ganti File Frame PNG / SVG</span>
+                        </button>
+                        <input type="file" id="frame-input" accept="image/png,image/svg+xml" class="hidden">
+                    </div>
+                    <p class="text-[11px] text-slate-400">
+                        Kamu dapat langsung menggeser <span class="text-amber-300 font-semibold">(drag/pinch)</span> foto pada canvas area preview.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Download Action Card -->
+            <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl p-5 border border-lpdp-gold/30 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-lpdp-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <h2 class="text-sm font-bold text-white mb-2 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-download text-lpdp-gold"></i> 3. Unduh Hasil
+                </h2>
+                <p class="text-xs text-slate-300 mb-4">
+                    Unduh twibbon resolusi tinggi (1080 x 1080 px) siap dipasang di media sosial.
+                </p>
+
+                <button id="btn-download" disabled class="w-full py-3.5 px-4 bg-gradient-to-r from-lpdp-gold via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 disabled:from-slate-700 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed text-slate-950 font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-download text-base group-hover:bounce"></i>
+                    <span id="download-text">Unduh Twibbon High-Res</span>
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-lpdp-darkNavy border-t border-slate-800 py-6 mt-auto text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© 2025 <strong class="text-slate-300">Persiapan Keberangkatan LPDP Angkatan 280</strong>. All rights reserved.</p>
+            <p class="flex items-center gap-1 text-slate-400">
+                Dibuat untuk Kelompok PK LPDP 280
+            </p>
+        </div>
+    </footer>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>

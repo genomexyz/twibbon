@@ -1,0 +1,78 @@
+/* Custom styles for Twibbon Generator PK LPDP 280 */
+
+@layer utilities {
+    .backdrop-blur-xs {
+        backdrop-filter: blur(2px);
+    }
+}
+
+/* Canvas styling */
+#twibbon-canvas {
+    touch-action: none; /* Disables browser default scrolling/gestures on canvas */
+    background-image: 
+        linear-gradient(45deg, #1e293b 25%, transparent 25%), 
+        linear-gradient(-45deg, #1e293b 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #1e293b 75%), 
+        linear-gradient(-45deg, transparent 75%, #1e293b 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Active dragging cursor indicator */
+.is-dragging {
+    cursor: grabbing !important;
+}
+
+/* Custom Scrollbar for better UI feel */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Range input styling */
+input[type="range"]::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #d4af37;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    border: 2px solid #06172e;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #d4af37;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    border: 2px solid #06172e;
+}
+
+/* Animation helpers */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+    }
+}
+
+.glow-lpdp {
+    animation: pulseGlow 3s infinite ease-in-out;
+}
