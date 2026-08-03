@@ -76,3 +76,120 @@ input[type="range"]::-moz-range-thumb {
 .glow-lpdp {
     animation: pulseGlow 3s infinite ease-in-out;
 }
+
+/* =========================================================
+   LGM Editor Styles — 7 Halaman WYSIWYG
+   ========================================================= */
+
+/* Stage */
+.lgm-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1080 / 1350;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.lgm-stage.exporting {
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
+
+/* Background image inside stage */
+.lgm-stage #lgm-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Flow Layout Overlay */
+.lgm-flow-wrap {
+    position: absolute;
+    left: var(--left-px, 0);
+    top: var(--top-px, 0);
+    width: var(--w-px, 100%);
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 2), 1fr);
+    gap: var(--gap-px, 16px);
+    padding: var(--padY-px, 0) var(--padX-px, 0);
+    box-sizing: border-box;
+}
+
+/* Absolute Box Overlay */
+.lgm-overlay-abs {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+/* Generic Box */
+.lgm-box {
+    --title-bg: #2e6368;
+    --title-color: #daa520;
+    --body-bg: #f6e6c5;
+    --body-border: 1px solid rgba(0,0,0,.05);
+    --body-pad-x: 14px;
+    --body-pad-y: 12px;
+    --shadow: 0 8px 24px rgba(0,0,0,.06);
+
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Box Title */
+.lgm-box-title {
+    align-self: flex-start;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: .6rem .8rem;
+    line-height: .8;
+    background-color: var(--title-bg);
+    color: var(--title-color);
+    border-radius: 0 12px 0 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(10px, 0.95vw, 14px);
+    white-space: nowrap;
+    max-width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Box Body */
+.lgm-box-body {
+    background: var(--body-bg);
+    border: var(--body-border);
+    padding: var(--body-pad-y) var(--body-pad-x);
+    font-size: clamp(12px, 1.05vw, 14px);
+    line-height: 1.4;
+    color: #1f2937;
+    min-height: 54px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-radius: 0 15px 0 15px;
+    margin: 0;
+}
+
+/* Uniform spacing */
+.lgm-flow-wrap .lgm-box {
+    margin: 0;
+}
+.lgm-box-body {
+    margin: 0;
+    padding-top: calc(var(--body-pad-y) - 2px);
+}
+
+/* Print / Export safety */
+@media print {
+    .lgm-stage {
+        box-shadow: none;
+        border-radius: 0;
+    }
+}

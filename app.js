@@ -180,16 +180,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function switchTab(mode) {
         activeTab = mode;
+        const profileStageWrapper = document.getElementById('profile-stage-wrapper');
+        const lgmStageWrapper = document.getElementById('lgm-stage-wrapper');
+        const profileControls = document.getElementById('profile-controls');
+        const lgmControls = document.getElementById('lgm-controls');
+
         if (mode === 'profile') {
             tabProfile.className = 'active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md';
             tabLgm.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
             
-            uploadCardTitle.textContent = '1. Unggah Foto Profil';
-            dropzoneLabel.textContent = 'Klik atau seret Foto Profil ke sini';
-            lgmDropzoneWrapper.classList.add('hidden');
-            activeTargetText.textContent = 'Foto Profil';
-            downloadDesc.textContent = 'Unduh Twibbon Foto Profil resolusi tinggi (1080 x 1080 px).';
-            downloadText.textContent = 'Unduh Twibbon Foto Profil';
+            // Show Profile UI, hide LGM UI
+            profileStageWrapper.classList.remove('hidden');
+            lgmStageWrapper.classList.add('hidden');
+            profileControls.classList.remove('hidden');
+            profileControls.classList.add('flex');
+            lgmControls.classList.add('hidden');
+            lgmControls.classList.remove('flex');
 
             if (profileImage) {
                 hidePlaceholder();
@@ -198,29 +204,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 showPlaceholder('foto');
                 btnDownload.disabled = true;
             }
+
+            updateZoomUI();
+            updateStatus();
+            renderCanvas();
         } else {
             tabLgm.className = 'active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md';
             tabProfile.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
 
-            uploadCardTitle.textContent = '1. Unggah Life Grand Map (LGM)';
-            dropzoneLabel.textContent = 'Klik atau seret Diagram LGM ke sini';
-            lgmDropzoneWrapper.classList.remove('hidden');
-            activeTargetText.textContent = 'Life Grand Map';
-            downloadDesc.textContent = 'Unduh Life Grand Map Poster resolusi tinggi (1080 x 1080 px).';
-            downloadText.textContent = 'Unduh Life Grand Map';
+            // Hide Profile UI, show LGM UI
+            profileStageWrapper.classList.add('hidden');
+            lgmStageWrapper.classList.remove('hidden');
+            profileControls.classList.add('hidden');
+            profileControls.classList.remove('flex');
+            lgmControls.classList.remove('hidden');
+            lgmControls.classList.add('flex');
 
-            if (lgmImage) {
-                hidePlaceholder();
-                btnDownload.disabled = false;
-            } else {
-                showPlaceholder('lgm');
-                btnDownload.disabled = true;
+            // Init LGM editor on first switch
+            if (window.lgmEditor && typeof window.lgmEditor.init === 'function') {
+                window.lgmEditor.init();
             }
         }
-
-        updateZoomUI();
-        updateStatus();
-        renderCanvas();
     }
 
     function showPlaceholder(type) {

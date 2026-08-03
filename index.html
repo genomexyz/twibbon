@@ -80,7 +80,7 @@
         
         <!-- Preview Canvas Section (Left / Top) -->
         <section class="lg:col-span-7 flex flex-col items-center sticky top-20">
-            <div class="w-full max-w-lg bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+            <div id="profile-stage-wrapper" class="w-full max-w-lg bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
                 <!-- Status Badge & Tip -->
                 <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
                     <span id="canvas-status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
@@ -134,10 +134,29 @@
                     </div>
                 </div>
             </div>
+
+            <!-- LGM Stage Preview (hidden in Profile mode) -->
+            <div id="lgm-stage-wrapper" class="hidden w-full max-w-lg bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Preview WYSIWYG — Halaman <span id="lgm-page-num">1</span>/7</span>
+                    </span>
+                    <span class="text-slate-400 hidden sm:flex items-center gap-1">
+                        <i class="fa-solid fa-pen-to-square text-lpdp-gold"></i> Edit langsung di panel kanan
+                    </span>
+                </div>
+                <div id="lgm-stage" class="lgm-stage relative w-full bg-white rounded-xl overflow-hidden shadow-inner">
+                    <img id="lgm-bg" class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none" alt="Background halaman" />
+                </div>
+            </div>
         </section>
 
         <!-- Control Panel Section (Right / Bottom) -->
         <section class="lg:col-span-5 flex flex-col gap-5">
+
+            <!-- Profile Controls -->
+            <div id="profile-controls" class="flex flex-col gap-5">
 
             <!-- Awardee Bio Information Card (No Database Required) -->
             <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
@@ -302,6 +321,64 @@
                     <span id="download-text">Unduh Twibbon High-Res</span>
                 </button>
             </div>
+            </div><!-- /profile-controls -->
+
+            <!-- LGM Controls (hidden in Profile mode) -->
+            <div id="lgm-controls" class="hidden flex-col gap-5">
+                <!-- Navigasi -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-file-lines text-lpdp-gold"></i> Navigasi Halaman
+                        </h2>
+                        <span class="text-xs text-slate-400 font-medium">Halaman <span id="labelPg">1</span>/<span id="totalPg">7</span></span>
+                    </div>
+                    <div id="pager" class="flex flex-wrap gap-2 mb-3"></div>
+                    <div class="flex gap-2">
+                        <button id="lgm-prev" class="flex-1 py-2 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                            <i class="fa-solid fa-chevron-left mr-1"></i> Prev
+                        </button>
+                        <button id="lgm-next" class="flex-1 py-2 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                            Next <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Instructions -->
+                <div id="pageInstruction" class="text-xs text-slate-300 bg-lpdp-navy/40 border border-lpdp-gold/20 rounded-xl px-4 py-3"></div>
+
+                <!-- Inputs -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-pen-to-square text-lpdp-gold"></i> Isi Halaman <span id="labelPg2">1</span>
+                    </h2>
+                    <div id="lgm-inputs-area" class="flex flex-col gap-3"></div>
+                </div>
+
+                <!-- Actions -->
+                <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl p-5 border border-lpdp-gold/30 shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-lpdp-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <h2 class="text-sm font-bold text-white mb-2 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-download text-lpdp-gold"></i> Unduh Hasil
+                    </h2>
+                    <div class="grid gap-2 mt-3">
+                        <button id="lgm-save" class="w-full py-2.5 px-4 bg-slate-700 hover:bg-slate-600 border border-slate-600 rounded-xl text-xs font-bold text-slate-200 transition-all">
+                            <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan (Local)
+                        </button>
+                        <p class="text-[10px] text-slate-400 mt-1 mb-2">Simpan progres di browser untuk dilanjutkan nanti.</p>
+
+                        <button id="lgm-export" class="w-full py-3 px-4 bg-gradient-to-r from-lpdp-gold via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download Halaman Ini
+                        </button>
+                        <p class="text-[10px] text-slate-400 mt-1 mb-2">Unduh halaman aktif sebagai PNG.</p>
+
+                        <button id="lgm-export-all" class="w-full py-3 px-4 bg-lpdp-navy hover:bg-lpdp-accent border border-lpdp-gold/40 text-lpdp-gold font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-file-zipper"></i> Download Semua (ZIP)
+                        </button>
+                        <p class="text-[10px] text-slate-400 mt-1">Unduh 7 halaman sekaligus dalam ZIP.</p>
+                    </div>
+                </div>
+            </div><!-- /lgm-controls -->
 
         </section>
 
@@ -317,6 +394,12 @@
         </div>
     </footer>
 
+    <!-- Export Libraries for LGM -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <!-- LGM Editor -->
+    <script src="lgm-editor.js"></script>
     <!-- Application Script -->
     <script src="app.js"></script>
 </body>
