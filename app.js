@@ -1,25 +1,52 @@
 /**
- * PK LPDP 280 - Interactive Static Twibbon Generator
+ * PK LPDP 280 - Interactive Static Twibbon & Life Grand Map (LGM) Generator
  * Features:
- * - Direct Drag & Drop / Touch Pan photo
+ * - Direct Drag & Drop / Touch Pan photo & LGM map
  * - Scroll Wheel & Pinch-to-Zoom
+ * - Dynamic Free-Text Awardee Bio Overlay (No Database required)
+ * - Dual Mode: Twibbon Foto Profil & Life Grand Map (LGM)
  * - High-Resolution Export (1080x1080)
- * - Pure Static / No Backend Required
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     // Canvas & Context Setup
     const canvas = document.getElementById('twibbon-canvas');
     const ctx = canvas.getContext('2d');
-    const canvasWrapper = document.getElementById('canvas-wrapper');
     const canvasPlaceholder = document.getElementById('canvas-placeholder');
+    const placeholderIcon = document.getElementById('placeholder-icon');
+    const placeholderTitle = document.getElementById('placeholder-title');
+    const placeholderSub = document.getElementById('placeholder-sub');
+    const placeholderUploadBtn = document.getElementById('placeholder-upload-btn');
+    const placeholderBtnText = document.getElementById('placeholder-btn-text');
     const gestureHint = document.getElementById('gesture-hint');
 
-    // UI Control Elements
+    // UI Tab Navigation
+    const tabProfile = document.getElementById('tab-profile');
+    const tabLgm = document.getElementById('tab-lgm');
+    const uploadCardTitle = document.getElementById('upload-card-title');
+    const dropzoneLabel = document.getElementById('dropzone-label');
+    const lgmDropzoneWrapper = document.getElementById('lgm-dropzone-wrapper');
+    const activeTargetText = document.getElementById('active-target-text');
+    const downloadDesc = document.getElementById('download-desc');
+    const downloadText = document.getElementById('download-text');
+
+    // Bio Input Elements
+    const inputNama = document.getElementById('input-nama');
+    const inputProdi = document.getElementById('input-prodi');
+    const inputUniv = document.getElementById('input-univ');
+    const selectJenjang = document.getElementById('select-jenjang');
+    const inputJenjangCustom = document.getElementById('input-jenjang-custom');
+    const inputNegara = document.getElementById('input-negara');
+    const checkboxShowBio = document.getElementById('checkbox-show-bio');
+
+    // Control Elements
     const photoInput = document.getElementById('photo-input');
+    const lgmInput = document.getElementById('lgm-input');
     const frameInput = document.getElementById('frame-input');
     const btnChangeFrame = document.getElementById('btn-change-frame');
     const dropzone = document.getElementById('dropzone');
+    const dropzoneLgm = document.getElementById('dropzone-lgm');
+
     const zoomSlider = document.getElementById('zoom-slider');
     const zoomValue = document.getElementById('zoom-value');
     const btnZoomIn = document.getElementById('btn-zoom-in');
@@ -38,21 +65,45 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.width = CANVAS_WIDTH;
     canvas.height = CANVAS_HEIGHT;
 
-    // Image & Frame State
-    let userImage = null;
+    // Active Mode: 'profile' or 'lgm'
+    let activeTab = 'profile';
+
+    // Image Assets
+    let profileImage = null;
+    let lgmImage = null;
     let frameImage = new Image();
     let isFrameLoaded = false;
 
-    // User Image Transform State
-    const transform = {
-        x: 0,          // Offset X relative to canvas center
-        y: 0,          // Offset Y relative to canvas center
-        scale: 1,      // Scale factor
-        baseScale: 1,  // Base scale calculated to cover aperture
-        rotation: 0,   // Rotation angle in degrees
-        flipH: 1,      // 1 or -1
-        flipV: 1       // 1 or -1
+    // Transform States for Photo & LGM
+    const profileTransform = {
+        x: 0,
+        y: 0,
+        scale: 1,
+        baseScale: 1,
+        rotation: 0,
+        flipH: 1,
+        flipV: 1
     };
+
+    const lgmTransform = {
+        x: 0,
+        y: 0,
+        scale: 1,
+        baseScale: 1,
+        rotation: 0,
+        flipH: 1,
+        flipV: 1
+    };
+
+    // Helper to get active transform state object
+    function getActiveTransform() {
+        return activeTab === 'profile' ? profileTransform : lgmTransform;
+    }
+
+    // Helper to get active image
+    function getActiveImage() {
+        return activeTab === 'profile' ? profileImage : lgmImage;
+    }
 
     // Interaction State
     let isDragging = false;
@@ -62,18 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let initialY = 0;
     let touchStartDist = 0;
     let touchStartScale = 1;
-    let hasInteractedWithPhoto = false;
 
-    // Default Frame Sources (fallback sequence)
+    // Frame Sources
     const FRAME_SOURCES = [
         'assets/frame.svg',
         'assets/frame.png'
     ];
 
-    // Load Frame Image
+    // Load Frame
     function loadFrame(sourceIndex = 0) {
         if (sourceIndex >= FRAME_SOURCES.length) {
-            console.warn('Frame assets not found, generating default frame...');
             generateFallbackFrame();
             return;
         }
@@ -85,57 +134,34 @@ document.addEventListener('DOMContentLoaded', () => {
             isFrameLoaded = true;
             renderCanvas();
         };
-        frameImage.onerror = () => {
-            // Try next frame source
-            loadFrame(sourceIndex + 1);
-        };
+        frameImage.onerror = () => loadFrame(sourceIndex + 1);
         frameImage.src = src;
     }
 
-    // Dynamic Fallback Frame if assets/frame.png fails to load
+    // Fallback Frame Generation
     function generateFallbackFrame() {
         const offCanvas = document.createElement('canvas');
         offCanvas.width = CANVAS_WIDTH;
         offCanvas.height = CANVAS_HEIGHT;
         const oCtx = offCanvas.getContext('2d');
 
-        // Outer Dark Navy Fill
         oCtx.fillStyle = '#06172E';
         oCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-        // Center cutout aperture
         oCtx.globalCompositeOperation = 'destination-out';
         oCtx.beginPath();
         oCtx.roundRect(80, 160, 920, 760, 32);
         oCtx.fill();
 
-        // Outer decorations
         oCtx.globalCompositeOperation = 'source-over';
-        
-        // Gold border around aperture
         oCtx.strokeStyle = '#D4AF37';
         oCtx.lineWidth = 10;
         oCtx.strokeRect(80, 160, 920, 760);
 
-        // Header Title
         oCtx.fillStyle = '#D4AF37';
         oCtx.font = 'bold 28px sans-serif';
         oCtx.textAlign = 'center';
         oCtx.fillText('PK LPDP 280', CANVAS_WIDTH / 2, 70);
-
-        // Subtitle
-        oCtx.fillStyle = '#FFFFFF';
-        oCtx.font = '18px sans-serif';
-        oCtx.fillText('PERSIAPAN KEBERANGKATAN', CANVAS_WIDTH / 2, 110);
-
-        // Footer Text
-        oCtx.fillStyle = '#FFFFFF';
-        oCtx.font = 'bold 36px sans-serif';
-        oCtx.fillText('BERDAYA, MENGINSPIRASI & MENGABDI', CANVAS_WIDTH / 2, 980);
-
-        oCtx.fillStyle = '#D4AF37';
-        oCtx.font = 'bold 20px sans-serif';
-        oCtx.fillText('#GARDANANAWA280 — INDONESIA 2025', CANVAS_WIDTH / 2, 1030);
 
         const img = new Image();
         img.onload = () => {
@@ -146,141 +172,379 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = offCanvas.toDataURL('image/png');
     }
 
-    // Initial Frame Load Call
     loadFrame();
 
-    // Redraw Canvas Layer by Layer
-    function renderCanvas() {
-        ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    // === TAB SWITCHING LOGIC ===
+    tabProfile.addEventListener('click', () => switchTab('profile'));
+    tabLgm.addEventListener('click', () => switchTab('lgm'));
 
-        // LAYER 1: User Uploaded Photo (Bottom)
-        if (userImage) {
-            ctx.save();
-            // Translate to center of canvas + offsets
-            const centerX = CANVAS_WIDTH / 2 + transform.x;
-            const centerY = CANVAS_HEIGHT / 2 + transform.y;
-            ctx.translate(centerX, centerY);
+    function switchTab(mode) {
+        activeTab = mode;
+        if (mode === 'profile') {
+            tabProfile.className = 'active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md';
+            tabLgm.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
+            
+            uploadCardTitle.textContent = '1. Unggah Foto Profil';
+            dropzoneLabel.textContent = 'Klik atau seret Foto Profil ke sini';
+            lgmDropzoneWrapper.classList.add('hidden');
+            activeTargetText.textContent = 'Foto Profil';
+            downloadDesc.textContent = 'Unduh Twibbon Foto Profil resolusi tinggi (1080 x 1080 px).';
+            downloadText.textContent = 'Unduh Twibbon Foto Profil';
 
-            // Apply Rotation
-            ctx.rotate((transform.rotation * Math.PI) / 180);
+            if (profileImage) {
+                hidePlaceholder();
+                btnDownload.disabled = false;
+            } else {
+                showPlaceholder('foto');
+                btnDownload.disabled = true;
+            }
+        } else {
+            tabLgm.className = 'active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md';
+            tabProfile.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
 
-            // Apply Scale & Flip
-            const scaleX = transform.scale * transform.flipH;
-            const scaleY = transform.scale * transform.flipV;
-            ctx.scale(scaleX, scaleY);
+            uploadCardTitle.textContent = '1. Unggah Life Grand Map (LGM)';
+            dropzoneLabel.textContent = 'Klik atau seret Diagram LGM ke sini';
+            lgmDropzoneWrapper.classList.remove('hidden');
+            activeTargetText.textContent = 'Life Grand Map';
+            downloadDesc.textContent = 'Unduh Life Grand Map Poster resolusi tinggi (1080 x 1080 px).';
+            downloadText.textContent = 'Unduh Life Grand Map';
 
-            // High Quality Scaling
-            ctx.imageSmoothingEnabled = true;
-            ctx.imageSmoothingQuality = 'high';
-
-            // Draw image centered
-            const drawW = userImage.width;
-            const drawH = userImage.height;
-            ctx.drawImage(userImage, -drawW / 2, -drawH / 2, drawW, drawH);
-
-            ctx.restore();
+            if (lgmImage) {
+                hidePlaceholder();
+                btnDownload.disabled = false;
+            } else {
+                showPlaceholder('lgm');
+                btnDownload.disabled = true;
+            }
         }
 
-        // LAYER 2: Frame Overlay (Top)
-        if (isFrameLoaded && frameImage) {
-            ctx.drawImage(frameImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        updateZoomUI();
+        updateStatus();
+        renderCanvas();
+    }
+
+    function showPlaceholder(type) {
+        canvasPlaceholder.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+        if (type === 'foto') {
+            placeholderIcon.className = 'fa-solid fa-cloud-arrow-up';
+            placeholderTitle.textContent = 'Pilih Foto Kamu';
+            placeholderSub.textContent = 'Format JPG, PNG, atau WEBP. Foto dapat digeser & diperbesar secara langsung.';
+            placeholderBtnText.textContent = 'Upload Foto Profil';
+            placeholderUploadBtn.onclick = () => photoInput.click();
+        } else {
+            placeholderIcon.className = 'fa-solid fa-map-location-dot';
+            placeholderTitle.textContent = 'Unggah Life Grand Map';
+            placeholderSub.textContent = 'Upload file gambar diagram Life Grand Map (LGM) kamu untuk dijadikan Twibbon LGM.';
+            placeholderBtnText.textContent = 'Upload Diagram LGM';
+            placeholderUploadBtn.onclick = () => (lgmInput.click() || photoInput.click());
         }
     }
 
-    // Auto-fit user image so it nicely covers the frame aperture
-    function autoFitImage() {
-        if (!userImage) return;
+    function hidePlaceholder() {
+        canvasPlaceholder.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+            canvasPlaceholder.classList.add('hidden');
+        }, 300);
+    }
 
-        // Target viewport area inside frame (~80% of canvas)
-        const targetSize = CANVAS_WIDTH * 0.85;
-        const scaleX = targetSize / userImage.width;
-        const scaleY = targetSize / userImage.height;
+    function updateStatus() {
+        const img = getActiveImage();
+        if (img) {
+            statusText.textContent = activeTab === 'profile' ? 'Foto Profil siap disesuaikan.' : 'Life Grand Map siap disesuaikan.';
+            statusIndicator.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
+        } else {
+            statusText.textContent = activeTab === 'profile' ? 'Unggah foto profil kamu terlebih dahulu' : 'Unggah diagram Life Grand Map terlebih dahulu';
+            statusIndicator.className = 'w-2 h-2 rounded-full bg-amber-400 animate-pulse';
+        }
+    }
 
-        // Cover fit scale
-        transform.baseScale = Math.max(scaleX, scaleY);
-        transform.scale = transform.baseScale;
-        transform.x = 0;
-        transform.y = 0;
-        transform.rotation = 0;
-        transform.flipH = 1;
-        transform.flipV = 1;
+    // === CANVAS RENDER ENGINE ===
+    function renderCanvas() {
+        ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+        if (activeTab === 'profile') {
+            renderProfileTwibbon();
+        } else {
+            renderLgmTwibbon();
+        }
+    }
+
+    // Render Mode 1: Twibbon Foto Profil
+    function renderProfileTwibbon() {
+        // 1. User Photo
+        if (profileImage) {
+            renderTransformedImage(profileImage, profileTransform);
+        }
+
+        // 2. Frame Overlay
+        if (isFrameLoaded && frameImage) {
+            ctx.drawImage(frameImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        }
+
+        // 3. Awardee Bio Text Overlay
+        if (checkboxShowBio.checked) {
+            renderBioOverlayCard();
+        }
+    }
+
+    // Render Mode 2: Life Grand Map (LGM)
+    function renderLgmTwibbon() {
+        // 1. LGM Diagram Image
+        if (lgmImage) {
+            renderTransformedImage(lgmImage, lgmTransform);
+        } else {
+            // Draw placeholder grid guide for LGM
+            ctx.fillStyle = '#06172E';
+            ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            
+            ctx.fillStyle = 'rgba(212, 175, 55, 0.15)';
+            ctx.font = 'bold 32px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('LIFE GRAND MAP (LGM) CANVAS', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 20);
+            ctx.font = '20px "Plus Jakarta Sans", sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.fillText('Unggah diagram LGM kamu untuk memulai', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 + 20);
+        }
+
+        // 2. Frame / Header Border Overlay for LGM
+        renderLgmFrameOverlay();
+
+        // 3. Awardee Bio Card
+        if (checkboxShowBio.checked) {
+            renderBioOverlayCard();
+        }
+    }
+
+    // Draw Transformed Image (Panned, Scaled, Rotated)
+    function renderTransformedImage(img, t) {
+        ctx.save();
+        const centerX = CANVAS_WIDTH / 2 + t.x;
+        const centerY = CANVAS_HEIGHT / 2 + t.y;
+        ctx.translate(centerX, centerY);
+
+        ctx.rotate((t.rotation * Math.PI) / 180);
+
+        const scaleX = t.scale * t.flipH;
+        const scaleY = t.scale * t.flipV;
+        ctx.scale(scaleX, scaleY);
+
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+
+        ctx.drawImage(img, -img.width / 2, -img.height / 2, img.width, img.height);
+        ctx.restore();
+    }
+
+    // LGM Mode Custom Frame Overlay
+    function renderLgmFrameOverlay() {
+        // Draw top & bottom navy header ribbons
+        ctx.save();
+
+        // Top Banner
+        const topGrad = ctx.createLinearGradient(0, 0, 0, 100);
+        topGrad.addColorStop(0, '#06172E');
+        topGrad.addColorStop(1, 'rgba(6, 23, 46, 0.9)');
+        ctx.fillStyle = topGrad;
+        ctx.fillRect(0, 0, CANVAS_WIDTH, 90);
+
+        // Gold line separator
+        ctx.strokeStyle = '#D4AF37';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(0, 90);
+        ctx.lineTo(CANVAS_WIDTH, 90);
+        ctx.stroke();
+
+        // LGM Header Text
+        ctx.fillStyle = '#D4AF37';
+        ctx.font = 'extrabold 26px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('LIFE GRAND MAP — PK LPDP 280', CANVAS_WIDTH / 2, 42);
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '600 15px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText('LEMBAGA PENGELOLA DANA PENDIDIKAN', CANVAS_WIDTH / 2, 72);
+
+        // Outer Gold Border
+        ctx.strokeStyle = '#D4AF37';
+        ctx.lineWidth = 8;
+        ctx.strokeRect(4, 4, CANVAS_WIDTH - 8, CANVAS_HEIGHT - 8);
+
+        ctx.restore();
+    }
+
+    // Render Awardee Bio Card Overlay on Canvas (No Database required)
+    function renderBioOverlayCard() {
+        const nama = (inputNama.value || 'Nama Awardee LPDP').trim();
+        const prodi = (inputProdi.value || 'Program Studi').trim();
+        const univ = (inputUniv.value || 'Universitas / PT').trim();
+        
+        let jenjangVal = selectJenjang.value;
+        if (jenjangVal === 'custom') {
+            jenjangVal = inputJenjangCustom.value.trim() || 'Awardee LPDP 280';
+        }
+        const negara = (inputNegara.value || 'Indonesia').trim();
+
+        ctx.save();
+
+        // Card Dimensions & Position
+        const cardW = 920;
+        const cardH = 140;
+        const cardX = (CANVAS_WIDTH - cardW) / 2;
+        const cardY = 750; // Positioned over lower quarter
+
+        // Glassmorphism Dark Navy Card Background
+        ctx.fillStyle = 'rgba(6, 23, 46, 0.92)';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+        ctx.shadowBlur = 15;
+        ctx.shadowOffsetY = 6;
+
+        ctx.beginPath();
+        ctx.roundRect(cardX, cardY, cardW, cardH, 20);
+        ctx.fill();
+
+        // Gold Border around Card
+        ctx.strokeStyle = '#D4AF37';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.shadowColor = 'transparent'; // Reset shadow
+
+        // 1. Awardee Name (Large & Bold)
+        ctx.textAlign = 'center';
+        drawFitText(ctx, nama.toUpperCase(), CANVAS_WIDTH / 2, cardY + 38, cardW - 60, 'bold 26px "Plus Jakarta Sans", sans-serif', '#F3E5AB');
+
+        // 2. Program Studi & Universitas
+        const prodiUnivText = `${prodi} — ${univ}`;
+        drawFitText(ctx, prodiUnivText, CANVAS_WIDTH / 2, cardY + 74, cardW - 60, '600 20px "Plus Jakarta Sans", sans-serif', '#FFFFFF');
+
+        // 3. Jenjang & Negara Pill Badge
+        const badgeText = `${jenjangVal} • ${negara}`;
+        
+        // Badge Background Pill
+        ctx.fillStyle = 'rgba(212, 175, 55, 0.18)';
+        ctx.strokeStyle = 'rgba(212, 175, 55, 0.5)';
+        ctx.lineWidth = 1.5;
+
+        const badgeW = Math.min(cardW - 100, ctx.measureText(badgeText).width + 40);
+        const badgeH = 32;
+        const badgeX = CANVAS_WIDTH / 2 - badgeW / 2;
+        const badgeY = cardY + 92;
+
+        ctx.beginPath();
+        ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 16);
+        ctx.fill();
+        ctx.stroke();
+
+        // Badge Text
+        ctx.fillStyle = '#D4AF37';
+        ctx.font = 'bold 15px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(badgeText, CANVAS_WIDTH / 2, badgeY + 21);
+
+        ctx.restore();
+    }
+
+    // Helper to auto-scale text to fit maximum width
+    function drawFitText(ctx, text, x, y, maxWidth, fontSpec, color) {
+        ctx.save();
+        ctx.fillStyle = color;
+        ctx.font = fontSpec;
+
+        let width = ctx.measureText(text).width;
+        if (width > maxWidth) {
+            const scale = maxWidth / width;
+            ctx.translate(x, y);
+            ctx.scale(scale, 1);
+            ctx.fillText(text, 0, 0);
+        } else {
+            ctx.fillText(text, x, y);
+        }
+        ctx.restore();
+    }
+
+    // === IMAGE AUTO-FIT & TRANSFORM LOGIC ===
+    function autoFitActiveImage() {
+        const img = getActiveImage();
+        if (!img) return;
+
+        const targetSize = CANVAS_WIDTH * (activeTab === 'profile' ? 0.85 : 0.95);
+        const scaleX = targetSize / img.width;
+        const scaleY = targetSize / img.height;
+
+        const t = getActiveTransform();
+        t.baseScale = Math.max(scaleX, scaleY);
+        t.scale = t.baseScale;
+        t.x = 0;
+        t.y = 0;
+        t.rotation = 0;
+        t.flipH = 1;
+        t.flipV = 1;
 
         updateZoomUI();
         renderCanvas();
     }
 
-    // Update Zoom Slider & Badge UI
     function updateZoomUI() {
-        if (!userImage) return;
-        const percent = Math.round((transform.scale / transform.baseScale) * 100);
+        const img = getActiveImage();
+        if (!img) return;
+        const t = getActiveTransform();
+        const percent = Math.round((t.scale / t.baseScale) * 100);
         zoomSlider.value = percent;
         zoomValue.textContent = `${percent}%`;
     }
 
-    // Set Zoom Percentage from Slider / Buttons
     function setZoomPercent(percent) {
-        if (!userImage) return;
+        const img = getActiveImage();
+        if (!img) return;
+        const t = getActiveTransform();
         const clampedPercent = Math.max(10, Math.min(300, percent));
-        transform.scale = (clampedPercent / 100) * transform.baseScale;
+        t.scale = (clampedPercent / 100) * t.baseScale;
         updateZoomUI();
         renderCanvas();
     }
 
-    // Frame Input selection
-    if (btnChangeFrame && frameInput) {
-        btnChangeFrame.addEventListener('click', () => frameInput.click());
-        frameInput.addEventListener('change', (e) => {
-            if (e.target.files && e.target.files[0]) {
-                const file = e.target.files[0];
-                const reader = new FileReader();
-                reader.onload = (evt) => {
-                    const img = new Image();
-                    img.crossOrigin = 'anonymous';
-                    img.onload = () => {
-                        frameImage = img;
-                        isFrameLoaded = true;
-                        renderCanvas();
-                        alert('Frame Twibbon berhasil diperbarui!');
-                    };
-                    img.src = evt.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-
-    // Photo File Upload Handler
-    function handleImageFile(file) {
-        if (!file || !file.type.startsWith('image/')) {
-            alert('Silakan pilih file gambar (JPG, PNG, WEBP).');
-            return;
-        }
-
+    // Handle Uploaded Image Files
+    function handleProfileImageFile(file) {
+        if (!file || !file.type.startsWith('image/')) return;
         const reader = new FileReader();
         reader.onload = (e) => {
             const img = new Image();
             img.onload = () => {
-                userImage = img;
-                autoFitImage();
-
-                // UI Updates
-                canvasPlaceholder.classList.add('opacity-0', 'pointer-events-none');
-                setTimeout(() => {
-                    canvasPlaceholder.classList.add('hidden');
-                }, 300);
-
-                gestureHint.classList.remove('hidden');
-                btnDownload.disabled = false;
-
-                statusText.textContent = 'Foto siap disesuaikan. Drag/pinch untuk atur posisi.';
-                statusIndicator.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
+                profileImage = img;
+                if (activeTab === 'profile') {
+                    autoFitActiveImage();
+                    hidePlaceholder();
+                    btnDownload.disabled = false;
+                }
+                updateStatus();
+                renderCanvas();
             };
             img.src = e.target.result;
         };
         reader.readAsDataURL(file);
     }
 
-    // Convert Screen Event Coordinates to Canvas Coordinate Space
+    function handleLgmImageFile(file) {
+        if (!file || !file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                lgmImage = img;
+                if (activeTab === 'lgm') {
+                    autoFitActiveImage();
+                    hidePlaceholder();
+                    btnDownload.disabled = false;
+                }
+                updateStatus();
+                renderCanvas();
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Coordinates conversion
     function getCanvasCoordinates(e) {
         const rect = canvas.getBoundingClientRect();
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -295,7 +559,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Calculate distance between two touches for pinch-to-zoom
     function getTouchDistance(e) {
         if (e.touches.length < 2) return 0;
         const dx = e.touches[0].clientX - e.touches[1].clientX;
@@ -303,17 +566,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
-    // === INTERACTIVE MOUSE & TOUCH EVENT LISTENERS ===
-
-    // Mouse Down / Touch Start
+    // === GESTURE LISTENERS ===
     function onPointerDown(e) {
-        if (!userImage) return;
+        const img = getActiveImage();
+        if (!img) return;
+
+        const t = getActiveTransform();
 
         if (e.touches && e.touches.length === 2) {
-            // Multi-touch pinch zoom
             isDragging = false;
             touchStartDist = getTouchDistance(e);
-            touchStartScale = transform.scale;
+            touchStartScale = t.scale;
             return;
         }
 
@@ -323,34 +586,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const coords = getCanvasCoordinates(e);
         startX = coords.x;
         startY = coords.y;
-        initialX = transform.x;
-        initialY = transform.y;
+        initialX = t.x;
+        initialY = t.y;
 
-        if (!hasInteractedWithPhoto) {
-            hasInteractedWithPhoto = true;
-            gestureHint.classList.add('opacity-0');
-            setTimeout(() => gestureHint.classList.add('hidden'), 500);
-        }
+        gestureHint.classList.add('opacity-0');
+        setTimeout(() => gestureHint.classList.add('hidden'), 500);
     }
 
-    // Mouse Move / Touch Move
     function onPointerMove(e) {
-        if (!userImage) return;
+        const img = getActiveImage();
+        if (!img) return;
 
-        // Handle Pinch Zoom
+        const t = getActiveTransform();
+
         if (e.touches && e.touches.length === 2) {
             e.preventDefault();
             const currentDist = getTouchDistance(e);
             if (touchStartDist > 0 && currentDist > 0) {
                 const zoomFactor = currentDist / touchStartDist;
-                transform.scale = Math.max(transform.baseScale * 0.1, Math.min(transform.baseScale * 3, touchStartScale * zoomFactor));
+                t.scale = Math.max(t.baseScale * 0.1, Math.min(t.baseScale * 3, touchStartScale * zoomFactor));
                 updateZoomUI();
                 renderCanvas();
             }
             return;
         }
 
-        // Handle Drag Pan
         if (!isDragging) return;
         e.preventDefault();
 
@@ -358,34 +618,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const deltaX = coords.x - startX;
         const deltaY = coords.y - startY;
 
-        transform.x = initialX + deltaX;
-        transform.y = initialY + deltaY;
+        t.x = initialX + deltaX;
+        t.y = initialY + deltaY;
 
         renderCanvas();
     }
 
-    // Mouse Up / Touch End
-    function onPointerUp(e) {
+    function onPointerUp() {
         isDragging = false;
         canvas.classList.remove('is-dragging');
         touchStartDist = 0;
     }
 
-    // Mouse Wheel Zoom
     function onWheel(e) {
-        if (!userImage) return;
+        const img = getActiveImage();
+        if (!img) return;
         e.preventDefault();
 
+        const t = getActiveTransform();
         const zoomSensitivity = 0.0015;
         const zoomDelta = -e.deltaY * zoomSensitivity;
-        
-        let currentPercent = Math.round((transform.scale / transform.baseScale) * 100);
+
+        let currentPercent = Math.round((t.scale / t.baseScale) * 100);
         currentPercent += zoomDelta * 100;
-        
+
         setZoomPercent(currentPercent);
     }
 
-    // Attach Canvas Event Listeners
     canvas.addEventListener('mousedown', onPointerDown);
     window.addEventListener('mousemove', onPointerMove);
     window.addEventListener('mouseup', onPointerUp);
@@ -397,104 +656,149 @@ document.addEventListener('DOMContentLoaded', () => {
 
     canvas.addEventListener('wheel', onWheel, { passive: false });
 
-    // === UI CONTROLS EVENT LISTENERS ===
+    // === BIO INPUT EVENTS (REALTIME CANVAS UPDATE) ===
+    [inputNama, inputProdi, inputUniv, inputJenjangCustom, inputNegara].forEach(input => {
+        if (input) {
+            input.addEventListener('input', renderCanvas);
+        }
+    });
 
-    // File Input change
+    selectJenjang.addEventListener('change', (e) => {
+        if (e.target.value === 'custom') {
+            inputJenjangCustom.classList.remove('hidden');
+        } else {
+            inputJenjangCustom.classList.add('hidden');
+        }
+        renderCanvas();
+    });
+
+    checkboxShowBio.addEventListener('change', renderCanvas);
+
+    // === FILE INPUT & DROPZONE HANDLERS ===
     photoInput.addEventListener('change', (e) => {
         if (e.target.files && e.target.files[0]) {
-            handleImageFile(e.target.files[0]);
+            handleProfileImageFile(e.target.files[0]);
         }
     });
 
-    // Dropzone Drag & Drop
-    dropzone.addEventListener('click', () => photoInput.click());
-    dropzone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dropzone.classList.add('border-lpdp-gold', 'bg-slate-800');
-    });
-    dropzone.addEventListener('dragleave', () => {
-        dropzone.classList.remove('border-lpdp-gold', 'bg-slate-800');
-    });
-    dropzone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropzone.classList.remove('border-lpdp-gold', 'bg-slate-800');
-        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-            handleImageFile(e.dataTransfer.files[0]);
+    lgmInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+            handleLgmImageFile(e.target.files[0]);
         }
     });
 
-    // Zoom Slider Input
-    zoomSlider.addEventListener('input', (e) => {
-        setZoomPercent(parseInt(e.target.value, 10));
+    dropzone.addEventListener('click', () => {
+        if (activeTab === 'profile') {
+            photoInput.click();
+        } else {
+            lgmInput.click();
+        }
     });
 
-    // Zoom Buttons
+    dropzoneLgm.addEventListener('click', () => lgmInput.click());
+
+    [dropzone, dropzoneLgm].forEach(dz => {
+        dz.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dz.classList.add('border-lpdp-gold', 'bg-slate-800');
+        });
+        dz.addEventListener('dragleave', () => {
+            dz.classList.remove('border-lpdp-gold', 'bg-slate-800');
+        });
+        dz.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dz.classList.remove('border-lpdp-gold', 'bg-slate-800');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                if (dz === dropzoneLgm || activeTab === 'lgm') {
+                    handleLgmImageFile(e.dataTransfer.files[0]);
+                } else {
+                    handleProfileImageFile(e.dataTransfer.files[0]);
+                }
+            }
+        });
+    });
+
+    // Custom Frame Upload
+    if (btnChangeFrame && frameInput) {
+        btnChangeFrame.addEventListener('click', () => frameInput.click());
+        frameInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (evt) => {
+                    const img = new Image();
+                    img.crossOrigin = 'anonymous';
+                    img.onload = () => {
+                        frameImage = img;
+                        isFrameLoaded = true;
+                        renderCanvas();
+                        alert('Frame Twibbon berhasil diperbarui!');
+                    };
+                    img.src = evt.target.result;
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+    }
+
+    // Zoom Controls
+    zoomSlider.addEventListener('input', (e) => setZoomPercent(parseInt(e.target.value, 10)));
     btnZoomIn.addEventListener('click', () => {
-        const currentPercent = Math.round((transform.scale / transform.baseScale) * 100);
-        setZoomPercent(currentPercent + 10);
+        const t = getActiveTransform();
+        setZoomPercent(Math.round((t.scale / t.baseScale) * 100) + 10);
     });
-
     btnZoomOut.addEventListener('click', () => {
-        const currentPercent = Math.round((transform.scale / transform.baseScale) * 100);
-        setZoomPercent(currentPercent - 10);
+        const t = getActiveTransform();
+        setZoomPercent(Math.round((t.scale / t.baseScale) * 100) - 10);
     });
 
-    // Rotate Controls
+    // Rotation & Flip
     btnRotateLeft.addEventListener('click', () => {
-        if (!userImage) return;
-        transform.rotation = (transform.rotation - 90) % 360;
+        const t = getActiveTransform();
+        t.rotation = (t.rotation - 90) % 360;
         renderCanvas();
     });
 
     btnRotateRight.addEventListener('click', () => {
-        if (!userImage) return;
-        transform.rotation = (transform.rotation + 90) % 360;
+        const t = getActiveTransform();
+        t.rotation = (t.rotation + 90) % 360;
         renderCanvas();
     });
 
-    // Flip Horizontal Control
     btnFlipH.addEventListener('click', () => {
-        if (!userImage) return;
-        transform.flipH *= -1;
+        const t = getActiveTransform();
+        t.flipH *= -1;
         renderCanvas();
     });
 
-    // Reset Position Button
-    btnReset.addEventListener('click', () => {
-        if (!userImage) return;
-        autoFitImage();
-    });
+    btnReset.addEventListener('click', () => autoFitActiveImage());
 
-    // Download High-Res Image Button
+    // Export Button Handler
     btnDownload.addEventListener('click', () => {
-        if (!userImage) return;
-
-        // Show downloading state
-        const downloadText = document.getElementById('download-text');
-        const originalText = downloadText.textContent;
-        downloadText.textContent = 'Memproses Canvas...';
+        const downloadBtnText = document.getElementById('download-text');
+        const originalText = downloadBtnText.textContent;
+        downloadBtnText.textContent = 'Memproses High-Res PNG...';
         btnDownload.disabled = true;
 
         setTimeout(() => {
             try {
-                // Generate PNG at full 1080x1080 native resolution
                 const dataURL = canvas.toDataURL('image/png', 1.0);
                 const link = document.createElement('a');
-                link.download = 'twibbon-pk-lpdp-280.png';
+                const filename = activeTab === 'profile' ? 'twibbon-profil-pklpdp280.png' : 'life-grand-map-pklpdp280.png';
+                link.download = filename;
                 link.href = dataURL;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
 
-                downloadText.textContent = 'Berhasil Diunduh!';
+                downloadBtnText.textContent = 'Berhasil Diunduh!';
                 setTimeout(() => {
-                    downloadText.textContent = originalText;
+                    downloadBtnText.textContent = originalText;
                     btnDownload.disabled = false;
                 }, 2000);
             } catch (err) {
                 console.error('Export error:', err);
-                alert('Gagal mengunduh gambar. Silakan coba klik kanan pada gambar canvas dan pilih "Simpan Gambar sebagai..."');
-                downloadText.textContent = originalText;
+                alert('Gagal mengunduh. Silakan coba klik kanan pada canvas dan pilih "Simpan Gambar Sebagai..."');
+                downloadBtnText.textContent = originalText;
                 btnDownload.disabled = false;
             }
         }, 150);

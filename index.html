@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twibbon Generator PK LPDP 280</title>
+    <title>Twibbon & LGM Generator PK LPDP 280</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -49,7 +49,7 @@
                     <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-2">
                         PK LPDP <span class="text-lpdp-gold">280</span>
                     </h1>
-                    <p class="text-xs text-slate-400 font-medium">Twibbon Generator Resmi</p>
+                    <p class="text-xs text-slate-400 font-medium">Twibbon & Life Grand Map Generator</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
@@ -61,12 +61,26 @@
         </div>
     </header>
 
+    <!-- Mode Selector Banner Tabs -->
+    <div class="bg-slate-950/80 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-3 py-2.5">
+            <button id="tab-profile" class="active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <span>Twibbon Foto Profil</span>
+            </button>
+            <button id="tab-lgm" class="inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span>Life Grand Map (LGM)</span>
+            </button>
+        </div>
+    </div>
+
     <!-- Main Container -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Preview Canvas Section (Left / Top) -->
-        <section class="lg:col-span-7 flex flex-col items-center">
-            <div class="w-full max-w-lg bg-slate-800/80 rounded-2xl p-4 sm:p-6 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+        <section class="lg:col-span-7 flex flex-col items-center sticky top-20">
+            <div class="w-full max-w-lg bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
                 <!-- Status Badge & Tip -->
                 <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
                     <span id="canvas-status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
@@ -74,7 +88,7 @@
                         <span id="status-text">Unggah foto kamu terlebih dahulu</span>
                     </span>
                     <span class="text-slate-400 hidden sm:flex items-center gap-1">
-                        <i class="fa-solid fa-hand-pointer text-lpdp-gold"></i> Drag / Pinch untuk Atur Foto
+                        <i class="fa-solid fa-hand-pointer text-lpdp-gold"></i> Drag / Pinch untuk Atur
                     </span>
                 </div>
 
@@ -87,19 +101,19 @@
                     <!-- Initial Placeholder State (Before Photo Upload) -->
                     <div id="canvas-placeholder" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-20 pointer-events-none bg-slate-900/90 backdrop-blur-xs transition-opacity duration-300">
                         <div class="w-16 h-16 rounded-full bg-lpdp-navy/80 border border-lpdp-gold/40 flex items-center justify-center mb-4 text-lpdp-gold text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <i class="fa-solid fa-cloud-arrow-up" id="placeholder-icon"></i>
                         </div>
-                        <h3 class="text-base font-bold text-white mb-1">Pilih Foto Kamu</h3>
-                        <p class="text-xs text-slate-400 max-w-xs mb-4">Format JPG, PNG, atau WEBP. Foto dapat digeser, diperbesar/dikecilkan & diputar secara langsung.</p>
-                        <button onclick="document.getElementById('photo-input').click()" class="pointer-events-auto px-5 py-2.5 bg-gradient-to-r from-lpdp-gold to-amber-500 hover:from-amber-400 hover:to-amber-600 text-slate-950 font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <h3 class="text-base font-bold text-white mb-1" id="placeholder-title">Pilih Foto Kamu</h3>
+                        <p class="text-xs text-slate-400 max-w-xs mb-4" id="placeholder-sub">Format JPG, PNG, atau WEBP. Foto dapat digeser, diperbesar/dikecilkan & diputar secara langsung.</p>
+                        <button id="placeholder-upload-btn" class="pointer-events-auto px-5 py-2.5 bg-gradient-to-r from-lpdp-gold to-amber-500 hover:from-amber-400 hover:to-amber-600 text-slate-950 font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
                             <i class="fa-solid fa-image"></i>
-                            <span>Upload Foto</span>
+                            <span id="placeholder-btn-text">Upload Foto</span>
                         </button>
                     </div>
 
-                    <!-- Visual Dragging Helper Overlay (Fades out after user starts dragging) -->
+                    <!-- Visual Dragging Helper Overlay -->
                     <div id="gesture-hint" class="hidden absolute top-3 left-3 z-20 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700 text-[11px] text-slate-300 pointer-events-none transition-opacity duration-500">
-                        <i class="fa-solid fa-arrows-up-down-left-right text-lpdp-gold mr-1"></i> Drag foto untuk menggeser
+                        <i class="fa-solid fa-arrows-up-down-left-right text-lpdp-gold mr-1"></i> Drag untuk menggeser gambar
                     </div>
                 </div>
 
@@ -123,27 +137,107 @@
         </section>
 
         <!-- Control Panel Section (Right / Bottom) -->
-        <section class="lg:col-span-5 flex flex-col gap-6">
+        <section class="lg:col-span-5 flex flex-col gap-5">
+
+            <!-- Awardee Bio Information Card (No Database Required) -->
+            <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-lpdp-gold"></i> Data Awardee
+                    </h2>
+                    <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-slate-300 font-medium">
+                        <input type="checkbox" id="checkbox-show-bio" checked class="w-4 h-4 rounded accent-lpdp-gold">
+                        <span>Tampilkan Teks</span>
+                    </label>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <!-- Nama Lengkap -->
+                    <div class="sm:col-span-2">
+                        <label class="block text-slate-400 mb-1 font-medium">Nama Lengkap & Gelar</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-user absolute left-3 top-2.5 text-slate-500"></i>
+                            <input type="text" id="input-nama" placeholder="Contoh: Ahmad Fadhil, S.T." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Program Studi -->
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-medium">Program Studi</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-graduation-cap absolute left-3 top-2.5 text-slate-500"></i>
+                            <input type="text" id="input-prodi" placeholder="Contoh: Teknik Informatika" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Universitas / Perguruan Tinggi -->
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-medium">Universitas / PT</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-building-columns absolute left-3 top-2.5 text-slate-500"></i>
+                            <input type="text" id="input-univ" placeholder="Contoh: ITB / Imperial College" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Jenjang Studi -->
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-medium">Jenjang Studi</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-award absolute left-3 top-2.5 text-slate-500 z-10"></i>
+                            <select id="select-jenjang" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 focus:outline-none focus:border-lpdp-gold transition-colors appearance-none cursor-pointer">
+                                <option value="Magister Dalam Negeri">Magister Dalam Negeri</option>
+                                <option value="Magister Luar Negeri">Magister Luar Negeri</option>
+                                <option value="Doktor Dalam Negeri">Doktor Dalam Negeri</option>
+                                <option value="Doktor Luar Negeri">Doktor Luar Negeri</option>
+                                <option value="custom">Kustom Teks...</option>
+                            </select>
+                        </div>
+                        <input type="text" id="input-jenjang-custom" placeholder="Tulis Jenjang Kustom..." class="hidden w-full mt-2 bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-slate-100 text-xs focus:outline-none focus:border-lpdp-gold">
+                    </div>
+
+                    <!-- Negara Tujuan -->
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-medium">Negara Tujuan</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-earth-asia absolute left-3 top-2.5 text-slate-500"></i>
+                            <input type="text" id="input-negara" placeholder="Contoh: Indonesia / Inggris" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors">
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Upload Card -->
             <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
                 <h2 class="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-upload text-lpdp-gold"></i> 1. Unggah Foto
+                    <i class="fa-solid fa-upload text-lpdp-gold"></i> <span id="upload-card-title">1. Unggah Foto Profil</span>
                 </h2>
                 
-                <!-- File Dropzone -->
+                <!-- File Dropzone for Profile Photo -->
                 <div id="dropzone" class="border-2 border-dashed border-slate-600 hover:border-lpdp-gold bg-slate-900/50 rounded-xl p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-center group">
                     <input type="file" id="photo-input" accept="image/*" class="hidden">
-                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400 group-hover:text-lpdp-gold mb-2 transition-colors"></i>
-                    <p class="text-xs font-semibold text-slate-200">Klik atau seret foto ke sini</p>
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400 group-hover:text-lpdp-gold mb-1.5 transition-colors"></i>
+                    <p class="text-xs font-semibold text-slate-200" id="dropzone-label">Klik atau seret Foto Profil ke sini</p>
                     <p class="text-[11px] text-slate-400 mt-0.5">Mendukung format JPG, PNG, WEBP</p>
+                </div>
+
+                <!-- Secondary File Dropzone for Life Grand Map (Shown in LGM Mode or toggle) -->
+                <div id="lgm-dropzone-wrapper" class="hidden mt-3 pt-3 border-t border-slate-700">
+                    <label class="block text-xs font-semibold text-slate-300 mb-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-map text-lpdp-gold"></i> Unggah Gambar Life Grand Map (LGM):
+                    </label>
+                    <div id="dropzone-lgm" class="border-2 border-dashed border-slate-600 hover:border-lpdp-gold bg-slate-900/50 rounded-xl p-3.5 text-center cursor-pointer transition-all flex flex-col items-center justify-center group">
+                        <input type="file" id="lgm-input" accept="image/*" class="hidden">
+                        <i class="fa-solid fa-file-image text-xl text-slate-400 group-hover:text-lpdp-gold mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-200">Upload Gambar Roadmap LGM</p>
+                        <p class="text-[10px] text-slate-400">File PNG/JPG diagram Life Grand Map kamu</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Position & Fine Control Adjustments Card -->
             <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm flex flex-col gap-4">
                 <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-sliders text-lpdp-gold"></i> 2. Penyesuaian Foto
+                    <i class="fa-solid fa-sliders text-lpdp-gold"></i> 2. Penyesuaian Gambar (<span id="active-target-text">Foto</span>)
                 </h2>
 
                 <!-- Control Buttons Grid -->
@@ -189,9 +283,6 @@
                         </button>
                         <input type="file" id="frame-input" accept="image/png,image/svg+xml" class="hidden">
                     </div>
-                    <p class="text-[11px] text-slate-400">
-                        Kamu dapat langsung menggeser <span class="text-amber-300 font-semibold">(drag/pinch)</span> foto pada canvas area preview.
-                    </p>
                 </div>
             </div>
 
@@ -202,8 +293,8 @@
                 <h2 class="text-sm font-bold text-white mb-2 uppercase tracking-wider flex items-center gap-2">
                     <i class="fa-solid fa-download text-lpdp-gold"></i> 3. Unduh Hasil
                 </h2>
-                <p class="text-xs text-slate-300 mb-4">
-                    Unduh twibbon resolusi tinggi (1080 x 1080 px) siap dipasang di media sosial.
+                <p class="text-xs text-slate-300 mb-4" id="download-desc">
+                    Unduh gambar resolusi tinggi (1080 x 1080 px) siap dipasang di media sosial.
                 </p>
 
                 <button id="btn-download" disabled class="w-full py-3.5 px-4 bg-gradient-to-r from-lpdp-gold via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 disabled:from-slate-700 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed text-slate-950 font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2 group">
