@@ -1,0 +1,3912 @@
+[
+  {
+    "nama": "Achmad Ilham Maulana",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Tangerang",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.2,
+      "lng": 106.63
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Ade Novita Rosseani",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Aruna",
+    "domisili": "Kota Depok",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Adelia Wulandari",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Lumajang",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -8.1333,
+      "lng": 113.2167
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Adi Alfaisal Hutabarat",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Sleman",
+    "tujuan": "Kabupaten Sleman",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -7.7167,
+      "lng": 110.35
+    },
+    "dest": {
+      "lat": -7.7167,
+      "lng": 110.35
+    }
+  },
+  {
+    "nama": "Adinda Fairus Nafis Hadi",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Kediri",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -7.8,
+      "lng": 111.95
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Adriana Anjani",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Bandung Barat",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.92,
+      "lng": 107.52
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Agnisa Maulani Wisesa",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Malang",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Goldsmiths, University of London",
+    "origin": {
+      "lat": -8.1,
+      "lng": 112.6
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Agung Firdaus",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Pesawaran",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -5.4,
+      "lng": 105.1
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Agung Subagia",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Tangerang",
+    "tujuan": "Nantes",
+    "negara": "Prancis",
+    "univ": "IMT Atlantique",
+    "origin": {
+      "lat": -6.178,
+      "lng": 106.63
+    },
+    "dest": {
+      "lat": 47.2184,
+      "lng": -1.5536
+    }
+  },
+  {
+    "nama": "Ahmad Budiman",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Lahat",
+    "tujuan": "Bogor",
+    "negara": "Indonesia",
+    "univ": "Institut Pertanian Bogor",
+    "origin": {
+      "lat": -3.8,
+      "lng": 103.5
+    },
+    "dest": {
+      "lat": -6.5944,
+      "lng": 106.7892
+    }
+  },
+  {
+    "nama": "Ahmad Miftahudin Thohari",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Sleman",
+    "tujuan": "Kabupaten Sleman",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -7.7167,
+      "lng": 110.35
+    },
+    "dest": {
+      "lat": -7.7167,
+      "lng": 110.35
+    }
+  },
+  {
+    "nama": "Ahmad Qoys Jamalallail",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Jember",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -8.17,
+      "lng": 113.7
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Aisha Firdausy Chairunnisa",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Aruna",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "University College London",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Aisy Al Fawwaz",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Aisyah Al Hamda",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Bandung",
+    "tujuan": "Bandung",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Bandung",
+    "origin": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  },
+  {
+    "nama": "Albert Xan Edi",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "Manchester",
+    "negara": "Inggris",
+    "univ": "The University of Manchester",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 53.4808,
+      "lng": -2.2426
+    }
+  },
+  {
+    "nama": "Aldila Surya Hutami",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Depok",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Alfiansyah As'hari Asnawi",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Makassar",
+    "tujuan": "Kota Makassar",
+    "negara": "Indonesia",
+    "univ": "Universitas Hasanuddin",
+    "origin": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "dest": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    }
+  },
+  {
+    "nama": "Alfita Liasani",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Aruna",
+    "domisili": "Kota Surabaya",
+    "tujuan": "Milan",
+    "negara": "Italia",
+    "univ": "Politecnico di Milano",
+    "origin": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "dest": {
+      "lat": 45.4642,
+      "lng": 9.19
+    }
+  },
+  {
+    "nama": "Ali Ahmatul Umri Hasibuan",
+    "rumpun": "Pendidikan",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Padang Lawas",
+    "tujuan": "Bandung",
+    "negara": "Indonesia",
+    "univ": "Universitas Pendidikan Indonesia",
+    "origin": {
+      "lat": 1.1,
+      "lng": 99.8
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  },
+  {
+    "nama": "Alicia Cherie Chandra",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Tangerang",
+    "tujuan": "Kongens Lyngby",
+    "negara": "Denmark",
+    "univ": "Technical University of Denmark",
+    "origin": {
+      "lat": -6.178,
+      "lng": 106.63
+    },
+    "dest": {
+      "lat": 55.77,
+      "lng": 12.5
+    }
+  },
+  {
+    "nama": "Alifa Hasnanda Putri",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Bekasi",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -6.25,
+      "lng": 107.0
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Amar Muammar Qadafi",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "Auckland",
+    "negara": "New Zealand",
+    "univ": "University of Auckland",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": -36.8485,
+      "lng": 174.7633
+    }
+  },
+  {
+    "nama": "Amira Fauza Ibadillah",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Aruna",
+    "domisili": "Kota Palembang",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -2.9761,
+      "lng": 104.7754
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Amira Suniyyah Sungkar",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kota Bandung",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "London School of Economics and Political Science",
+    "origin": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Andhik Ampuh Yunanto",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Aruna",
+    "domisili": "Kota Surabaya",
+    "tujuan": "Surabaya",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Sepuluh Nopember",
+    "origin": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "dest": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    }
+  },
+  {
+    "nama": "Andi Kurniawan, M.si",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "York",
+    "negara": "Inggris",
+    "univ": "University of York",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": 53.959,
+      "lng": -1.0815
+    }
+  },
+  {
+    "nama": "Anisa Sajida",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Lombok Barat",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -8.65,
+      "lng": 116.0833
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Anne Yuliana Utami Dewi",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Bogor",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -6.5944,
+      "lng": 106.7892
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Ari Ferdian Syah",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Aceh Barat",
+    "tujuan": "Sheffield",
+    "negara": "Inggris",
+    "univ": "The University of Sheffield",
+    "origin": {
+      "lat": 4.276,
+      "lng": 96.151
+    },
+    "dest": {
+      "lat": 53.3811,
+      "lng": -1.4701
+    }
+  },
+  {
+    "nama": "Ari Hendri",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Muaro Jambi",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -1.55,
+      "lng": 103.55
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Arief Prayuda Utama",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Balikpapan",
+    "tujuan": "Sydney",
+    "negara": "Australia",
+    "univ": "University of New South Wales",
+    "origin": {
+      "lat": -1.2635,
+      "lng": 116.827
+    },
+    "dest": {
+      "lat": -33.8688,
+      "lng": 151.2093
+    }
+  },
+  {
+    "nama": "Arif Variananto",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Balikpapan",
+    "tujuan": "Manchester",
+    "negara": "Inggris",
+    "univ": "The University of Manchester",
+    "origin": {
+      "lat": -1.2635,
+      "lng": 116.827
+    },
+    "dest": {
+      "lat": 53.4808,
+      "lng": -2.2426
+    }
+  },
+  {
+    "nama": "Arkan Setiaji",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Kediri",
+    "tujuan": "Sleman",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -7.8,
+      "lng": 111.95
+    },
+    "dest": {
+      "lat": -7.7167,
+      "lng": 110.35
+    }
+  },
+  {
+    "nama": "Aryo Baskoro Utomo",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Semarang",
+    "tujuan": "Sheffield",
+    "negara": "Inggris",
+    "univ": "The University of Sheffield",
+    "origin": {
+      "lat": -7.0051,
+      "lng": 110.4381
+    },
+    "dest": {
+      "lat": 53.3811,
+      "lng": -1.4701
+    }
+  },
+  {
+    "nama": "Asep Irawan",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Mesuji",
+    "tujuan": "KABUPATEN SLEMAN, YOGYAKARTA",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -4.0,
+      "lng": 105.3
+    },
+    "dest": {
+      "lat": -7.7167,
+      "lng": 110.35
+    }
+  },
+  {
+    "nama": "Aurania Putri Pratama",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Satwika",
+    "domisili": "Kota Depok",
+    "tujuan": "Kota Depok",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Aziz Muzayin",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Tegal",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.9,
+      "lng": 109.1333
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Bagas Ariffandi",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Bahraen Folaimam",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Aruna",
+    "domisili": "Kota Tidore Kepulauan",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Islam Indonesia",
+    "origin": {
+      "lat": 0.6833,
+      "lng": 127.4
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Balqis Khoirunnisa",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Sleman",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -7.7167,
+      "lng": 110.35
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Benita Luciane Kawaitouw",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Aruna",
+    "domisili": "Kota Jayapura",
+    "tujuan": "Birmingham",
+    "negara": "Inggris",
+    "univ": "University of Birmingham",
+    "origin": {
+      "lat": -2.5916,
+      "lng": 140.669
+    },
+    "dest": {
+      "lat": 52.4862,
+      "lng": -1.8904
+    }
+  },
+  {
+    "nama": "Billy",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Aruna",
+    "domisili": "Kota Banjar",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -7.3667,
+      "lng": 108.5333
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Cecep Zakarias El Bilad, S.ip., M.ud.",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kota Palangka Raya",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -2.2167,
+      "lng": 113.9167
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Christian Dwi Suhendra",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Sleman",
+    "tujuan": "Exeter",
+    "negara": "Inggris",
+    "univ": "University of Exeter",
+    "origin": {
+      "lat": -7.7167,
+      "lng": 110.35
+    },
+    "dest": {
+      "lat": 50.7184,
+      "lng": -3.5339
+    }
+  },
+  {
+    "nama": "Christina Mega Putri Komar",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kota Kupang",
+    "tujuan": "Medford",
+    "negara": "Amerika Serikat",
+    "univ": "Tufts University",
+    "origin": {
+      "lat": -10.1772,
+      "lng": 123.607
+    },
+    "dest": {
+      "lat": 42.4184,
+      "lng": -71.1062
+    }
+  },
+  {
+    "nama": "Cindy Amelton Usyor",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Pradana",
+    "domisili": "Kota Sorong",
+    "tujuan": "Wageningen",
+    "negara": "Belanda",
+    "univ": "Wageningen University",
+    "origin": {
+      "lat": -0.8762,
+      "lng": 131.2558
+    },
+    "dest": {
+      "lat": 51.9692,
+      "lng": 5.6654
+    }
+  },
+  {
+    "nama": "Citra Monika Sainti Camalin",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Sukoharjo",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Queen Mary University of London",
+    "origin": {
+      "lat": -7.6833,
+      "lng": 110.8333
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Cynthia Gunawan",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Bandung",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.95,
+      "lng": 107.6
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Danar Trihanandha",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Dea Rimasilana",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Aceh Besar",
+    "tujuan": "Newcastle",
+    "negara": "Inggris",
+    "univ": "Newcastle University",
+    "origin": {
+      "lat": 5.6,
+      "lng": 95.3
+    },
+    "dest": {
+      "lat": 54.9783,
+      "lng": -1.6178
+    }
+  },
+  {
+    "nama": "Debi Tomika",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Kuantan Singingi",
+    "tujuan": "Uppsala",
+    "negara": "Swedia",
+    "univ": "Uppsala University",
+    "origin": {
+      "lat": -0.5,
+      "lng": 101.5
+    },
+    "dest": {
+      "lat": 59.8586,
+      "lng": 17.6389
+    }
+  },
+  {
+    "nama": "Dedek Roslina",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Bekasi",
+    "tujuan": "Depok",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.2349,
+      "lng": 106.9896
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Dennaya Kumara",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Devyn Altan",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Oxford",
+    "negara": "Inggris",
+    "univ": "University of Oxford",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 51.752,
+      "lng": -1.2577
+    }
+  },
+  {
+    "nama": "Dhimas Duan Syailendra",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Tanggamus",
+    "tujuan": "Newcastle",
+    "negara": "Inggris",
+    "univ": "Newcastle University",
+    "origin": {
+      "lat": -5.3,
+      "lng": 104.6
+    },
+    "dest": {
+      "lat": 54.9783,
+      "lng": -1.6178
+    }
+  },
+  {
+    "nama": "Dikki Aleksander Ginting",
+    "rumpun": "Pendidikan",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Karo",
+    "tujuan": "Medan",
+    "negara": "Indonesia",
+    "univ": "Universitas Negeri Medan",
+    "origin": {
+      "lat": 3.1,
+      "lng": 98.3
+    },
+    "dest": {
+      "lat": 3.5952,
+      "lng": 98.6722
+    }
+  },
+  {
+    "nama": "Dimas Farizal Perwitatama",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Bekasi",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -6.25,
+      "lng": 107.0
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Dinda Fadhya Darmidjas",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Balikpapan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -1.2635,
+      "lng": 116.827
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Diva Tristika Mughni",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "London School of Economics and Political Science",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Dyan Maulidha Nugraheny",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Depok",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "London School of Economics and Political Science",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Edwin Ginanjar Rudiana",
+    "rumpun": "Pendidikan",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Bandung",
+    "tujuan": "Kota Bandung",
+    "negara": "Indonesia",
+    "univ": "Universitas Pendidikan Indonesia",
+    "origin": {
+      "lat": -6.95,
+      "lng": 107.6
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  },
+  {
+    "nama": "Elga Arsia Ikram Ramdani",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Emmy Fadhila",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Bantaeng",
+    "tujuan": "Newcastle upon Tyne",
+    "negara": "Inggris",
+    "univ": "Newcastle University",
+    "origin": {
+      "lat": -5.55,
+      "lng": 119.95
+    },
+    "dest": {
+      "lat": 54.9783,
+      "lng": -1.6178
+    }
+  },
+  {
+    "nama": "Endang Farihatul Izza",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Jombang",
+    "tujuan": "Boston, Massachusetts",
+    "negara": "Amerika Serikat",
+    "univ": "Harvard University",
+    "origin": {
+      "lat": -7.55,
+      "lng": 112.2333
+    },
+    "dest": {
+      "lat": 42.3601,
+      "lng": -71.0589
+    }
+  },
+  {
+    "nama": "Enggal Mursalin",
+    "rumpun": "Pendidikan",
+    "kelompok": "Pradana",
+    "domisili": "Kota Ambon",
+    "tujuan": "Semarang",
+    "negara": "Indonesia",
+    "univ": "Universitas Negeri Semarang",
+    "origin": {
+      "lat": -3.6954,
+      "lng": 128.1814
+    },
+    "dest": {
+      "lat": -7.0051,
+      "lng": 110.4381
+    }
+  },
+  {
+    "nama": "Era Christianna Sianipar",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "Bonn",
+    "negara": "Jerman",
+    "univ": "University of Bonn",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": 50.7374,
+      "lng": 7.0982
+    }
+  },
+  {
+    "nama": "Esther Mutiara SE Tibalia",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Ambon",
+    "tujuan": "Melbourne",
+    "negara": "Australia",
+    "univ": "Monash University",
+    "origin": {
+      "lat": -3.6954,
+      "lng": 128.1814
+    },
+    "dest": {
+      "lat": -37.8136,
+      "lng": 144.9631
+    }
+  },
+  {
+    "nama": "Evita Christiana",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Aruna",
+    "domisili": "Kota Administrasi Jakarta Barat",
+    "tujuan": "Washington, DC",
+    "negara": "Amerika Serikat",
+    "univ": "Johns Hopkins University",
+    "origin": {
+      "lat": -6.1683,
+      "lng": 106.7588
+    },
+    "dest": {
+      "lat": 38.9072,
+      "lng": -77.0369
+    }
+  },
+  {
+    "nama": "Ezry Zhahri Khansha",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Fadhlurrahman Musthofa Rohani",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Surakarta",
+    "tujuan": "Nantes",
+    "negara": "Prancis",
+    "univ": "IMT Atlantique",
+    "origin": {
+      "lat": -7.5667,
+      "lng": 110.8167
+    },
+    "dest": {
+      "lat": 47.2184,
+      "lng": -1.5536
+    }
+  },
+  {
+    "nama": "Fanny Annita Raprap",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Satwika",
+    "domisili": "Kota Ambon",
+    "tujuan": "Ghent, Belgia",
+    "negara": "Belgia",
+    "univ": "Ghent University",
+    "origin": {
+      "lat": -3.6954,
+      "lng": 128.1814
+    },
+    "dest": {
+      "lat": 51.0543,
+      "lng": 3.7174
+    }
+  },
+  {
+    "nama": "Faradilla Ardiyani",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Klaten",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -7.7,
+      "lng": 110.6
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Febriyeni",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Bukittinggi",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -0.3,
+      "lng": 100.3667
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Ferdin",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Buton Selatan",
+    "tujuan": "Bogor",
+    "negara": "Indonesia",
+    "univ": "Institut Pertanian Bogor",
+    "origin": {
+      "lat": -5.55,
+      "lng": 122.55
+    },
+    "dest": {
+      "lat": -6.5944,
+      "lng": 106.7892
+    }
+  },
+  {
+    "nama": "Fian Manafe",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Pradana",
+    "domisili": "Kota Kupang",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -10.1772,
+      "lng": 123.607
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Fioletta Papilaya",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Aruna",
+    "domisili": "Kota Ambon",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -3.6954,
+      "lng": 128.1814
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Fitri Apriani",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Kotawaringin Barat",
+    "tujuan": "Depok",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -2.4,
+      "lng": 111.7333
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Fitriadi K",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kota Yogyakarta",
+    "tujuan": "Bologna",
+    "negara": "Italia",
+    "univ": "University of Bologna",
+    "origin": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    },
+    "dest": {
+      "lat": 44.4949,
+      "lng": 11.3426
+    }
+  },
+  {
+    "nama": "Fridoom Papua Christ Koridama",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Jayapura",
+    "tujuan": "Brighton",
+    "negara": "Inggris",
+    "univ": "University of Sussex",
+    "origin": {
+      "lat": -2.55,
+      "lng": 140.7
+    },
+    "dest": {
+      "lat": 50.8229,
+      "lng": -0.1363
+    }
+  },
+  {
+    "nama": "Geary Jonas Felix Sirait",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Pradana",
+    "domisili": "Kota Bekasi",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -6.2349,
+      "lng": 106.9896
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Geza Surya Pratiwi",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Sheffield",
+    "negara": "Inggris",
+    "univ": "The University of Sheffield",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 53.3811,
+      "lng": -1.4701
+    }
+  },
+  {
+    "nama": "Ghaffaar Ari Satrya",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Metro",
+    "tujuan": "DUBLIN",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -5.1167,
+      "lng": 105.3
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Gilbert Aldo Theodric",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Administrasi Jakarta Utara",
+    "tujuan": "Delft",
+    "negara": "Belanda",
+    "univ": "Delft University of Technology",
+    "origin": {
+      "lat": -6.1383,
+      "lng": 106.863
+    },
+    "dest": {
+      "lat": 52.0116,
+      "lng": 4.3571
+    }
+  },
+  {
+    "nama": "Gozin Najah Rusyada",
+    "rumpun": "Pendidikan",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Lombok Utara",
+    "tujuan": "Semarang",
+    "negara": "Indonesia",
+    "univ": "Universitas Semarang",
+    "origin": {
+      "lat": -8.35,
+      "lng": 116.2
+    },
+    "dest": {
+      "lat": -7.0051,
+      "lng": 110.4381
+    }
+  },
+  {
+    "nama": "Haedir Zulfikar",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Sinjai",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -5.2,
+      "lng": 120.1
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Hanif Akbar Rabbany",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Kediri",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -7.8167,
+      "lng": 112.0167
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Harrys Filemon Fonataba",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Pradana",
+    "domisili": "Kota Sorong",
+    "tujuan": "BULAKSUMUR, KOTA YOGYAKARTA, DAERAH ISTIMEWA YOGYAKARTA",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -0.8762,
+      "lng": 131.2558
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Hendro Prasetyo",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Hernowo Adi Nugroho",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Baltimore, MD",
+    "negara": "Amerika Serikat",
+    "univ": "Johns Hopkins University",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 39.2904,
+      "lng": -76.6122
+    }
+  },
+  {
+    "nama": "Hullyan Aritha Miru",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kota Kupang",
+    "tujuan": "York",
+    "negara": "Inggris",
+    "univ": "University of York",
+    "origin": {
+      "lat": -10.1772,
+      "lng": 123.607
+    },
+    "dest": {
+      "lat": 53.959,
+      "lng": -1.0815
+    }
+  },
+  {
+    "nama": "I Gede Wira Aditya Tanaya",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Lombok Barat",
+    "tujuan": "Brighton",
+    "negara": "Inggris",
+    "univ": "University of Sussex",
+    "origin": {
+      "lat": -8.65,
+      "lng": 116.0833
+    },
+    "dest": {
+      "lat": 50.8229,
+      "lng": -0.1363
+    }
+  },
+  {
+    "nama": "I Made Agus Satya",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Mataram",
+    "tujuan": "Exeter",
+    "negara": "Inggris",
+    "univ": "University of Exeter",
+    "origin": {
+      "lat": -8.5833,
+      "lng": 116.1167
+    },
+    "dest": {
+      "lat": 50.7184,
+      "lng": -3.5339
+    }
+  },
+  {
+    "nama": "Iffah Alwalidah",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kota Pasuruan",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.65,
+      "lng": 112.9
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Ikhlashul Amalludin",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Serang",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.2,
+      "lng": 106.1
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "IMANUEL DAVID YANTER HINDOM",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Fakfak",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -2.92,
+      "lng": 132.3
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Inggil Lazuardi",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Tangerang",
+    "tujuan": "Sydney",
+    "negara": "Australia",
+    "univ": "University of New South Wales",
+    "origin": {
+      "lat": -6.2,
+      "lng": 106.63
+    },
+    "dest": {
+      "lat": -33.8688,
+      "lng": 151.2093
+    }
+  },
+  {
+    "nama": "Intan Nilaputri",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Santa Barbara, California",
+    "negara": "Amerika Serikat",
+    "univ": "University of California, Santa Barbara",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 34.4208,
+      "lng": -119.6982
+    }
+  },
+  {
+    "nama": "Ishmah Ulya",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Aruna",
+    "domisili": "Kota Medan",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": 3.5952,
+      "lng": 98.6722
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Ismail",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Banyumas",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.48,
+      "lng": 109.15
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Itmamul Wafa Sidiq",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Tangerang",
+    "tujuan": "Kabupaten Bogor",
+    "negara": "Indonesia",
+    "univ": "Institut Pertanian Bogor",
+    "origin": {
+      "lat": -6.2,
+      "lng": 106.63
+    },
+    "dest": {
+      "lat": -6.595,
+      "lng": 106.79
+    }
+  },
+  {
+    "nama": "Izdihar Abdurrafi Yasik",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "University College London",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Jackson Yumame",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Aruna",
+    "domisili": "Kota Jayapura",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -2.5916,
+      "lng": 140.669
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Jhon Fery Marihot Tua S",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Satwika",
+    "domisili": "Kota Depok",
+    "tujuan": "Exeter",
+    "negara": "Inggris",
+    "univ": "University of Exeter",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": 50.7184,
+      "lng": -3.5339
+    }
+  },
+  {
+    "nama": "Johan Adi Suryono",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Semarang",
+    "tujuan": "Leeds",
+    "negara": "Inggris",
+    "univ": "University of Leeds",
+    "origin": {
+      "lat": -7.0051,
+      "lng": 110.4381
+    },
+    "dest": {
+      "lat": 53.8008,
+      "lng": -1.5491
+    }
+  },
+  {
+    "nama": "Jusmalia Oktaviani",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Bandung Barat",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -6.92,
+      "lng": 107.52
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Kabir Al Fadly Habibullah",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Tangerang",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.178,
+      "lng": 106.63
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Kama Miratul Chasanah",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Kevin Yehezkiel",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Chicago",
+    "negara": "Amerika Serikat",
+    "univ": "University of Chicago",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 41.8781,
+      "lng": -87.6298
+    }
+  },
+  {
+    "nama": "Khalida Khadija Khairullah",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Satwika",
+    "domisili": "Kota Semarang",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -7.0051,
+      "lng": 110.4381
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Lambang Gigih",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Yogyakarta",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Lila Vininingtyas",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Queen Mary University of London",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Lina Alin Sari",
+    "rumpun": "Pendidikan",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Sukoharjo",
+    "tujuan": "Surakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Sebelas Maret",
+    "origin": {
+      "lat": -7.6833,
+      "lng": 110.8333
+    },
+    "dest": {
+      "lat": -7.5667,
+      "lng": 110.8167
+    }
+  },
+  {
+    "nama": "Liya Arista",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Depok",
+    "tujuan": "Depok",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Lufaefi",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Manda",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Deli Serdang",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": 3.55,
+      "lng": 98.7
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Maretra Anindya Puspaningrum",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "Birmingham",
+    "negara": "Inggris",
+    "univ": "University of Birmingham",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": 52.4862,
+      "lng": -1.8904
+    }
+  },
+  {
+    "nama": "Maria Ratu Rosari Atie",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Timor Tengah Utara",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -9.3,
+      "lng": 124.4
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Mariado Safdas Yee Sewa",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Sorong",
+    "tujuan": "Brighton",
+    "negara": "Inggris",
+    "univ": "University of Sussex",
+    "origin": {
+      "lat": -0.8762,
+      "lng": 131.2558
+    },
+    "dest": {
+      "lat": 50.8229,
+      "lng": -0.1363
+    }
+  },
+  {
+    "nama": "Martin Septinus Kafiar",
+    "rumpun": "Pendidikan",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Jayawijaya",
+    "tujuan": "Nottingham",
+    "negara": "Inggris",
+    "univ": "University Of Nottingham",
+    "origin": {
+      "lat": -4.1,
+      "lng": 138.8
+    },
+    "dest": {
+      "lat": 52.9548,
+      "lng": -1.1581
+    }
+  },
+  {
+    "nama": "Martina Cecilia Adriana",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "Melbourne",
+    "negara": "Australia",
+    "univ": "The University of Melbourne",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": -37.8136,
+      "lng": 144.9631
+    }
+  },
+  {
+    "nama": "Meidiana Pairuz",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Kuantan Singingi",
+    "tujuan": "Uppsala",
+    "negara": "Swedia",
+    "univ": "Uppsala University",
+    "origin": {
+      "lat": -0.5,
+      "lng": 101.5
+    },
+    "dest": {
+      "lat": 59.8586,
+      "lng": 17.6389
+    }
+  },
+  {
+    "nama": "Meilani",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Administrasi Jakarta Barat",
+    "tujuan": "Edinburgh",
+    "negara": "Inggris",
+    "univ": "The University of Edinburgh",
+    "origin": {
+      "lat": -6.1683,
+      "lng": 106.7588
+    },
+    "dest": {
+      "lat": 55.9533,
+      "lng": -3.1883
+    }
+  },
+  {
+    "nama": "Misbahul Badri",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Bekasi",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.25,
+      "lng": 107.0
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Moch. Farich Alfani",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Brebes",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.87,
+      "lng": 109.05
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Mochamad Yusuf Santoso",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Sidoarjo",
+    "tujuan": "Surabaya",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Sepuluh Nopember",
+    "origin": {
+      "lat": -7.45,
+      "lng": 112.7
+    },
+    "dest": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    }
+  },
+  {
+    "nama": "Mohammad Ilham Ihza Mahendra",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Bekasi",
+    "tujuan": "Glasgow",
+    "negara": "Inggris",
+    "univ": "University of Glasgow",
+    "origin": {
+      "lat": -6.2349,
+      "lng": 106.9896
+    },
+    "dest": {
+      "lat": 55.8609,
+      "lng": -4.2514
+    }
+  },
+  {
+    "nama": "Muhamad Haikal Abdullah",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Muhamad Ihwanul Muslimin",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Tangerang",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.2,
+      "lng": 106.63
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Muhammad Ahmi Husein, S.Si.",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Makassar",
+    "tujuan": "Birmingham City",
+    "negara": "Inggris",
+    "univ": "University of Birmingham",
+    "origin": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "dest": {
+      "lat": 52.4862,
+      "lng": -1.8904
+    }
+  },
+  {
+    "nama": "Muhammad Alfaridzi. S",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Pekanbaru",
+    "tujuan": "Bern",
+    "negara": "Swedia",
+    "univ": "University of Bern",
+    "origin": {
+      "lat": 0.5071,
+      "lng": 101.4478
+    },
+    "dest": {
+      "lat": 46.948,
+      "lng": 7.4474
+    }
+  },
+  {
+    "nama": "Muhammad Aulia Rahman Nur Hakim",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "London School of Economics and Political Science",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Muhammad Dzul Fakhri",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "Edinburgh",
+    "negara": "Inggris",
+    "univ": "The University of Edinburgh",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": 55.9533,
+      "lng": -3.1883
+    }
+  },
+  {
+    "nama": "Muhammad Fadhil Fathiah",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Satwika",
+    "domisili": "Kota Depok",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Muhammad Farid Alfarisy",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Banyumas",
+    "tujuan": "Birmingham",
+    "negara": "Inggris",
+    "univ": "University of Birmingham",
+    "origin": {
+      "lat": -7.48,
+      "lng": 109.15
+    },
+    "dest": {
+      "lat": 52.4862,
+      "lng": -1.8904
+    }
+  },
+  {
+    "nama": "Muhammad Faried Ma'ruf Saleh",
+    "rumpun": "Pendidikan",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Pangkajene dan Kepulauan",
+    "tujuan": "Makassae",
+    "negara": "Indonesia",
+    "univ": "Universitas Hasanuddin",
+    "origin": {
+      "lat": -7.0,
+      "lng": 120.5
+    },
+    "dest": {
+      "lat": -4.3,
+      "lng": 122.5
+    }
+  },
+  {
+    "nama": "Muhammad Hanif Aqila",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Muhammad Hanifuddin, S.s.i., S.sos., M.i.p.",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Muhammad Izzan Ahsan",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Muhammad Luthfi Aziz",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "Bandung",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Bandung",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  },
+  {
+    "nama": "Muhammad Mikail Arrasyid Jamaluddin",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Bandung",
+    "tujuan": "Nantes",
+    "negara": "Prancis",
+    "univ": "IMT Atlantique",
+    "origin": {
+      "lat": -6.95,
+      "lng": 107.6
+    },
+    "dest": {
+      "lat": 47.2184,
+      "lng": -1.5536
+    }
+  },
+  {
+    "nama": "Muhammad Ryan",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Palu",
+    "tujuan": "Reading",
+    "negara": "Inggris",
+    "univ": "University of Reading",
+    "origin": {
+      "lat": -0.9,
+      "lng": 119.8667
+    },
+    "dest": {
+      "lat": 51.4543,
+      "lng": -0.9781
+    }
+  },
+  {
+    "nama": "Muhammad Zaki Wiryawan",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Aruna",
+    "domisili": "Kota Malang",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -7.9839,
+      "lng": 112.6214
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Muhtaddin Rahayu",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Badung",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -8.58,
+      "lng": 115.18
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Mydia Rossellini",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Barat",
+    "tujuan": "Beijing",
+    "negara": "Tiongkok",
+    "univ": "Tsinghua University",
+    "origin": {
+      "lat": -6.1683,
+      "lng": 106.7588
+    },
+    "dest": {
+      "lat": 39.9042,
+      "lng": 116.4074
+    }
+  },
+  {
+    "nama": "Naesilla",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Jember",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -8.17,
+      "lng": 113.7
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Nielsen Thonak",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Belu",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Negeri Yogyakarta",
+    "origin": {
+      "lat": -9.3,
+      "lng": 124.4
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Noverly Cloren Pattinasarany",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Satwika",
+    "domisili": "Kota Ambon",
+    "tujuan": "Kabupaten sleman",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -3.6954,
+      "lng": 128.1814
+    },
+    "dest": {
+      "lat": -7.7167,
+      "lng": 110.35
+    }
+  },
+  {
+    "nama": "Nudia Amburika",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Nur Aidatuzzahro",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Deli Serdang",
+    "tujuan": "Kota Depok",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": 3.55,
+      "lng": 98.7
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Nur Aulia Misiro",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Jayapura",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -2.5916,
+      "lng": 140.669
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Nur Fitrawati Masdin",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Pinrang",
+    "tujuan": "Makassar",
+    "negara": "Indonesia",
+    "univ": "Universitas Hasanuddin",
+    "origin": {
+      "lat": -3.3,
+      "lng": 119.6
+    },
+    "dest": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    }
+  },
+  {
+    "nama": "Nur Laili Alfiatin Mukharomah",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Tuban",
+    "tujuan": "Surabaya",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Sepuluh Nopember",
+    "origin": {
+      "lat": -6.9,
+      "lng": 112.05
+    },
+    "dest": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    }
+  },
+  {
+    "nama": "Nurinda Puspasari",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Nurohman",
+    "rumpun": "Pendidikan",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Kuningan",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Negeri Yogyakarta",
+    "origin": {
+      "lat": -7.0,
+      "lng": 108.4833
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Nurul Afifah Wulandari",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "University College London",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Nurul Iffatiz Zahroh",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "Cilandak",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": -6.3072,
+      "lng": 106.7974
+    }
+  },
+  {
+    "nama": "Olivia Gabriella Chandra",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Barat",
+    "tujuan": "Beijing",
+    "negara": "Tiongkok",
+    "univ": "Peking University",
+    "origin": {
+      "lat": -6.1683,
+      "lng": 106.7588
+    },
+    "dest": {
+      "lat": 39.9042,
+      "lng": 116.4074
+    }
+  },
+  {
+    "nama": "Oryza Azizul Anwari",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Batam",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": 1.13,
+      "lng": 104.05
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Patih Rajahasta",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Bandung",
+    "tujuan": "Baltimore",
+    "negara": "Amerika Serikat",
+    "univ": "Johns Hopkins University",
+    "origin": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    },
+    "dest": {
+      "lat": 39.2904,
+      "lng": -76.6122
+    }
+  },
+  {
+    "nama": "Pharadiba",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Makassar",
+    "tujuan": "MAKASSAR",
+    "negara": "Indonesia",
+    "univ": "Universitas Hasanuddin",
+    "origin": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "dest": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    }
+  },
+  {
+    "nama": "Pitri Rukmana",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Bandar Lampung",
+    "tujuan": "Depok, Jawa Barat",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -5.45,
+      "lng": 105.2667
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Prima Insamilandari Syah",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Wakatobi",
+    "tujuan": "Bogor",
+    "negara": "Indonesia",
+    "univ": "Institut Pertanian Bogor",
+    "origin": {
+      "lat": -5.3,
+      "lng": 123.5
+    },
+    "dest": {
+      "lat": -6.5944,
+      "lng": 106.7892
+    }
+  },
+  {
+    "nama": "Primadiaz Normauntika",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Depok",
+    "tujuan": "Depok",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Putri Laras Utami",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Sragen",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -7.4333,
+      "lng": 111.0167
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Qolbu Nurul Hidayah",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Pradana",
+    "domisili": "Kota Manado",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": 1.4748,
+      "lng": 124.8421
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Raditya Putra Pratama",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Rafinoza Alfarisi",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Barat",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.1683,
+      "lng": 106.7588
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Raissa Zhafira Sulaeman",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Ramy Fitrah Izzah",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Pekanbaru",
+    "tujuan": "Groningen",
+    "negara": "Belanda",
+    "univ": "University of Groningen",
+    "origin": {
+      "lat": 0.5071,
+      "lng": 101.4478
+    },
+    "dest": {
+      "lat": 53.2194,
+      "lng": 6.5665
+    }
+  },
+  {
+    "nama": "Rebecca Mae Merida Catalya Marbun",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Bandung",
+    "tujuan": "Cranfield",
+    "negara": "Inggris",
+    "univ": "Cranfield University",
+    "origin": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    },
+    "dest": {
+      "lat": 52.0739,
+      "lng": -0.6233
+    }
+  },
+  {
+    "nama": "Rena Ummun Zahra Bustomi",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "Manchester",
+    "negara": "Inggris",
+    "univ": "The University of Manchester",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": 53.4808,
+      "lng": -2.2426
+    }
+  },
+  {
+    "nama": "Reska Suci Nurafni",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Edinburgh",
+    "negara": "Inggris",
+    "univ": "The University of Edinburgh",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 55.9533,
+      "lng": -3.1883
+    }
+  },
+  {
+    "nama": "Rexel Kuatama",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Kubu Raya",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "King\u2019s College London",
+    "origin": {
+      "lat": -0.35,
+      "lng": 109.5
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Reza Sepdeya",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Administrasi Jakarta Pusat",
+    "tujuan": "Sydney",
+    "negara": "Australia",
+    "univ": "University of New South Wales",
+    "origin": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    },
+    "dest": {
+      "lat": -33.8688,
+      "lng": 151.2093
+    }
+  },
+  {
+    "nama": "Ririn Ayudiasari",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Bandung",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.95,
+      "lng": 107.6
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Risa Eridani Br Pardede",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Riska Amilia",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Tuban",
+    "tujuan": "Manchester",
+    "negara": "Inggris",
+    "univ": "The University of Manchester",
+    "origin": {
+      "lat": -6.9,
+      "lng": 112.05
+    },
+    "dest": {
+      "lat": 53.4808,
+      "lng": -2.2426
+    }
+  },
+  {
+    "nama": "Rizal Nafis Elfahdi",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "Kota Depok",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    }
+  },
+  {
+    "nama": "Rizkyanti Aulia",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Surabaya",
+    "tujuan": "Dublin",
+    "negara": "Irlandia",
+    "univ": "University College Dublin",
+    "origin": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "dest": {
+      "lat": 53.3498,
+      "lng": -6.2603
+    }
+  },
+  {
+    "nama": "Samuel Gilbert A Kogoya, S.tr.ip",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Jayapura",
+    "tujuan": "Exeter",
+    "negara": "Inggris",
+    "univ": "University of Exeter",
+    "origin": {
+      "lat": -2.5916,
+      "lng": 140.669
+    },
+    "dest": {
+      "lat": 50.7184,
+      "lng": -3.5339
+    }
+  },
+  {
+    "nama": "Samuel Kristianto Kasudarman",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Magelang",
+    "tujuan": "Nantes",
+    "negara": "Prancis",
+    "univ": "IMT Atlantique",
+    "origin": {
+      "lat": -7.4667,
+      "lng": 110.2167
+    },
+    "dest": {
+      "lat": 47.2184,
+      "lng": -1.5536
+    }
+  },
+  {
+    "nama": "Sarifa Assa",
+    "rumpun": "Pendidikan",
+    "kelompok": "Aruna",
+    "domisili": "Kota Kupang",
+    "tujuan": "Southampton",
+    "negara": "Inggris",
+    "univ": "University of Southampton",
+    "origin": {
+      "lat": -10.1772,
+      "lng": 123.607
+    },
+    "dest": {
+      "lat": 50.9097,
+      "lng": -1.4044
+    }
+  },
+  {
+    "nama": "Sasonoto Hasbullah",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Bogor",
+    "tujuan": "Chicago",
+    "negara": "Amerika Serikat",
+    "univ": "University of Chicago",
+    "origin": {
+      "lat": -6.595,
+      "lng": 106.79
+    },
+    "dest": {
+      "lat": 41.8781,
+      "lng": -87.6298
+    }
+  },
+  {
+    "nama": "Satyandyka Adirajasa, S.t.",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Sayyidah Maghfiroh",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Kediri",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.8,
+      "lng": 111.95
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Selvianti Devi Hidayat",
+    "rumpun": "Pendidikan",
+    "kelompok": "Satwika",
+    "domisili": "Kabupaten Bandung",
+    "tujuan": "Bandung",
+    "negara": "Indonesia",
+    "univ": "Universitas Pendidikan Indonesia",
+    "origin": {
+      "lat": -6.95,
+      "lng": 107.6
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  },
+  {
+    "nama": "Shafira Bariq Asri Jasmine Viviansyah",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Pradana",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Sharon Aurellia",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Utara",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.1383,
+      "lng": 106.863
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Shinta Wulandari Basuki",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Chicago",
+    "negara": "Amerika Serikat",
+    "univ": "University of Chicago",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 41.8781,
+      "lng": -87.6298
+    }
+  },
+  {
+    "nama": "Sholeha Tullaila",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Pesawaran",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -5.4,
+      "lng": 105.1
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Silvi Permata Sari",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Agam",
+    "tujuan": "Kota Bogor",
+    "negara": "Indonesia",
+    "univ": "Institut Pertanian Bogor",
+    "origin": {
+      "lat": -0.3,
+      "lng": 100.2
+    },
+    "dest": {
+      "lat": -6.5944,
+      "lng": 106.7892
+    }
+  },
+  {
+    "nama": "Sinar Nathalia Sitorus",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Sintesa Ulfah",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Purworejo",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -7.7167,
+      "lng": 110.0
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Siti Anisah",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Purworejo",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.7167,
+      "lng": 110.0
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Siti Ingefatul Komariah",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Jember",
+    "tujuan": "Surabaya",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Sepuluh Nopember",
+    "origin": {
+      "lat": -8.17,
+      "lng": 113.7
+    },
+    "dest": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    }
+  },
+  {
+    "nama": "Siti Marya Ulpah",
+    "rumpun": "Pendidikan",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Bandung",
+    "tujuan": "Kota Bandung",
+    "negara": "Indonesia",
+    "univ": "Universitas Pendidikan Indonesia",
+    "origin": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  },
+  {
+    "nama": "Stevian Gressberth Mambay",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Satwika",
+    "domisili": "Kota Administrasi Jakarta Barat",
+    "tujuan": "Leeds",
+    "negara": "Inggris",
+    "univ": "University of Leeds",
+    "origin": {
+      "lat": -6.1683,
+      "lng": 106.7588
+    },
+    "dest": {
+      "lat": 53.8008,
+      "lng": -1.5491
+    }
+  },
+  {
+    "nama": "Sudarman",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Pradana",
+    "domisili": "Kota Makassar",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Sugi Asmira",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Kendari",
+    "tujuan": "Daerah Istimewa Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -3.9985,
+      "lng": 122.512
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Sultan",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Bantaeng",
+    "tujuan": "Jakarta Pusat",
+    "negara": "Indonesia",
+    "univ": "Universitas Indonesia",
+    "origin": {
+      "lat": -5.55,
+      "lng": 119.95
+    },
+    "dest": {
+      "lat": -6.1865,
+      "lng": 106.8341
+    }
+  },
+  {
+    "nama": "Sultan Ariq Faisal Bahri",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kota Depok",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Sulthan Adiwidya Nurfakhri",
+    "rumpun": "Hukum & Kebijakan",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Administrasi Jakarta Timur",
+    "tujuan": "Madrid",
+    "negara": "Spanyol",
+    "univ": "IE University",
+    "origin": {
+      "lat": -6.225,
+      "lng": 106.9004
+    },
+    "dest": {
+      "lat": 40.4168,
+      "lng": -3.7038
+    }
+  },
+  {
+    "nama": "Sumartini",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Pradana",
+    "domisili": "Kota Dumai",
+    "tujuan": "Bandung",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Bandung",
+    "origin": {
+      "lat": 1.6667,
+      "lng": 101.45
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  },
+  {
+    "nama": "Susan Ifki Keliobas",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Ternate",
+    "tujuan": "Brighton",
+    "negara": "Inggris",
+    "univ": "University of Sussex",
+    "origin": {
+      "lat": 0.7833,
+      "lng": 127.3667
+    },
+    "dest": {
+      "lat": 50.8229,
+      "lng": -0.1363
+    }
+  },
+  {
+    "nama": "Susi Marianingsih",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Jayapura",
+    "tujuan": "Surabaya",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Sepuluh Nopember",
+    "origin": {
+      "lat": -2.5916,
+      "lng": 140.669
+    },
+    "dest": {
+      "lat": -7.2575,
+      "lng": 112.7521
+    }
+  },
+  {
+    "nama": "Syahrir Ramadhan Bukide",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Aruna",
+    "domisili": "Kota Makassar",
+    "tujuan": "Kota makassar",
+    "negara": "Indonesia",
+    "univ": "Universitas Hasanuddin",
+    "origin": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "dest": {
+      "lat": -5.1477,
+      "lng": 119.4327
+    }
+  },
+  {
+    "nama": "Syamsuri",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Satwika",
+    "domisili": "Kota Tangerang Selatan",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -6.2889,
+      "lng": 106.7183
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Tama Ariyanti R Lolong",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Pradana",
+    "domisili": "Kabupaten Toli-Toli",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "King\u2019s College London",
+    "origin": {
+      "lat": 1.1,
+      "lng": 120.8
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Tamariska Christina Tanawani",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Jayapura",
+    "tujuan": "Yogyakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -2.5916,
+      "lng": 140.669
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Tasya Putri Nurhayat",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Tasikmalaya",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.35,
+      "lng": 108.1
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Taufik Rahman",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Bantul",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.9,
+      "lng": 110.3167
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Tengku Romansyah",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Indramayu",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.33,
+      "lng": 108.32
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Tian Nugraheni",
+    "rumpun": "Ekonomi & Bisnis",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Administrasi Jakarta Selatan",
+    "tujuan": "Solna (Stockholm)",
+    "negara": "Swedia",
+    "univ": "Karolinska Institutet",
+    "origin": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    },
+    "dest": {
+      "lat": 59.36,
+      "lng": 18.0
+    }
+  },
+  {
+    "nama": "Ulfiatul Muarofah",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Wisesa",
+    "domisili": "Kabupaten Bangkalan",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.0333,
+      "lng": 112.75
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Ulyan Nasri",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Lombok Timur",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -8.5333,
+      "lng": 116.4833
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Uswatun Hasanah",
+    "rumpun": "IT & Komputer",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Semarang",
+    "tujuan": "Sheffield",
+    "negara": "Inggris",
+    "univ": "The University of Sheffield",
+    "origin": {
+      "lat": -7.0051,
+      "lng": 110.4381
+    },
+    "dest": {
+      "lat": 53.3811,
+      "lng": -1.4701
+    }
+  },
+  {
+    "nama": "Vashty Dhilla Zharfa",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Luar Negeri",
+    "tujuan": "Toronto",
+    "negara": "Kanada",
+    "univ": "University of Toronto",
+    "origin": {
+      "lat": 0.0,
+      "lng": 0.0
+    },
+    "dest": {
+      "lat": 43.6532,
+      "lng": -79.3832
+    }
+  },
+  {
+    "nama": "Villia Deanti Putri",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Kupang",
+    "tujuan": "Manchester",
+    "negara": "Inggris",
+    "univ": "The University of Manchester",
+    "origin": {
+      "lat": -10.1772,
+      "lng": 123.607
+    },
+    "dest": {
+      "lat": 53.4808,
+      "lng": -2.2426
+    }
+  },
+  {
+    "nama": "Wahyu Retno Aris",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Aruna",
+    "domisili": "Kota Ambon",
+    "tujuan": "Birmingham",
+    "negara": "Inggris",
+    "univ": "University of Birmingham",
+    "origin": {
+      "lat": -3.6954,
+      "lng": 128.1814
+    },
+    "dest": {
+      "lat": 52.4862,
+      "lng": -1.8904
+    }
+  },
+  {
+    "nama": "Winona Lutfiah",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Bone",
+    "tujuan": "Jakarta Selatan",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -4.7,
+      "lng": 120.3
+    },
+    "dest": {
+      "lat": -6.2615,
+      "lng": 106.8106
+    }
+  },
+  {
+    "nama": "Yan Zakeus Numberi",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Aruna",
+    "domisili": "Kabupaten Manokwari",
+    "tujuan": "Bogor",
+    "negara": "Indonesia",
+    "univ": "Institut Pertanian Bogor",
+    "origin": {
+      "lat": -0.8629,
+      "lng": 134.064
+    },
+    "dest": {
+      "lat": -6.5944,
+      "lng": 106.7892
+    }
+  },
+  {
+    "nama": "Yanuarini Tri Kuswanti",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Depok",
+    "tujuan": "Birmingham",
+    "negara": "Inggris",
+    "univ": "University of Birmingham",
+    "origin": {
+      "lat": -6.4025,
+      "lng": 106.7942
+    },
+    "dest": {
+      "lat": 52.4862,
+      "lng": -1.8904
+    }
+  },
+  {
+    "nama": "Yerikho Nelson Pakrek Dimara",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Wisesa",
+    "domisili": "Kota Sorong",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas Trisakti",
+    "origin": {
+      "lat": -0.8762,
+      "lng": 131.2558
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Yitzchak Millenard Sigilipu",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Bekasi",
+    "tujuan": "Uppsala",
+    "negara": "Swedia",
+    "univ": "Uppsala University",
+    "origin": {
+      "lat": -6.2349,
+      "lng": 106.9896
+    },
+    "dest": {
+      "lat": 59.8586,
+      "lng": 17.6389
+    }
+  },
+  {
+    "nama": "Yudha Sasmita Putra",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Cakrawala",
+    "domisili": "Kota Bekasi",
+    "tujuan": "London",
+    "negara": "Inggris",
+    "univ": "Imperial College London",
+    "origin": {
+      "lat": -6.2349,
+      "lng": 106.9896
+    },
+    "dest": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "nama": "Yudhistira Kuncoro Adi",
+    "rumpun": "Sains & Matematika",
+    "kelompok": "Cakrawala",
+    "domisili": "Kabupaten Merauke",
+    "tujuan": "DIY",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -8.5,
+      "lng": 140.3333
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Yuliana Fatie",
+    "rumpun": "Kesehatan & Hayati",
+    "kelompok": "Adiguna",
+    "domisili": "Kota Jayapura",
+    "tujuan": "YOGYAKARTA",
+    "negara": "Indonesia",
+    "univ": "Universitas Gadjah Mada",
+    "origin": {
+      "lat": -2.5916,
+      "lng": 140.669
+    },
+    "dest": {
+      "lat": -7.7971,
+      "lng": 110.3688
+    }
+  },
+  {
+    "nama": "Zaid",
+    "rumpun": "Humaniora & Seni",
+    "kelompok": "Adiguna",
+    "domisili": "Kabupaten Magelang",
+    "tujuan": "Jakarta",
+    "negara": "Indonesia",
+    "univ": "Universitas PTIQ Jakarta",
+    "origin": {
+      "lat": -7.4667,
+      "lng": 110.2167
+    },
+    "dest": {
+      "lat": -6.2088,
+      "lng": 106.8456
+    }
+  },
+  {
+    "nama": "Zhafirah Ajrina",
+    "rumpun": "Teknik & Rekayasa",
+    "kelompok": "Aruna",
+    "domisili": "Kota Administrasi Jakarta Utara",
+    "tujuan": "Bandung",
+    "negara": "Indonesia",
+    "univ": "Institut Teknologi Bandung",
+    "origin": {
+      "lat": -6.1383,
+      "lng": 106.863
+    },
+    "dest": {
+      "lat": -6.9175,
+      "lng": 107.6191
+    }
+  }
+]

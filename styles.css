@@ -193,3 +193,36 @@ input[type="range"]::-moz-range-thumb {
         border-radius: 0;
     }
 }
+
+/* =========================================================
+   Demografi Map Styles
+   ========================================================= */
+
+#demografi-map {
+    z-index: 1;
+}
+
+/* Leaflet popup dark theme override */
+.leaflet-popup-content-wrapper {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+.leaflet-popup-tip {
+    background: #0f172a;
+    border: 1px solid #334155;
+}
+.leaflet-popup-content {
+    margin: 10px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.leaflet-container a.leaflet-popup-close-button {
+    color: #94a3b8;
+    padding: 6px 8px 0 0;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+    color: #e2e8f0;
+}

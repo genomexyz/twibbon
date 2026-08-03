@@ -177,25 +177,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // === TAB SWITCHING LOGIC ===
     tabProfile.addEventListener('click', () => switchTab('profile'));
     tabLgm.addEventListener('click', () => switchTab('lgm'));
+    const tabDemografi = document.getElementById('tab-demografi');
+    if (tabDemografi) tabDemografi.addEventListener('click', () => switchTab('demografi'));
 
     function switchTab(mode) {
         activeTab = mode;
         const profileStageWrapper = document.getElementById('profile-stage-wrapper');
         const lgmStageWrapper = document.getElementById('lgm-stage-wrapper');
+        const demografiStageWrapper = document.getElementById('demografi-stage-wrapper');
         const profileControls = document.getElementById('profile-controls');
         const lgmControls = document.getElementById('lgm-controls');
+        const demografiControls = document.getElementById('demografi-controls');
+
+        // Reset all tabs to inactive
+        tabProfile.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
+        tabLgm.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
+        if (tabDemografi) tabDemografi.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
+
+        // Hide all UI
+        profileStageWrapper.classList.add('hidden');
+        lgmStageWrapper.classList.add('hidden');
+        if (demografiStageWrapper) demografiStageWrapper.classList.add('hidden');
+        profileControls.classList.add('hidden');
+        profileControls.classList.remove('flex');
+        lgmControls.classList.add('hidden');
+        lgmControls.classList.remove('flex');
+        if (demografiControls) { demografiControls.classList.add('hidden'); demografiControls.classList.remove('flex'); }
 
         if (mode === 'profile') {
             tabProfile.className = 'active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md';
-            tabLgm.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
-            
-            // Show Profile UI, hide LGM UI
             profileStageWrapper.classList.remove('hidden');
-            lgmStageWrapper.classList.add('hidden');
             profileControls.classList.remove('hidden');
             profileControls.classList.add('flex');
-            lgmControls.classList.add('hidden');
-            lgmControls.classList.remove('flex');
 
             if (profileImage) {
                 hidePlaceholder();
@@ -204,25 +217,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 showPlaceholder('foto');
                 btnDownload.disabled = true;
             }
-
             updateZoomUI();
             updateStatus();
             renderCanvas();
-        } else {
+        } else if (mode === 'lgm') {
             tabLgm.className = 'active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md';
-            tabProfile.className = 'inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600';
-
-            // Hide Profile UI, show LGM UI
-            profileStageWrapper.classList.add('hidden');
             lgmStageWrapper.classList.remove('hidden');
-            profileControls.classList.add('hidden');
-            profileControls.classList.remove('flex');
             lgmControls.classList.remove('hidden');
             lgmControls.classList.add('flex');
 
-            // Init LGM editor on first switch
             if (window.lgmEditor && typeof window.lgmEditor.init === 'function') {
                 window.lgmEditor.init();
+            }
+        } else if (mode === 'demografi') {
+            if (tabDemografi) tabDemografi.className = 'active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md';
+            if (demografiStageWrapper) demografiStageWrapper.classList.remove('hidden');
+            if (demografiControls) {
+                demografiControls.classList.remove('hidden');
+                demografiControls.classList.add('flex');
+            }
+            if (window.demografiMap && typeof window.demografiMap.init === 'function') {
+                window.demografiMap.init();
             }
         }
     }

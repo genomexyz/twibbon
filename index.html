@@ -33,6 +33,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -71,6 +73,10 @@
             <button id="tab-lgm" class="inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600">
                 <i class="fa-solid fa-map-location-dot"></i>
                 <span>Life Grand Map (LGM)</span>
+            </button>
+            <button id="tab-demografi" class="inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600">
+                <i class="fa-solid fa-earth-asia"></i>
+                <span>Demografi Angkatan</span>
             </button>
         </div>
     </div>
@@ -149,6 +155,20 @@
                 <div id="lgm-stage" class="lgm-stage relative w-full bg-white rounded-xl overflow-hidden shadow-inner">
                     <img id="lgm-bg" class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none" alt="Background halaman" />
                 </div>
+            </div>
+
+            <!-- Demografi Map Preview (hidden in Profile/LGM mode) -->
+            <div id="demografi-stage-wrapper" class="hidden w-full bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Peta Distribusi Awardee PK 280</span>
+                    </span>
+                    <span class="text-slate-400 hidden sm:flex items-center gap-1">
+                        <i class="fa-solid fa-circle-nodes text-lpdp-gold"></i> Hover garis untuk detail
+                    </span>
+                </div>
+                <div id="demografi-map" class="w-full h-[600px] rounded-xl overflow-hidden shadow-inner bg-slate-900"></div>
             </div>
         </section>
 
@@ -380,6 +400,42 @@
                 </div>
             </div><!-- /lgm-controls -->
 
+            <!-- Demografi Controls (hidden in Profile/LGM mode) -->
+            <div id="demografi-controls" class="hidden flex-col gap-5">
+                <!-- Legend -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-layer-group text-lpdp-gold"></i> Legenda Rumpun Studi
+                    </h2>
+                    <div id="demografi-legend" class="grid grid-cols-1 gap-2 text-xs"></div>
+                </div>
+
+                <!-- Stats -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-chart-pie text-lpdp-gold"></i> Statistik Angkatan
+                    </h2>
+                    <div id="demografi-stats" class="grid grid-cols-2 gap-3 text-xs"></div>
+                </div>
+
+                <!-- Toggle controls -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-eye text-lpdp-gold"></i> Tampilan
+                    </h2>
+                    <div class="flex flex-col gap-2">
+                        <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+                            <input type="checkbox" id="toggle-lines" checked class="w-4 h-4 rounded accent-lpdp-gold">
+                            <span>Tampilkan Garis Pergerakan</span>
+                        </label>
+                        <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+                            <input type="checkbox" id="toggle-markers" checked class="w-4 h-4 rounded accent-lpdp-gold">
+                            <span>Tampilkan Marker Kota</span>
+                        </label>
+                    </div>
+                </div>
+            </div><!-- /demografi-controls -->
+
         </section>
 
     </main>
@@ -398,8 +454,12 @@
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <!-- LGM Editor -->
     <script src="lgm-editor.js"></script>
+    <!-- Demografi Map -->
+    <script src="demografi.js"></script>
     <!-- Application Script -->
     <script src="app.js"></script>
 </body>

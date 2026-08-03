@@ -1,0 +1,666 @@
+{
+  "kabupaten tangerang": {
+    "lat": -6.2,
+    "lng": 106.63
+  },
+  "jakarta selatan": {
+    "lat": -6.2615,
+    "lng": 106.8106
+  },
+  "kota depok": {
+    "lat": -6.4025,
+    "lng": 106.7942
+  },
+  "jakarta": {
+    "lat": -6.2088,
+    "lng": 106.8456
+  },
+  "kabupaten lumajang": {
+    "lat": -8.1333,
+    "lng": 113.2167
+  },
+  "yogyakarta": {
+    "lat": -7.7971,
+    "lng": 110.3688
+  },
+  "kabupaten sleman": {
+    "lat": -7.7167,
+    "lng": 110.35
+  },
+  "kabupaten kediri": {
+    "lat": -7.8,
+    "lng": 111.95
+  },
+  "dublin": {
+    "lat": 53.3498,
+    "lng": -6.2603
+  },
+  "kabupaten bandung barat": {
+    "lat": -6.92,
+    "lng": 107.52
+  },
+  "kabupaten malang": {
+    "lat": -8.1,
+    "lng": 112.6
+  },
+  "london": {
+    "lat": 51.5074,
+    "lng": -0.1278
+  },
+  "kabupaten pesawaran": {
+    "lat": -5.4,
+    "lng": 105.1
+  },
+  "kota tangerang": {
+    "lat": -6.178,
+    "lng": 106.63
+  },
+  "nantes": {
+    "lat": 47.2184,
+    "lng": -1.5536
+  },
+  "kabupaten lahat": {
+    "lat": -3.8,
+    "lng": 103.5
+  },
+  "bogor": {
+    "lat": -6.5944,
+    "lng": 106.7892
+  },
+  "kabupaten jember": {
+    "lat": -8.17,
+    "lng": 113.7
+  },
+  "kota administrasi jakarta pusat": {
+    "lat": -6.1865,
+    "lng": 106.8341
+  },
+  "kota administrasi jakarta selatan": {
+    "lat": -6.2615,
+    "lng": 106.8106
+  },
+  "kota bandung": {
+    "lat": -6.9175,
+    "lng": 107.6191
+  },
+  "bandung": {
+    "lat": -6.9175,
+    "lng": 107.6191
+  },
+  "kota administrasi jakarta timur": {
+    "lat": -6.225,
+    "lng": 106.9004
+  },
+  "manchester": {
+    "lat": 53.4808,
+    "lng": -2.2426
+  },
+  "kota makassar": {
+    "lat": -5.1477,
+    "lng": 119.4327
+  },
+  "kota surabaya": {
+    "lat": -7.2575,
+    "lng": 112.7521
+  },
+  "milan": {
+    "lat": 45.4642,
+    "lng": 9.19
+  },
+  "kabupaten padang lawas": {
+    "lat": 1.1,
+    "lng": 99.8
+  },
+  "kongens lyngby": {
+    "lat": 55.77,
+    "lng": 12.5
+  },
+  "kabupaten bekasi": {
+    "lat": -6.25,
+    "lng": 107.0
+  },
+  "madrid": {
+    "lat": 40.4168,
+    "lng": -3.7038
+  },
+  "kabupaten bogor": {
+    "lat": -6.595,
+    "lng": 106.79
+  },
+  "auckland": {
+    "lat": -36.8485,
+    "lng": 174.7633
+  },
+  "kota palembang": {
+    "lat": -2.9761,
+    "lng": 104.7754
+  },
+  "surabaya": {
+    "lat": -7.2575,
+    "lng": 112.7521
+  },
+  "york": {
+    "lat": 53.959,
+    "lng": -1.0815
+  },
+  "kabupaten lombok barat": {
+    "lat": -8.65,
+    "lng": 116.0833
+  },
+  "kota bogor": {
+    "lat": -6.5944,
+    "lng": 106.7892
+  },
+  "kabupaten aceh barat": {
+    "lat": 4.276,
+    "lng": 96.151
+  },
+  "sheffield": {
+    "lat": 53.3811,
+    "lng": -1.4701
+  },
+  "kabupaten muaro jambi": {
+    "lat": -1.55,
+    "lng": 103.55
+  },
+  "kota balikpapan": {
+    "lat": -1.2635,
+    "lng": 116.827
+  },
+  "sydney": {
+    "lat": -33.8688,
+    "lng": 151.2093
+  },
+  "sleman": {
+    "lat": -7.7167,
+    "lng": 110.35
+  },
+  "kota semarang": {
+    "lat": -7.0051,
+    "lng": 110.4381
+  },
+  "kabupaten mesuji": {
+    "lat": -4.0,
+    "lng": 105.3
+  },
+  "kabupaten sleman, yogyakarta": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten tegal": {
+    "lat": -6.9,
+    "lng": 109.1333
+  },
+  "kota tidore kepulauan": {
+    "lat": 0.6833,
+    "lng": 127.4
+  },
+  "kota jayapura": {
+    "lat": -2.5916,
+    "lng": 140.669
+  },
+  "birmingham": {
+    "lat": 52.4862,
+    "lng": -1.8904
+  },
+  "kota banjar": {
+    "lat": -7.3667,
+    "lng": 108.5333
+  },
+  "kota palangka raya": {
+    "lat": -2.2167,
+    "lng": 113.9167
+  },
+  "exeter": {
+    "lat": 50.7184,
+    "lng": -3.5339
+  },
+  "kota kupang": {
+    "lat": -10.1772,
+    "lng": 123.607
+  },
+  "medford": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kota sorong": {
+    "lat": -0.8762,
+    "lng": 131.2558
+  },
+  "wageningen": {
+    "lat": 51.9692,
+    "lng": 5.6654
+  },
+  "kabupaten sukoharjo": {
+    "lat": -7.6833,
+    "lng": 110.8333
+  },
+  "kabupaten bandung": {
+    "lat": -6.95,
+    "lng": 107.6
+  },
+  "kota tangerang selatan": {
+    "lat": -6.2889,
+    "lng": 106.7183
+  },
+  "kabupaten aceh besar": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "newcastle": {
+    "lat": 54.9783,
+    "lng": -1.6178
+  },
+  "kabupaten kuantan singingi": {
+    "lat": -0.5,
+    "lng": 101.5
+  },
+  "uppsala": {
+    "lat": 59.8586,
+    "lng": 17.6389
+  },
+  "kota bekasi": {
+    "lat": -6.2349,
+    "lng": 106.9896
+  },
+  "depok": {
+    "lat": -6.4025,
+    "lng": 106.7942
+  },
+  "oxford": {
+    "lat": 51.752,
+    "lng": -1.2577
+  },
+  "kabupaten tanggamus": {
+    "lat": -5.3,
+    "lng": 104.6
+  },
+  "kabupaten karo": {
+    "lat": 3.1,
+    "lng": 98.3
+  },
+  "medan": {
+    "lat": 3.5952,
+    "lng": 98.6722
+  },
+  "kabupaten bantaeng": {
+    "lat": -5.55,
+    "lng": 119.95
+  },
+  "newcastle upon tyne": {
+    "lat": 54.9783,
+    "lng": -1.6178
+  },
+  "kabupaten jombang": {
+    "lat": -7.55,
+    "lng": 112.2333
+  },
+  "boston, massachusetts": {
+    "lat": 42.3601,
+    "lng": -71.0589
+  },
+  "kota ambon": {
+    "lat": -3.6954,
+    "lng": 128.1814
+  },
+  "semarang": {
+    "lat": -7.0051,
+    "lng": 110.4381
+  },
+  "bonn": {
+    "lat": 50.7374,
+    "lng": 7.0982
+  },
+  "melbourne": {
+    "lat": -37.8136,
+    "lng": 144.9631
+  },
+  "kota administrasi jakarta barat": {
+    "lat": -6.1683,
+    "lng": 106.7588
+  },
+  "washington, dc": {
+    "lat": 38.9072,
+    "lng": -77.0369
+  },
+  "kota surakarta": {
+    "lat": -7.5667,
+    "lng": 110.8167
+  },
+  "ghent, belgia": {
+    "lat": 51.0543,
+    "lng": 3.7174
+  },
+  "kabupaten klaten": {
+    "lat": -7.7,
+    "lng": 110.6
+  },
+  "kota bukittinggi": {
+    "lat": -0.3,
+    "lng": 100.3667
+  },
+  "kabupaten buton selatan": {
+    "lat": -5.55,
+    "lng": 122.55
+  },
+  "kabupaten kotawaringin barat": {
+    "lat": -2.4,
+    "lng": 111.7333
+  },
+  "kota yogyakarta": {
+    "lat": -7.7971,
+    "lng": 110.3688
+  },
+  "bologna": {
+    "lat": 44.4949,
+    "lng": 11.3426
+  },
+  "kabupaten jayapura": {
+    "lat": -2.55,
+    "lng": 140.7
+  },
+  "brighton": {
+    "lat": 50.8229,
+    "lng": -0.1363
+  },
+  "kota metro": {
+    "lat": -5.1167,
+    "lng": 105.3
+  },
+  "kota administrasi jakarta utara": {
+    "lat": -6.1383,
+    "lng": 106.863
+  },
+  "delft": {
+    "lat": 52.0116,
+    "lng": 4.3571
+  },
+  "kabupaten lombok utara": {
+    "lat": -8.35,
+    "lng": 116.2
+  },
+  "kabupaten sinjai": {
+    "lat": -5.2,
+    "lng": 120.1
+  },
+  "kota kediri": {
+    "lat": -7.8167,
+    "lng": 112.0167
+  },
+  "bulaksumur, kota yogyakarta, daerah istimewa yogyakarta": {
+    "lat": -7.7971,
+    "lng": 110.3688
+  },
+  "baltimore, md": {
+    "lat": 39.2904,
+    "lng": -76.6122
+  },
+  "kota mataram": {
+    "lat": -8.5833,
+    "lng": 116.1167
+  },
+  "kota pasuruan": {
+    "lat": -7.65,
+    "lng": 112.9
+  },
+  "kabupaten serang": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten fakfak": {
+    "lat": -2.92,
+    "lng": 132.3
+  },
+  "santa barbara, california": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kota medan": {
+    "lat": 3.5952,
+    "lng": 98.6722
+  },
+  "kabupaten banyumas": {
+    "lat": -7.48,
+    "lng": 109.15
+  },
+  "leeds": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "chicago": {
+    "lat": 41.8781,
+    "lng": -87.6298
+  },
+  "surakarta": {
+    "lat": -7.5667,
+    "lng": 110.8167
+  },
+  "kabupaten deli serdang": {
+    "lat": 3.55,
+    "lng": 98.7
+  },
+  "kabupaten timor tengah utara": {
+    "lat": -9.3,
+    "lng": 124.4
+  },
+  "kabupaten jayawijaya": {
+    "lat": -4.1,
+    "lng": 138.8
+  },
+  "nottingham": {
+    "lat": 52.9548,
+    "lng": -1.1581
+  },
+  "edinburgh": {
+    "lat": 55.9533,
+    "lng": -3.1883
+  },
+  "kabupaten brebes": {
+    "lat": -6.87,
+    "lng": 109.05
+  },
+  "kabupaten sidoarjo": {
+    "lat": -7.45,
+    "lng": 112.7
+  },
+  "glasgow": {
+    "lat": 55.8609,
+    "lng": -4.2514
+  },
+  "birmingham city": {
+    "lat": 52.4862,
+    "lng": -1.8904
+  },
+  "kota pekanbaru": {
+    "lat": 0.5071,
+    "lng": 101.4478
+  },
+  "bern": {
+    "lat": 46.948,
+    "lng": 7.4474
+  },
+  "kabupaten pangkajene dan kepulauan": {
+    "lat": -7.0,
+    "lng": 120.5
+  },
+  "makassae": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kota palu": {
+    "lat": -0.9,
+    "lng": 119.8667
+  },
+  "reading": {
+    "lat": 51.4543,
+    "lng": -0.9781
+  },
+  "kota malang": {
+    "lat": -7.9839,
+    "lng": 112.6214
+  },
+  "kabupaten badung": {
+    "lat": -8.58,
+    "lng": 115.18
+  },
+  "beijing": {
+    "lat": 39.9042,
+    "lng": 116.4074
+  },
+  "kabupaten belu": {
+    "lat": -9.3,
+    "lng": 124.4
+  },
+  "kabupaten pinrang": {
+    "lat": -3.3,
+    "lng": 119.6
+  },
+  "makassar": {
+    "lat": -5.1477,
+    "lng": 119.4327
+  },
+  "kabupaten tuban": {
+    "lat": -6.9,
+    "lng": 112.05
+  },
+  "kabupaten kuningan": {
+    "lat": -7.0,
+    "lng": 108.4833
+  },
+  "cilandak": {
+    "lat": -6.3072,
+    "lng": 106.7974
+  },
+  "kota batam": {
+    "lat": 1.13,
+    "lng": 104.05
+  },
+  "baltimore": {
+    "lat": 39.2904,
+    "lng": -76.6122
+  },
+  "kota bandar lampung": {
+    "lat": -5.45,
+    "lng": 105.2667
+  },
+  "depok, jawa barat": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten wakatobi": {
+    "lat": -5.3,
+    "lng": 123.5
+  },
+  "kabupaten sragen": {
+    "lat": -7.4333,
+    "lng": 111.0167
+  },
+  "kota manado": {
+    "lat": 1.4748,
+    "lng": 124.8421
+  },
+  "groningen": {
+    "lat": 53.2194,
+    "lng": 6.5665
+  },
+  "cranfield": {
+    "lat": 52.0739,
+    "lng": -0.6233
+  },
+  "kabupaten kubu raya": {
+    "lat": -0.35,
+    "lng": 109.5
+  },
+  "kota magelang": {
+    "lat": -7.4667,
+    "lng": 110.2167
+  },
+  "southampton": {
+    "lat": 50.9097,
+    "lng": -1.4044
+  },
+  "kabupaten agam": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten purworejo": {
+    "lat": -7.7167,
+    "lng": 110.0
+  },
+  "kota kendari": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "daerah istimewa yogyakarta": {
+    "lat": -7.7971,
+    "lng": 110.3688
+  },
+  "jakarta pusat": {
+    "lat": -6.1865,
+    "lng": 106.8341
+  },
+  "kota dumai": {
+    "lat": 1.6667,
+    "lng": 101.45
+  },
+  "kota ternate": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten toli-toli": {
+    "lat": 1.1,
+    "lng": 120.8
+  },
+  "kabupaten tasikmalaya": {
+    "lat": -7.35,
+    "lng": 108.1
+  },
+  "kabupaten bantul": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten indramayu": {
+    "lat": -6.33,
+    "lng": 108.32
+  },
+  "solna (stockholm)": {
+    "lat": 59.36,
+    "lng": 18.0
+  },
+  "kabupaten bangkalan": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten lombok timur": {
+    "lat": -8.5333,
+    "lng": 116.4833
+  },
+  "luar negeri": {
+    "lat": 0.0,
+    "lng": 0.0
+  },
+  "toronto": {
+    "lat": 43.6532,
+    "lng": -79.3832
+  },
+  "kabupaten bone": {
+    "lat": -4.7,
+    "lng": 120.3
+  },
+  "kabupaten manokwari": {
+    "lat": -0.8629,
+    "lng": 134.064
+  },
+  "kabupaten merauke": {
+    "lat": -8.5,
+    "lng": 140.3333
+  },
+  "diy": {
+    "lat": -6.2,
+    "lng": 106.8
+  },
+  "kabupaten magelang": {
+    "lat": -7.4667,
+    "lng": 110.2167
+  }
+}
