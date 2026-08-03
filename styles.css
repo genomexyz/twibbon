@@ -167,7 +167,7 @@ input[type="range"]::-moz-range-thumb {
     background: var(--body-bg);
     border: var(--body-border);
     padding: var(--body-pad-y) var(--body-pad-x);
-    font-size: clamp(12px, 1.05vw, 14px);
+    font-size: var(--body-fs, 13px);
     line-height: 1.4;
     color: #1f2937;
     min-height: 54px;

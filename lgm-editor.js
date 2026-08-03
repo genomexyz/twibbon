@@ -23,7 +23,8 @@
   const k = () => stage.clientWidth / 1080;
   function autoSizeTA(el) {
     el.style.height = "auto";
-    el.style.height = el.scrollHeight + "px";
+    const minH = 80; // minimum height in pixels
+    el.style.height = Math.max(minH, el.scrollHeight) + "px";
   }
 
   /* ---------- Palet warna ---------- */
@@ -258,12 +259,31 @@
     if (totalPg) totalPg.textContent = PAGES.length;
   }
 
-  /* ---------- Word count ---------- */
-  function updateWordCount(id, text) {
+  /* ---------- Character count ---------- */
+  const CHAR_LIMIT = 900;
+  function updateCharCount(id, text) {
     const el = document.getElementById("wc_" + id);
     if (!el) return;
-    const n = (text || "").trim().split(/\s+/).filter(Boolean).length;
-    el.textContent = n + " words";
+    const n = (text || "").length;
+    const pct = Math.round((n / CHAR_LIMIT) * 100);
+    let colorClass = "text-slate-500";
+    if (n > CHAR_LIMIT) colorClass = "text-rose-400 font-bold";
+    else if (pct >= 85) colorClass = "text-amber-400";
+    else if (pct >= 60) colorClass = "text-lpdp-gold";
+    el.className = "text-[11px] " + colorClass;
+    el.textContent = n + " / " + CHAR_LIMIT + " chars";
+  }
+
+  /* ---------- Dynamic body font scaling ---------- */
+  function setBoxBodyFontSize(outEl, text, scaleFactor) {
+    if (!outEl) return;
+    const charCount = (text || "").length;
+    // Base body font: 17px scaled to stage, min 12px for readability
+    const baseFs = Math.max(12, 17 * scaleFactor);
+    // Gentle reduction as text grows: at 900 chars, scale ~0.76
+    const scale = Math.max(0.72, 1 - (charCount / 3200));
+    const finalFs = baseFs * scale;
+    outEl.style.fontSize = finalFs.toFixed(2) + "px";
   }
 
   /* ---------- Remove box ---------- */
@@ -292,7 +312,7 @@
       '<label class="block text-xs text-slate-400 mb-1 font-medium mt-2">Description</label>' +
       '<textarea id="' +
       idText +
-      '" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
+      '" maxlength="' + CHAR_LIMIT + '" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
       '<div class="flex justify-between items-center mt-2">' +
       '<small class="text-[11px] text-slate-500" id="wc_' +
       boxDef.id +
@@ -305,14 +325,17 @@
     const ta = grp.querySelector("#" + CSS.escape(idText));
     ta.value = boxDef.val || "";
     autoSizeTA(ta);
-    updateWordCount(boxDef.id, boxDef.val || "");
+    if (boxDef._taHeight) ta.style.height = boxDef._taHeight;
+    updateCharCount(boxDef.id, boxDef.val || "");
 
     ta.addEventListener("input", (e) => {
       boxDef.val = e.target.value;
       const outEl = document.getElementById("out_" + boxDef.id);
       if (outEl) outEl.textContent = boxDef.val;
       autoSizeTA(e.target);
-      updateWordCount(boxDef.id, boxDef.val);
+      boxDef._taHeight = e.target.style.height;
+      updateCharCount(boxDef.id, boxDef.val);
+      setBoxBodyFontSize(outEl, boxDef.val, k());
     });
 
     const inpTitle = grp.querySelector("#" + CSS.escape(idTitle));
@@ -377,6 +400,7 @@
         out.className = "lgm-box-body";
         out.id = "out_" + b.id;
         out.textContent = b.val || "";
+        setBoxBodyFontSize(out, b.val, s);
 
         el.append(title, out);
         stage.appendChild(el);
@@ -435,6 +459,7 @@
         out.className = "lgm-box-body";
         out.id = "out_" + b.id;
         out.textContent = b.val || "";
+        setBoxBodyFontSize(out, b.val, s);
 
         card.append(title, out);
         wrap.appendChild(card);
