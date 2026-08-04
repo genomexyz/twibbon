@@ -168,7 +168,7 @@
                         <i class="fa-solid fa-circle-nodes text-lpdp-gold"></i> Hover garis untuk detail
                     </span>
                 </div>
-                <div id="demografi-map" class="w-full h-[600px] rounded-xl overflow-hidden shadow-inner bg-slate-900"></div>
+                <div id="demografi-map" class="w-full h-[720px] rounded-xl overflow-hidden shadow-inner bg-slate-900"></div>
             </div>
         </section>
 
@@ -402,6 +402,19 @@
 
             <!-- Demografi Controls (hidden in Profile/LGM mode) -->
             <div id="demografi-controls" class="hidden flex-col gap-5">
+                <!-- Search -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-magnifying-glass text-lpdp-gold"></i> Cari Awardee
+                    </h2>
+                    <div class="relative">
+                        <i class="fa-solid fa-search absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+                        <input type="text" id="demografi-search" placeholder="Ketik nama awardee..." 
+                               class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors"/>
+                    </div>
+                    <div id="demografi-search-results" class="mt-2 text-[11px] text-slate-400"></div>
+                </div>
+
                 <!-- Legend -->
                 <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
                     <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">

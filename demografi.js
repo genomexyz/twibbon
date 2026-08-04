@@ -23,6 +23,10 @@
   let markersLayer = null;
   let _data = null;
   let _initialized = false;
+  let _memberLines = [];     // { member, layer }
+  let _cityMarkers = [];     // { cityKey, layer }
+  let _searchInput = null;
+  let _searchResults = null;
 
   function init() {
     if (_initialized) return;
@@ -46,6 +50,12 @@
     linesLayer = L.layerGroup().addTo(map);
     markersLayer = L.layerGroup().addTo(map);
 
+    _searchInput = document.getElementById("demografi-search");
+    _searchResults = document.getElementById("demografi-search-results");
+    if (_searchInput) {
+      _searchInput.addEventListener("input", onSearchInput);
+    }
+
     fetch("assets/demografi/members.json")
       .then((r) => r.json())
       .then((data) => {
@@ -62,10 +72,73 @@
       });
   }
 
+  function onSearchInput() {
+    const query = (_searchInput.value || "").trim().toLowerCase();
+    applyFilter(query);
+  }
+
+  function applyFilter(query) {
+    if (!query) {
+      // Show all
+      _memberLines.forEach((item) => {
+        if (!linesLayer.hasLayer(item.layer)) linesLayer.addLayer(item.layer);
+      });
+      _cityMarkers.forEach((item) => {
+        if (!markersLayer.hasLayer(item.layer)) markersLayer.addLayer(item.layer);
+      });
+      if (_searchResults) _searchResults.textContent = "";
+      return;
+    }
+
+    // Filter members by name substring
+    const matched = _memberLines.filter((item) =>
+      item.member.nama.toLowerCase().includes(query)
+    );
+
+    // Get unique city keys for matched members
+    const activeCityKeys = new Set();
+    matched.forEach((item) => {
+      activeCityKeys.add(cityKey(item.member.origin));
+      activeCityKeys.add(cityKey(item.member.dest));
+    });
+
+    // Show/hide lines
+    _memberLines.forEach((item) => {
+      const isMatch = item.member.nama.toLowerCase().includes(query);
+      if (isMatch) {
+        if (!linesLayer.hasLayer(item.layer)) linesLayer.addLayer(item.layer);
+      } else {
+        if (linesLayer.hasLayer(item.layer)) linesLayer.removeLayer(item.layer);
+      }
+    });
+
+    // Show/hide city markers
+    _cityMarkers.forEach((item) => {
+      if (activeCityKeys.has(item.cityKey)) {
+        if (!markersLayer.hasLayer(item.layer)) markersLayer.addLayer(item.layer);
+      } else {
+        if (markersLayer.hasLayer(item.layer)) markersLayer.removeLayer(item.layer);
+      }
+    });
+
+    if (_searchResults) {
+      const count = matched.length;
+      _searchResults.textContent = count > 0
+        ? `${count} awardee ditemukan`
+        : "Tidak ada awardee yang cocok";
+    }
+  }
+
+  function cityKey(coords) {
+    return `${coords.lat.toFixed(4)},${coords.lng.toFixed(4)}`;
+  }
+
   function renderMap() {
     if (!_data || !map) return;
     linesLayer.clearLayers();
     markersLayer.clearLayers();
+    _memberLines = [];
+    _cityMarkers = [];
 
     // Draw origin → destination curved lines
     _data.forEach((m) => {
@@ -75,7 +148,6 @@
       if (!o || !d || (o.lat === 0 && o.lng === 0) || (d.lat === 0 && d.lng === 0))
         return;
 
-      // Compute curved path (quadratic bezier with midpoint offset)
       const latlngs = computeCurve(o, d);
 
       const poly = L.polyline(latlngs, {
@@ -87,16 +159,15 @@
       });
 
       poly.bindPopup(
-        `<div style="font-family:sans-serif;font-size:13px">
-          <strong>${m.nama}</strong><br/>
+        `<div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;line-height:1.5">
+          <strong style="color:#fff">${m.nama}</strong><br/>
           <span style="color:${color}">●</span> ${m.rumpun}<br/>
-          <small>${m.domisili} → ${m.tujuan}</small><br/>
-          <small>${m.univ}</small>
+          <small style="color:#94a3b8">${m.domisili} → ${m.tujuan}</small><br/>
+          <small style="color:#94a3b8">${m.univ}</small>
         </div>`,
         { maxWidth: 280 }
       );
 
-      // Highlight on hover
       poly.on("mouseover", function () {
         this.setStyle({ weight: 3.5, opacity: 0.95 });
       });
@@ -105,13 +176,14 @@
       });
 
       linesLayer.addLayer(poly);
+      _memberLines.push({ member: m, layer: poly });
     });
 
     // Draw city markers (deduplicated)
     const cityGroups = {};
     _data.forEach((m) => {
-      const oKey = `${m.origin.lat.toFixed(3)},${m.origin.lng.toFixed(3)}`;
-      const dKey = `${m.dest.lat.toFixed(3)},${m.dest.lng.toFixed(3)}`;
+      const oKey = cityKey(m.origin);
+      const dKey = cityKey(m.dest);
       if (!cityGroups[oKey]) cityGroups[oKey] = { loc: m.origin, name: m.domisili, count: 0, rumpuns: {} };
       if (!cityGroups[dKey]) cityGroups[dKey] = { loc: m.dest, name: m.tujuan, count: 0, rumpuns: {} };
       cityGroups[oKey].count++;
@@ -120,7 +192,7 @@
       cityGroups[dKey].rumpuns[m.rumpun] = (cityGroups[dKey].rumpuns[m.rumpun] || 0) + 1;
     });
 
-    Object.values(cityGroups).forEach((cg) => {
+    Object.entries(cityGroups).forEach(([cKey, cg]) => {
       const size = Math.min(18, 6 + Math.sqrt(cg.count) * 2.5);
       const rumpunList = Object.entries(cg.rumpuns)
         .sort((a, b) => b[1] - a[1])
@@ -137,32 +209,29 @@
       });
 
       circle.bindPopup(
-        `<div style="font-family:sans-serif;font-size:13px">
-          <strong>${cg.name}</strong><br/>
-          <small>Total awardee: ${cg.count}</small><br/>
+        `<div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;line-height:1.5">
+          <strong style="color:#fff">${cg.name}</strong><br/>
+          <small style="color:#94a3b8">Total awardee: ${cg.count}</small><br/>
           <div style="margin-top:4px">${rumpunList}</div>
         </div>`,
         { maxWidth: 260 }
       );
 
       markersLayer.addLayer(circle);
+      _cityMarkers.push({ cityKey: cKey, layer: circle });
     });
   }
 
   function computeCurve(o, d) {
-    // Simple quadratic bezier: compute control point offset perpendicular to line
     const steps = 20;
     const lat1 = o.lat, lng1 = o.lng;
     const lat2 = d.lat, lng2 = d.lng;
 
-    // Distance factor for curve height
     const dist = Math.sqrt(Math.pow(lat2 - lat1, 2) + Math.pow(lng2 - lng1, 2));
-    const offset = dist * 0.25; // curve height
+    const offset = dist * 0.25;
 
-    // Control point: midpoint + perpendicular offset
     const midLat = (lat1 + lat2) / 2;
     const midLng = (lng1 + lng2) / 2;
-    // Perpendicular direction
     const dx = lng2 - lng1;
     const dy = lat2 - lat1;
     const len = Math.sqrt(dx * dx + dy * dy) || 1;
@@ -175,7 +244,6 @@
     const points = [];
     for (let i = 0; i <= steps; i++) {
       const t = i / steps;
-      // Quadratic bezier: (1-t)^2 * P0 + 2(1-t)t * P1 + t^2 * P2
       const lat = Math.pow(1 - t, 2) * lat1 + 2 * (1 - t) * t * cLat + Math.pow(t, 2) * lat2;
       const lng = Math.pow(1 - t, 2) * lng1 + 2 * (1 - t) * t * cLng + Math.pow(t, 2) * lng2;
       points.push([lat, lng]);
@@ -208,19 +276,15 @@
         </div>`;
     }).join("");
 
-    // Click to toggle rumpun visibility
     legend.querySelectorAll("[data-rumpun]").forEach((el) => {
       el.addEventListener("click", () => {
         const rumpun = el.dataset.rumpun;
         el.classList.toggle("opacity-50");
         const active = !el.classList.contains("opacity-50");
 
-        linesLayer.eachLayer((layer) => {
-          if (layer._popup) {
-            const popupContent = layer._popup.getContent();
-            if (popupContent && popupContent.includes(rumpun)) {
-              layer.setStyle({ opacity: active ? 0.55 : 0.05 });
-            }
+        _memberLines.forEach((item) => {
+          if (item.member.rumpun === rumpun) {
+            item.layer.setStyle({ opacity: active ? 0.55 : 0.05 });
           }
         });
       });
@@ -235,7 +299,6 @@
     const domestic = _data.filter((m) => m.negara.toLowerCase() === "indonesia").length;
     const international = total - domestic;
 
-    // Top destinations
     const destCounts = {};
     _data.forEach((m) => {
       destCounts[m.tujuan] = (destCounts[m.tujuan] || 0) + 1;
