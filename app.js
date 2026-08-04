@@ -42,8 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Control Elements
     const photoInput = document.getElementById('photo-input');
     const lgmInput = document.getElementById('lgm-input');
-    const frameInput = document.getElementById('frame-input');
-    const btnChangeFrame = document.getElementById('btn-change-frame');
     const dropzone = document.getElementById('dropzone');
     const dropzoneLgm = document.getElementById('dropzone-lgm');
 
@@ -737,28 +735,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Custom Frame Upload
-    if (btnChangeFrame && frameInput) {
-        btnChangeFrame.addEventListener('click', () => frameInput.click());
-        frameInput.addEventListener('change', (e) => {
-            if (e.target.files && e.target.files[0]) {
-                const reader = new FileReader();
-                reader.onload = (evt) => {
-                    const img = new Image();
-                    img.crossOrigin = 'anonymous';
-                    img.onload = () => {
-                        frameImage = img;
-                        isFrameLoaded = true;
-                        renderCanvas();
-                        alert('Frame Twibbon berhasil diperbarui!');
-                    };
-                    img.src = evt.target.result;
-                };
-                reader.readAsDataURL(e.target.files[0]);
-            }
-        });
-    }
-
     // Zoom Controls
     zoomSlider.addEventListener('input', (e) => setZoomPercent(parseInt(e.target.value, 10)));
     btnZoomIn.addEventListener('click', () => {
@@ -822,5 +798,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 150);
     });
+
+    // Initialize profile mode on page load
+    switchTab('profile');
 
 });

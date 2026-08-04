@@ -287,10 +287,11 @@
   }
 
   /* ---------- Remove box ---------- */
-  function removeBox(pageIndex, boxIndex) {
+  function toggleBoxDisabled(pageIndex, boxIndex) {
     const pg = PAGES[pageIndex];
     if (!pg || !Array.isArray(pg.boxes)) return;
-    pg.boxes.splice(boxIndex, 1);
+    const box = pg.boxes[boxIndex];
+    box.disabled = !box.disabled;
     renderPage(pageIndex);
   }
 
@@ -302,24 +303,21 @@
     const idTitle = "ttl_" + boxDef.id;
     const idText = "in_" + boxDef.id;
 
+    const isDisabled = boxDef.disabled;
+    grp.className = isDisabled
+      ? "bg-slate-900/30 border border-slate-800 rounded-xl p-3 opacity-60"
+      : "bg-slate-900/60 border border-slate-700 rounded-xl p-3";
+
     grp.innerHTML =
-      '<label class="block text-xs text-slate-400 mb-1 font-medium">Heading</label>' +
-      '<input id="' +
-      idTitle +
-      '" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 focus:outline-none focus:border-lpdp-gold transition-colors" type="text" value="' +
+      '<label class="block text-xs ' + (isDisabled ? 'text-slate-600' : 'text-slate-400') + ' mb-1 font-medium">Heading</label>' +
+      '<input id="' + idTitle + '" ' + (isDisabled ? 'disabled ' : '') + 'class="w-full bg-slate-950 border ' + (isDisabled ? 'border-slate-800 text-slate-600' : 'border-slate-700 text-slate-100') + ' rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors" type="text" value="' +
       (boxDef.label || "").replace(/"/g, "&quot;") +
-      '"/>' +
-      '<label class="block text-xs text-slate-400 mb-1 font-medium mt-2">Description</label>' +
-      '<textarea id="' +
-      idText +
-      '" maxlength="' + CHAR_LIMIT + '" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
+      '"/\>' +
+      '<label class="block text-xs ' + (isDisabled ? 'text-slate-600' : 'text-slate-400') + ' mb-1 font-medium mt-2">Description</label>' +
+      '<textarea id="' + idText + '" ' + (isDisabled ? 'disabled ' : '') + 'maxlength="' + CHAR_LIMIT + '" class="w-full bg-slate-950 border ' + (isDisabled ? 'border-slate-800 text-slate-600' : 'border-slate-700 text-slate-100') + ' rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
       '<div class="flex justify-between items-center mt-2">' +
-      '<small class="text-[11px] text-slate-500" id="wc_' +
-      boxDef.id +
-      '"></small>' +
-      '<button type="button" class="px-2 py-1 rounded-md border border-rose-500/40 text-rose-400 text-[11px] hover:bg-rose-500/10 transition-colors" data-remove="' +
-      boxIndex +
-      '">Remove</button>' +
+      '<small class="text-[11px] text-slate-500" id="wc_' + boxDef.id + '"></small>' +
+      '<button type="button" class="px-2 py-1 rounded-md border ' + (isDisabled ? 'border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10' : 'border-rose-500/40 text-rose-400 hover:bg-rose-500/10') + ' text-[11px] transition-colors" data-toggle="' + boxIndex + '">' + (isDisabled ? 'Enable' : 'Disable') + '</button>' +
       "</div>";
 
     const ta = grp.querySelector("#" + CSS.escape(idText));
@@ -345,9 +343,9 @@
       if (titleEl) titleEl.textContent = boxDef.label || "";
     });
 
-    const btnRemove = grp.querySelector("[data-remove]");
-    btnRemove.addEventListener("click", () => {
-      removeBox(pageIndex, boxIndex);
+    const btnToggle = grp.querySelector("[data-toggle]");
+    btnToggle.addEventListener("click", () => {
+      toggleBoxDisabled(pageIndex, boxIndex);
     });
 
     return grp;
@@ -373,37 +371,39 @@
     if (PAGES[i].type === "abs") {
       const s = k();
       PAGES[i].boxes.forEach((b) => {
-        const el = document.createElement("div");
-        el.className = "lgm-overlay-abs lgm-box";
-        el.style.left = b.x * s + "px";
-        el.style.top = b.y * s + "px";
-        el.style.width = b.w * s + "px";
-        el.style.fontSize = b.fs * s + "px";
-        el.style.lineHeight = b.lh;
+        if (!b.disabled) {
+          const el = document.createElement("div");
+          el.className = "lgm-overlay-abs lgm-box";
+          el.style.left = b.x * s + "px";
+          el.style.top = b.y * s + "px";
+          el.style.width = b.w * s + "px";
+          el.style.fontSize = b.fs * s + "px";
+          el.style.lineHeight = b.lh;
 
-        const st = b.style || {};
-        if (st.shadow) el.style.setProperty("--shadow", st.shadow);
-        if (st.titleBg) el.style.setProperty("--title-bg", st.titleBg);
-        if (st.titleColor) el.style.setProperty("--title-color", st.titleColor);
-        if (st.bodyBg) el.style.setProperty("--body-bg", st.bodyBg);
-        if (st.bodyBorder) el.style.setProperty("--body-border", st.bodyBorder);
-        if (st.bodyPadX !== undefined) el.style.setProperty("--body-pad-x", st.bodyPadX * s + "px");
-        if (st.bodyPadY !== undefined) el.style.setProperty("--body-pad-y", st.bodyPadY * s + "px");
-        if (st.height) el.style.height = st.height * s + "px";
+          const st = b.style || {};
+          if (st.shadow) el.style.setProperty("--shadow", st.shadow);
+          if (st.titleBg) el.style.setProperty("--title-bg", st.titleBg);
+          if (st.titleColor) el.style.setProperty("--title-color", st.titleColor);
+          if (st.bodyBg) el.style.setProperty("--body-bg", st.bodyBg);
+          if (st.bodyBorder) el.style.setProperty("--body-border", st.bodyBorder);
+          if (st.bodyPadX !== undefined) el.style.setProperty("--body-pad-x", st.bodyPadX * s + "px");
+          if (st.bodyPadY !== undefined) el.style.setProperty("--body-pad-y", st.bodyPadY * s + "px");
+          if (st.height) el.style.height = st.height * s + "px";
 
-        const title = document.createElement("div");
-        title.className = "lgm-box-title";
-        title.id = "title_" + b.id;
-        title.textContent = b.label;
+          const title = document.createElement("div");
+          title.className = "lgm-box-title";
+          title.id = "title_" + b.id;
+          title.textContent = b.label;
 
-        const out = document.createElement("div");
-        out.className = "lgm-box-body";
-        out.id = "out_" + b.id;
-        out.textContent = b.val || "";
-        setBoxBodyFontSize(out, b.val, s);
+          const out = document.createElement("div");
+          out.className = "lgm-box-body";
+          out.id = "out_" + b.id;
+          out.textContent = b.val || "";
+          setBoxBodyFontSize(out, b.val, s);
 
-        el.append(title, out);
-        stage.appendChild(el);
+          el.append(title, out);
+          stage.appendChild(el);
+        }
 
         const grp = makeStdFormGroup(i, PAGES[i].boxes.indexOf(b), b);
         inputs.appendChild(grp);
@@ -436,33 +436,35 @@
       wrap.style.setProperty("--w-px", toPxW(f.widthPct));
 
       PAGES[i].boxes.forEach((b) => {
-        const card = document.createElement("div");
-        card.className = "lgm-box";
-        card.style.fontSize = b.fs * s + "px";
-        card.style.lineHeight = b.lh;
+        if (!b.disabled) {
+          const card = document.createElement("div");
+          card.className = "lgm-box";
+          card.style.fontSize = b.fs * s + "px";
+          card.style.lineHeight = b.lh;
 
-        const st = b.style || {};
-        if (st.shadow) card.style.setProperty("--shadow", st.shadow);
-        if (st.titleBg) card.style.setProperty("--title-bg", st.titleBg);
-        if (st.titleColor) card.style.setProperty("--title-color", st.titleColor);
-        if (st.bodyBg) card.style.setProperty("--body-bg", st.bodyBg);
-        if (st.bodyBorder) card.style.setProperty("--body-border", st.bodyBorder);
-        if (st.bodyPadX !== undefined) card.style.setProperty("--body-pad-x", st.bodyPadX * s + "px");
-        if (st.bodyPadY !== undefined) card.style.setProperty("--body-pad-y", st.bodyPadY * s + "px");
+          const st = b.style || {};
+          if (st.shadow) card.style.setProperty("--shadow", st.shadow);
+          if (st.titleBg) card.style.setProperty("--title-bg", st.titleBg);
+          if (st.titleColor) card.style.setProperty("--title-color", st.titleColor);
+          if (st.bodyBg) card.style.setProperty("--body-bg", st.bodyBg);
+          if (st.bodyBorder) card.style.setProperty("--body-border", st.bodyBorder);
+          if (st.bodyPadX !== undefined) card.style.setProperty("--body-pad-x", st.bodyPadX * s + "px");
+          if (st.bodyPadY !== undefined) card.style.setProperty("--body-pad-y", st.bodyPadY * s + "px");
 
-        const title = document.createElement("div");
-        title.className = "lgm-box-title";
-        title.id = "title_" + b.id;
-        title.textContent = b.label;
+          const title = document.createElement("div");
+          title.className = "lgm-box-title";
+          title.id = "title_" + b.id;
+          title.textContent = b.label;
 
-        const out = document.createElement("div");
-        out.className = "lgm-box-body";
-        out.id = "out_" + b.id;
-        out.textContent = b.val || "";
-        setBoxBodyFontSize(out, b.val, s);
+          const out = document.createElement("div");
+          out.className = "lgm-box-body";
+          out.id = "out_" + b.id;
+          out.textContent = b.val || "";
+          setBoxBodyFontSize(out, b.val, s);
 
-        card.append(title, out);
-        wrap.appendChild(card);
+          card.append(title, out);
+          wrap.appendChild(card);
+        }
 
         const grp = makeStdFormGroup(i, PAGES[i].boxes.indexOf(b), b);
         inputs.appendChild(grp);
