@@ -490,7 +490,21 @@
     if (e.key === "ArrowLeft") btnPrev.click();
     if (e.key === "ArrowRight") btnNext.click();
   });
-  window.addEventListener("resize", () => renderPage(cur));
+
+  /* ---------- Safe resize handler (mobile keyboard fix) ---------- */
+  let _lastStageWidth = 0;
+  window.addEventListener("resize", () => {
+    // Don't re-render if user is actively typing (mobile keyboard opens)
+    const active = document.activeElement;
+    if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA") && inputs && inputs.contains(active)) {
+      return;
+    }
+    // Only re-render if stage width actually changed (keyboard changes height, not width)
+    const w = stage ? stage.clientWidth : 0;
+    if (w === _lastStageWidth) return;
+    _lastStageWidth = w;
+    renderPage(cur);
+  });
 
   /* ---------- LocalStorage ---------- */
   const KEY = "lgm_pk280_v1";
