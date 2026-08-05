@@ -96,6 +96,15 @@ input[type="range"]::-moz-range-thumb {
     overflow: visible !important;
 }
 
+/* Text overlay — directly on template, no visible box */
+.lgm-text-overlay {
+    position: absolute;
+    box-sizing: border-box;
+    pointer-events: none;
+    user-select: none;
+    text-align: justify;
+}
+
 /* Background image inside stage */
 .lgm-stage #lgm-bg {
     position: absolute;
@@ -107,7 +116,7 @@ input[type="range"]::-moz-range-thumb {
     user-select: none;
 }
 
-/* Flow Layout Overlay */
+/* Flow Layout Overlay — kept for backwards compatibility but unused */
 .lgm-flow-wrap {
     position: absolute;
     left: var(--left-px, 0);
@@ -120,61 +129,52 @@ input[type="range"]::-moz-range-thumb {
     box-sizing: border-box;
 }
 
-/* Absolute Box Overlay */
+/* Absolute Box Overlay — kept for backwards compatibility but unused */
 .lgm-overlay-abs {
     position: absolute;
     box-sizing: border-box;
 }
 
-/* Generic Box */
+/* Generic Box — invisible container, text overlays PNG template directly */
 .lgm-box {
-    --title-bg: #2e6368;
-    --title-color: #daa520;
-    --body-bg: #f6e6c5;
-    --body-border: 1px solid rgba(0,0,0,.05);
-    --body-pad-x: 14px;
-    --body-pad-y: 12px;
-    --shadow: 0 8px 24px rgba(0,0,0,.06);
+    --title-color: #6F3188;
+    --body-color: #1f2937;
 
     display: flex;
     flex-direction: column;
     background: transparent;
-    box-shadow: var(--shadow);
+    box-shadow: none;
     overflow: hidden;
 }
 
-/* Box Title */
+/* Box Title — plain text on template's pre-drawn header */
 .lgm-box-title {
-    align-self: flex-start;
-    display: inline-block;
-    margin-bottom: 0;
-    padding: .6rem .8rem;
-    line-height: .8;
-    background-color: var(--title-bg);
-    color: var(--title-color);
-    border-radius: 0 12px 0 0;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Jost', sans-serif;
     font-weight: 700;
-    font-size: clamp(10px, 0.95vw, 14px);
+    color: var(--title-color);
+    background: transparent;
+    padding: 2px 4px;
+    line-height: 1.2;
+    font-size: inherit;
     white-space: nowrap;
-    max-width: 95%;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-shrink: 0;
 }
 
-/* Box Body */
+/* Box Body — plain text on template's pre-drawn content area */
 .lgm-box-body {
-    background: var(--body-bg);
-    border: var(--body-border);
-    padding: var(--body-pad-y) var(--body-pad-x);
-    font-size: var(--body-fs, 13px);
-    line-height: 1.4;
-    color: #1f2937;
-    min-height: 54px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--body-color);
+    background: transparent;
+    border: none;
+    padding: 2px 4px;
+    line-height: 1.35;
+    overflow: hidden;
     white-space: pre-wrap;
     word-wrap: break-word;
-    border-radius: 0 15px 0 15px;
-    margin: 0;
+    flex: 1;
 }
 
 /* Uniform spacing */

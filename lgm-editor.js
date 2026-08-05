@@ -1,6 +1,7 @@
 /**
- * LGM Editor — 7 Halaman WYSIWYG untuk Life Grand Map
- * Adaptasi dari LGMCakra dengan tema PK LPDP 280
+ * LGM Editor — 6 Halaman WYSIWYG untuk Life Grand Map
+ * Adaptasi dari LGMCakra dengan tema Amerta Karsa PK LPDP 280
+ * Text overlays positioned directly on PNG templates (no visible boxes)
  */
 (function () {
   "use strict";
@@ -23,20 +24,9 @@
   const k = () => stage.clientWidth / 1080;
   function autoSizeTA(el) {
     el.style.height = "auto";
-    const minH = 80; // minimum height in pixels
+    const minH = 80;
     el.style.height = Math.max(minH, el.scrollHeight) + "px";
   }
-
-  /* ---------- Palet warna ---------- */
-  const COLOR = {
-    //titleDefault: "#2e6368",
-    titleDefault: "#6f3188",
-    titleText: "#daa520",
-    bodyDefault: "#f6e6c5",
-    titleMulberry: "#61313e",
-    titleTextGold: "#f7c64b",
-    bodySelf: "#e8c0b3",
-  };
 
   /* ---------- Path BG ---------- */
   const FRAME_BASE = "assets/lgm/";
@@ -56,191 +46,135 @@
     4: withBase("frame-05.png"),
     5: withBase("frame-06.png"),
     6: withBase("frame-07.png"),
-    7: withBase("frame-08.png"),
   };
 
-  /* ---------- PAGES ---------- */
+  /* ---------- PAGES — explicit title & body positions (in 1080x1350 coords) ---------- */
+  /* 
+   * Pages 4-6 (indices 3,4,5) have pre-drawn titles on the template → hasTitleInput=false
+   * Page 6 (Grand Goals) has purple background → bodyColor=#FFFFFF
+   */
   const PAGES = [
-    /* 1) SELF POTENTIAL — flow 1 kolom */
+    /* 1) SELF POTENTIAL — 4 boxes vertical */
     {
       name: "Self Potential & Development Identification",
-      type: "flow",
       bg: FRAME[1],
-      flow: {
-        cols: 1,
-        gapPct: 1,
-        leftPct: 5.5,
-        topPct: 23,
-        widthPct: 89.5,
-        padXPct: 0,
-        padYPct: 0,
-        lock: true,
-        anchor: { mode: "manual" },
-      },
       boxes: [
-        //{ id: "p1a", label: "Skill 1", fs: 20, lh: 1.35, style: { bodyBg: COLOR.bodySelf, titleColor: "#f6e6c5" } },
-        { id: "p1a", label: "Skill 1", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
-        { id: "p1b", label: "Skill 2", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
-        { id: "p1c", label: "Skill 3", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
-        { id: "p1d", label: "Skill 4", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
+        { id: "p1a", label: "Skill 1", hasTitleInput: true,
+          titlePos: { x: 90, y: 345, w: 900, h: 30 }, titleFs: 26, titleColor: "#6F3188",
+          bodyPos: { x: 100, y: 406, w: 884, h: 98 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
+        { id: "p1b", label: "Skill 2", hasTitleInput: true,
+          titlePos: { x: 90, y: 566, w: 900, h: 30 }, titleFs: 26, titleColor: "#6F3188",
+          bodyPos: { x: 100, y: 624, w: 884, h: 98 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
+        { id: "p1c", label: "Skill 3", hasTitleInput: true,
+          titlePos: { x: 90, y: 786, w: 900, h: 30 }, titleFs: 26, titleColor: "#6F3188",
+          bodyPos: { x: 100, y: 844, w: 884, h: 98 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
+        { id: "p1d", label: "Skill 4", hasTitleInput: true,
+          titlePos: { x: 90, y: 1006, w: 900, h: 30 }, titleFs: 26, titleColor: "#6F3188",
+          bodyPos: { x: 100, y: 1066, w: 884, h: 98 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
       ],
     },
 
-    /* 2) STUDY PLAN (1–4) */
+    /* 2) STUDY PLAN (1–4) — 2x2 grid */
     {
       name: "Study Plan & Academic Achievement (1–4)",
-      type: "flow",
       bg: FRAME[2],
-      flow: {
-        cols: 2,
-        gapPct: 2,
-        leftPct: 4,
-        topPct: 21,
-        widthPct: 93,
-        padXPct: 2,
-        padYPct: 2,
-        lock: true,
-        anchor: { mode: "manual" },
-      },
       boxes: [
-        { id: "p2a", label: "1st Term", fs: 20, lh: 1.35, val: "" },
-        { id: "p2b", label: "2nd Term", fs: 20, lh: 1.35, val: "" },
-        { id: "p2c", label: "3rd Term", fs: 20, lh: 1.35, val: "" },
-        { id: "p2d", label: "4th Term", fs: 20, lh: 1.35, val: "" },
+      /*  { id: "p2a", label: "1st Term", hasTitleInput: true,
+          titlePos: { x: 90, y: 345, w: 430, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 100, y: 410, w: 440, h: 340 }, bodyFs: 15, bodyColor: "#1f2937", val: "" },
+        { id: "p2b", label: "2nd Term", hasTitleInput: true,
+          titlePos: { x: 570, y: 345, w: 430, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 580, y: 410, w: 440, h: 340 }, bodyFs: 15, bodyColor: "#1f2937", val: "" },
+        { id: "p2c", label: "3rd Term", hasTitleInput: true,
+          titlePos: { x: 90, y: 786, w: 430, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 100, y: 850, w: 440, h: 340 }, bodyFs: 15, bodyColor: "#1f2937", val: "" },
+        { id: "p2d", label: "4th Term", hasTitleInput: true,
+          titlePos: { x: 570, y: 786, w: 430, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 580, y: 850, w: 440, h: 340 }, bodyFs: 15, bodyColor: "#1f2937", val: "" }, */
+          { id: "p2a", label: "1st Year", hasTitleInput: true,                                                                                                                         
+          titlePos: { x: 90, y: 345, w: 940, h: 35 }, titleFs: 26, titleColor: "#6F3188",                                                                                                  
+          bodyPos: { x: 100, y: 400, w: 892, h: 326 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },                                                                                         
+          { id: "p2b", label: "2nd Year", hasTitleInput: true,                                                                                                                         
+          titlePos: { x: 90, y: 786, w: 940, h: 35 }, titleFs: 26, titleColor: "#6F3188",                                                                                                  
+          bodyPos: { x: 100, y: 844, w: 892, h: 326 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
+
       ],
     },
 
-    /* 3) STUDY PLAN (5–8) */
+    /* 3) STUDY PLAN (5–8) — 2x2 grid in large content area */
+    /* 3) REV LIFE GRAND MAP */
     {
       name: "Study Plan & Academic Achievement (5–8)",
-      type: "flow",
       bg: FRAME[3],
-      flow: {
-        cols: 2,
-        gapPct: 2,
-        leftPct: 4,
-        topPct: 21,
-        widthPct: 93,
-        padXPct: 2,
-        padYPct: 2,
-        lock: true,
-        anchor: { mode: "manual" },
-      },
+      /*boxes: [
+        { id: "p3a", label: "5th Term", hasTitleInput: true,
+          titlePos: { x: 60, y: 385, w: 440, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 70, y: 440, w: 460, h: 430 }, bodyFs: 15, bodyColor: "#1f2937", val: "" },
+        { id: "p3b", label: "6th Term", hasTitleInput: true,
+          titlePos: { x: 560, y: 385, w: 440, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 570, y: 440, w: 460, h: 430 }, bodyFs: 15, bodyColor: "#1f2937", val: "" },
+        { id: "p3c", label: "7th Term", hasTitleInput: true,
+          titlePos: { x: 60, y: 900, w: 440, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 70, y: 920, w: 460, h: 430 }, bodyFs: 15, bodyColor: "#1f2937", val: "" },
+        { id: "p3d", label: "8th Term", hasTitleInput: true,
+          titlePos: { x: 560, y: 900, w: 440, h: 30 }, titleFs: 20, titleColor: "#6F3188",
+          bodyPos: { x: 570, y: 920, w: 460, h: 430 }, bodyFs: 15, bodyColor: "#1f2937", val: "" },
+      ],*/
       boxes: [
-        { id: "p3a", label: "5th Term", fs: 20, lh: 1.35, val: "" },
-        { id: "p3b", label: "6th Term", fs: 20, lh: 1.35, val: "" },
-        { id: "p3c", label: "7th Term", fs: 20, lh: 1.35, val: "" },
-        { id: "p3d", label: "8th Term", fs: 20, lh: 1.35, val: "" },
+        { id: "p3a", label: "2027 – 2032", hasTitleInput: false,
+          bodyPos: { x: 96, y: 446, w: 404, h: 568 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
+        { id: "p3b", label: "2032 – 2037", hasTitleInput: false,
+          bodyPos: { x: 624, y: 446, w: 404, h: 568 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
       ],
     },
 
-    /* 4) LIFE GRAND MAP (2025–2035) */
+    /* 4) LIFE GRAND MAP (2025–2035) — titles pre-drawn */
     {
       name: "Life Grand Map (2025–2035)",
-      type: "flow",
       bg: FRAME[4],
-      flow: {
-        cols: 2,
-        gapPct: 2,
-        leftPct: 4,
-        topPct: 37,
-        widthPct: 93,
-        padXPct: 2,
-        padYPct: 2,
-        lock: true,
-        anchor: { mode: "manual" },
-      },
       boxes: [
-        {
-          id: "p4a",
-          label: "2025 – 2030",
-          fs: 22,
-          lh: 1.35,
-          val: "",
-          style: { titleBg: COLOR.titleMulberry, titleColor: COLOR.titleTextGold },
-        },
-        {
-          id: "p4b",
-          label: "2030 – 2035",
-          fs: 22,
-          lh: 1.35,
-          val: "",
-          style: { titleBg: COLOR.titleMulberry, titleColor: COLOR.titleTextGold },
-        },
+        { id: "p5a", label: "2035 – 2040", hasTitleInput: false,
+          bodyPos: { x: 70, y: 450, w: 394, h: 568 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
+        { id: "p5b", label: "2040 – Beyond", hasTitleInput: false,
+          bodyPos: { x: 594, y: 450, w: 394, h: 568 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
       ],
     },
 
-    /* 5) LIFE GRAND MAP (2035–Beyond) */
+    /* 5) LIFE GRAND MAP (2035–Beyond) — titles pre-drawn */
+    /* GRAND GOAL PLANS */
     {
       name: "Life Grand Map (2035–Beyond)",
-      type: "flow",
       bg: FRAME[5],
-      flow: {
-        cols: 2,
-        gapPct: 2,
-        leftPct: 4,
-        topPct: 37,
-        widthPct: 93,
-        padXPct: 2,
-        padYPct: 2,
-        lock: true,
-        anchor: { mode: "manual" },
-      },
       boxes: [
-        {
-          id: "p5a",
-          label: "2035 – 2040",
-          fs: 22,
-          lh: 1.35,
-          val: "",
-          style: { titleBg: COLOR.titleMulberry, titleColor: COLOR.titleTextGold },
-        },
-        {
-          id: "p5b",
-          label: "2040 – Beyond",
-          fs: 22,
-          lh: 1.35,
-          val: "",
-          style: { titleBg: COLOR.titleMulberry, titleColor: COLOR.titleTextGold },
-        },
+        { id: "p5a", label: "2035 – 2040", hasTitleInput: false,
+          bodyPos: { x: 82, y: 508, w: 908, h: 196 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
+        { id: "p5b", label: "2040 – Beyond", hasTitleInput: false,
+          bodyPos: { x: 82, y: 854, w: 908, h: 196 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
       ],
     },
 
-    /* 6) GRAND GOALS & PLANS */
+    /* 6) GRAND GOALS & PLANS — purple background, titles pre-drawn */
     {
       name: "Grand Goals & Plans",
-      type: "flow",
       bg: FRAME[6],
-      flow: {
-        cols: 1,
-        gapPct: 3,
-        leftPct: 4,
-        topPct: 21,
-        widthPct: 93,
-        padXPct: 2,
-        padYPct: 2,
-        lock: true,
-        anchor: { mode: "manual" },
-      },
-      boxes: [
-        { id: "p6a", label: "Contribution Plans", fs: 24, lh: 1.36, val: "" },
-        { id: "p6b", label: "Personal Grand Plans", fs: 24, lh: 1.36, val: "" },
+      boxes: [/*
+        { id: "p6a", label: "Contribution Plans", hasTitleInput: false,
+          bodyPos: { x: 100, y: 450, w: 880, h: 310 }, bodyFs: 16, bodyColor: "#FFFFFF", val: "" },
+        { id: "p6b", label: "Personal Grand Plans", hasTitleInput: false,
+          bodyPos: { x: 100, y: 800, w: 880, h: 270 }, bodyFs: 16, bodyColor: "#FFFFFF", val: "" },
+          */
       ],
     },
-
-    /* 7) COVER */
-    { name: "CAKRA NAWASENA — Cover", type: "abs", bg: FRAME[7], boxes: [] },
   ];
 
   /* ---------- Instruksi per halaman ---------- */
   const PAGE_INSTR = [
-    "Langkah 1 dari 7: Identifikasi & Deskripsi Potensi Diri. Isi Heading (judul) dan Description pada setiap box.",
-    "Langkah 2 dari 7: Rencana Studi & Akademik (S2). Uraikan rencana studi dan target akademik untuk empat semester pertama.",
-    "Langkah 3 dari 7: Rencana Studi & Akademik (S3). Lanjutkan pemaparan untuk empat semester terakhir.",
-    "Langkah 4 dari 7: Peta Jalan Hidup (Jangka Menengah). Tuliskan visi & rencana konkret 5–10 tahun ke depan.",
-    "Langkah 5 dari 7: Peta Jalan Hidup (Jangka Panjang). Proyeksikan impian dan rencana besar 10 tahun ke atas.",
-    "Langkah 6 dari 7: Rencana Kontribusi & Tujuan Utama. Rangkum rencana kontribusi serta tujuan besar pribadi.",
-    "Langkah 7 dari 7: Halaman Sampul (Cover). Tidak ada isian; periksa kembali halaman sebelumnya atau unduh hasilnya.",
+    "Langkah 1 dari 6: Identifikasi & Deskripsi Potensi Diri. Isi Heading (judul) dan Description pada setiap box.",
+    "Langkah 2 dari 6: Rencana Studi & Akademik (S2). Uraikan rencana studi dan target akademik untuk empat semester pertama.",
+    "Langkah 3 dari 6: Rencana Studi & Akademik (S3). Lanjutkan pemaparan untuk empat semester terakhir.",
+    "Langkah 4 dari 6: Peta Jalan Hidup (Jangka Menengah). Tuliskan visi & rencana konkret 5–10 tahun ke depan. (Judul sudah pada template)",
+    "Langkah 5 dari 6: Peta Jalan Hidup (Jangka Panjang). Proyeksikan impian dan rencana besar 10 tahun ke atas. (Judul sudah pada template)",
+    "Langkah 6 dari 6: Rencana Kontribusi & Tujuan Utama. Rangkum rencana kontribusi serta tujuan besar pribadi. (Judul sudah pada template)",
   ];
 
   /* ---------- Pager ---------- */
@@ -262,7 +196,7 @@
   }
 
   /* ---------- Character count ---------- */
-  const CHAR_LIMIT = 900;
+  const CHAR_LIMIT = 2000;
   function updateCharCount(id, text) {
     const el = document.getElementById("wc_" + id);
     if (!el) return;
@@ -276,27 +210,6 @@
     el.textContent = n + " / " + CHAR_LIMIT + " chars";
   }
 
-  /* ---------- Dynamic body font scaling ---------- */
-  function setBoxBodyFontSize(outEl, text, scaleFactor) {
-    if (!outEl) return;
-    const charCount = (text || "").length;
-    // Base body font: 17px scaled to stage, min 12px for readability
-    const baseFs = Math.max(12, 17 * scaleFactor);
-    // Gentle reduction as text grows: at 900 chars, scale ~0.76
-    const scale = Math.max(0.72, 1 - (charCount / 3200));
-    const finalFs = baseFs * scale;
-    outEl.style.fontSize = finalFs.toFixed(2) + "px";
-  }
-
-  /* ---------- Remove box ---------- */
-  function toggleBoxDisabled(pageIndex, boxIndex) {
-    const pg = PAGES[pageIndex];
-    if (!pg || !Array.isArray(pg.boxes)) return;
-    const box = pg.boxes[boxIndex];
-    box.disabled = !box.disabled;
-    renderPage(pageIndex);
-  }
-
   /* ---------- Form Standar ---------- */
   function makeStdFormGroup(pageIndex, boxIndex, boxDef) {
     const grp = document.createElement("div");
@@ -305,22 +218,25 @@
     const idTitle = "ttl_" + boxDef.id;
     const idText = "in_" + boxDef.id;
 
-    const isDisabled = boxDef.disabled;
-    grp.className = isDisabled
-      ? "bg-slate-900/30 border border-slate-800 rounded-xl p-3 opacity-60"
-      : "bg-slate-900/60 border border-slate-700 rounded-xl p-3";
+    let html = "";
 
-    grp.innerHTML =
-      '<label class="block text-xs ' + (isDisabled ? 'text-slate-600' : 'text-slate-400') + ' mb-1 font-medium">Heading</label>' +
-      '<input id="' + idTitle + '" ' + (isDisabled ? 'disabled ' : '') + 'class="w-full bg-slate-950 border ' + (isDisabled ? 'border-slate-800 text-slate-600' : 'border-slate-700 text-slate-100') + ' rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors" type="text" value="' +
-      (boxDef.label || "").replace(/"/g, "&quot;") +
-      '"/\>' +
-      '<label class="block text-xs ' + (isDisabled ? 'text-slate-600' : 'text-slate-400') + ' mb-1 font-medium mt-2">Description</label>' +
-      '<textarea id="' + idText + '" ' + (isDisabled ? 'disabled ' : '') + 'maxlength="' + CHAR_LIMIT + '" class="w-full bg-slate-950 border ' + (isDisabled ? 'border-slate-800 text-slate-600' : 'border-slate-700 text-slate-100') + ' rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
+    // Heading input only if hasTitleInput is true
+    if (boxDef.hasTitleInput) {
+      html +=
+        '<label class="block text-xs text-slate-400 mb-1 font-medium">Heading</label>' +
+        '<input id="' + idTitle + '" class="w-full bg-slate-950 border border-slate-700 text-slate-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors" type="text" value="' +
+        (boxDef.label || "").replace(/"/g, "&quot;") +
+        '"/\>';
+    }
+
+    html +=
+      '<label class="block text-xs text-slate-400 mb-1 font-medium ' + (boxDef.hasTitleInput ? "mt-2" : "") + '">Description</label>' +
+      '<textarea id="' + idText + '" maxlength="' + CHAR_LIMIT + '" class="w-full bg-slate-950 border border-slate-700 text-slate-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
       '<div class="flex justify-between items-center mt-2">' +
       '<small class="text-[11px] text-slate-500" id="wc_' + boxDef.id + '"></small>' +
-      '<button type="button" class="px-2 py-1 rounded-md border ' + (isDisabled ? 'border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10' : 'border-rose-500/40 text-rose-400 hover:bg-rose-500/10') + ' text-[11px] transition-colors" data-toggle="' + boxIndex + '">' + (isDisabled ? 'Enable' : 'Disable') + '</button>' +
       "</div>";
+
+    grp.innerHTML = html;
 
     const ta = grp.querySelector("#" + CSS.escape(idText));
     ta.value = boxDef.val || "";
@@ -335,20 +251,17 @@
       autoSizeTA(e.target);
       boxDef._taHeight = e.target.style.height;
       updateCharCount(boxDef.id, boxDef.val);
-      setBoxBodyFontSize(outEl, boxDef.val, k());
     });
 
-    const inpTitle = grp.querySelector("#" + CSS.escape(idTitle));
-    inpTitle.addEventListener("input", (e) => {
-      boxDef.label = e.target.value;
-      const titleEl = document.getElementById("title_" + boxDef.id);
-      if (titleEl) titleEl.textContent = boxDef.label || "";
-    });
-
-    const btnToggle = grp.querySelector("[data-toggle]");
-    btnToggle.addEventListener("click", () => {
-      toggleBoxDisabled(pageIndex, boxIndex);
-    });
+    // Title input event only if exists
+    if (boxDef.hasTitleInput) {
+      const inpTitle = grp.querySelector("#" + CSS.escape(idTitle));
+      inpTitle.addEventListener("input", (e) => {
+        boxDef.label = e.target.value;
+        const titleEl = document.getElementById("title_" + boxDef.id);
+        if (titleEl) titleEl.textContent = boxDef.label || "";
+      });
+    }
 
     return grp;
   }
@@ -367,113 +280,61 @@
       src ||
       'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350"><rect width="100%" height="100%" fill="%23eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="28" fill="%23999">BG missing</text></svg>';
 
-    stage.querySelectorAll(".lgm-overlay-abs, .lgm-flow-wrap").forEach((n) => n.remove());
+    stage.querySelectorAll(".lgm-text-overlay").forEach((n) => n.remove());
     if (inputs) inputs.innerHTML = "";
 
-    if (PAGES[i].type === "abs") {
-      const s = k();
-      PAGES[i].boxes.forEach((b) => {
-        if (!b.disabled) {
-          const el = document.createElement("div");
-          el.className = "lgm-overlay-abs lgm-box";
-          el.style.left = b.x * s + "px";
-          el.style.top = b.y * s + "px";
-          el.style.width = b.w * s + "px";
-          el.style.fontSize = b.fs * s + "px";
-          el.style.lineHeight = b.lh;
+    const s = k();
 
-          const st = b.style || {};
-          if (st.shadow) el.style.setProperty("--shadow", st.shadow);
-          if (st.titleBg) el.style.setProperty("--title-bg", st.titleBg);
-          if (st.titleColor) el.style.setProperty("--title-color", st.titleColor);
-          if (st.bodyBg) el.style.setProperty("--body-bg", st.bodyBg);
-          if (st.bodyBorder) el.style.setProperty("--body-border", st.bodyBorder);
-          if (st.bodyPadX !== undefined) el.style.setProperty("--body-pad-x", st.bodyPadX * s + "px");
-          if (st.bodyPadY !== undefined) el.style.setProperty("--body-pad-y", st.bodyPadY * s + "px");
-          if (st.height) el.style.height = st.height * s + "px";
-
-          const title = document.createElement("div");
-          title.className = "lgm-box-title";
-          title.id = "title_" + b.id;
-          title.textContent = b.label;
-
-          const out = document.createElement("div");
-          out.className = "lgm-box-body";
-          out.id = "out_" + b.id;
-          out.textContent = b.val || "";
-          setBoxBodyFontSize(out, b.val, s);
-
-          el.append(title, out);
-          stage.appendChild(el);
-        }
-
-        const grp = makeStdFormGroup(i, PAGES[i].boxes.indexOf(b), b);
-        inputs.appendChild(grp);
-      });
-    } else {
-      const f = PAGES[i].flow;
-      const s = k();
-      const toPxW = (p) => p * 10.8 * s + "px";
-      const toPxH = (p) => p * 13.5 * s + "px";
-
-      let leftPx = toPxW(f.leftPct);
-      let topPx = toPxH(f.topPct);
-
-      if (f.anchor && f.anchor.mode === "first-box-xy" && PAGES[i].boxes?.[f.anchor.boxIndex || 0]) {
-        const b0 = PAGES[i].boxes[f.anchor.boxIndex || 0];
-        if (typeof b0.x === "number" && typeof b0.y === "number") {
-          leftPx = b0.x * s + "px";
-          topPx = b0.y * s + "px";
-        }
+    PAGES[i].boxes.forEach((b) => {
+      // Render title text (only if hasTitleInput is true)
+      if (b.hasTitleInput && b.titlePos) {
+        const titleEl = document.createElement("div");
+        titleEl.className = "lgm-text-overlay";
+        titleEl.id = "title_" + b.id;
+        titleEl.textContent = b.label || "";
+        titleEl.style.left = b.titlePos.x * s + "px";
+        titleEl.style.top = b.titlePos.y * s + "px";
+        titleEl.style.width = b.titlePos.w * s + "px";
+        titleEl.style.maxHeight = b.titlePos.h * s + "px";
+        titleEl.style.fontSize = b.titleFs * s + "px";
+        titleEl.style.lineHeight = "1.2";
+        titleEl.style.color = b.titleColor || "#6F3188";
+        titleEl.style.fontFamily = "'Jost', sans-serif";
+        titleEl.style.fontWeight = "700";
+        titleEl.style.overflow = "hidden";
+        titleEl.style.whiteSpace = "nowrap";
+        titleEl.style.textOverflow = "ellipsis";
+        titleEl.style.position = "absolute";
+        titleEl.style.zIndex = "10";
+        stage.appendChild(titleEl);
       }
 
-      const wrap = document.createElement("div");
-      wrap.className = "lgm-flow-wrap";
-      wrap.style.setProperty("--cols", f.cols);
-      wrap.style.setProperty("--gap-px", toPxW(f.gapPct));
-      wrap.style.setProperty("--padX-px", toPxW(f.padXPct));
-      wrap.style.setProperty("--padY-px", toPxH(f.padYPct));
-      wrap.style.setProperty("--left-px", leftPx);
-      wrap.style.setProperty("--top-px", topPx);
-      wrap.style.setProperty("--w-px", toPxW(f.widthPct));
+      // Render body text
+      if (b.bodyPos) {
+        const out = document.createElement("div");
+        out.className = "lgm-text-overlay";
+        out.id = "out_" + b.id;
+        out.textContent = b.val || "";
+        out.style.left = b.bodyPos.x * s + "px";
+        out.style.top = b.bodyPos.y * s + "px";
+        out.style.width = b.bodyPos.w * s + "px";
+        out.style.height = b.bodyPos.h * s + "px";
+        out.style.fontSize = b.bodyFs * s + "px";
+        out.style.lineHeight = "1.35";
+        out.style.color = b.bodyColor || "#1f2937";
+        out.style.fontFamily = "'Inter', sans-serif";
+        out.style.fontWeight = "400";
+        out.style.overflow = "hidden";
+        out.style.whiteSpace = "pre-wrap";
+        out.style.wordWrap = "break-word";
+        out.style.position = "absolute";
+        out.style.zIndex = "10";
+        stage.appendChild(out);
+      }
 
-      PAGES[i].boxes.forEach((b) => {
-        if (!b.disabled) {
-          const card = document.createElement("div");
-          card.className = "lgm-box";
-          card.style.fontSize = b.fs * s + "px";
-          card.style.lineHeight = b.lh;
-
-          const st = b.style || {};
-          if (st.shadow) card.style.setProperty("--shadow", st.shadow);
-          if (st.titleBg) card.style.setProperty("--title-bg", st.titleBg);
-          if (st.titleColor) card.style.setProperty("--title-color", st.titleColor);
-          if (st.bodyBg) card.style.setProperty("--body-bg", st.bodyBg);
-          if (st.bodyBorder) card.style.setProperty("--body-border", st.bodyBorder);
-          if (st.bodyPadX !== undefined) card.style.setProperty("--body-pad-x", st.bodyPadX * s + "px");
-          if (st.bodyPadY !== undefined) card.style.setProperty("--body-pad-y", st.bodyPadY * s + "px");
-
-          const title = document.createElement("div");
-          title.className = "lgm-box-title";
-          title.id = "title_" + b.id;
-          title.textContent = b.label;
-
-          const out = document.createElement("div");
-          out.className = "lgm-box-body";
-          out.id = "out_" + b.id;
-          out.textContent = b.val || "";
-          setBoxBodyFontSize(out, b.val, s);
-
-          card.append(title, out);
-          wrap.appendChild(card);
-        }
-
-        const grp = makeStdFormGroup(i, PAGES[i].boxes.indexOf(b), b);
-        inputs.appendChild(grp);
-      });
-
-      stage.appendChild(wrap);
-    }
+      const grp = makeStdFormGroup(i, PAGES[i].boxes.indexOf(b), b);
+      inputs.appendChild(grp);
+    });
 
     if (pager) {
       pager.querySelectorAll("button").forEach((a, ix) => {
@@ -493,15 +354,13 @@
     if (e.key === "ArrowRight") btnNext.click();
   });
 
-  /* ---------- Safe resize handler (mobile keyboard fix) ---------- */
+  /* ---------- Safe resize handler ---------- */
   let _lastStageWidth = 0;
   window.addEventListener("resize", () => {
-    // Don't re-render if user is actively typing (mobile keyboard opens)
     const active = document.activeElement;
     if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA") && inputs && inputs.contains(active)) {
       return;
     }
-    // Only re-render if stage width actually changed (keyboard changes height, not width)
     const w = stage ? stage.clientWidth : 0;
     if (w === _lastStageWidth) return;
     _lastStageWidth = w;
@@ -509,12 +368,12 @@
   });
 
   /* ---------- LocalStorage ---------- */
-  const KEY = "lgm_pk280_v1";
+  const KEY = "lgm_pk280_v2";
 
   function saveState() {
     const data = PAGES.map((p) => {
-      const { boxes, flow, name, type } = p;
-      return { name, type, boxes, flow };
+      const { boxes, name } = p;
+      return { name, boxes };
     });
     localStorage.setItem(KEY, JSON.stringify(data));
   }
@@ -528,7 +387,6 @@
         for (let i = 0; i < PAGES.length; i++) {
           const curPg = PAGES[i],
             savPg = saved[i] || {};
-          if (savPg.flow && curPg.flow) curPg.flow = { ...curPg.flow, ...savPg.flow };
           if (Array.isArray(savPg.boxes) && Array.isArray(curPg.boxes)) {
             curPg.boxes = curPg.boxes.map((b, idx) => ({ ...b, ...(savPg.boxes[idx] || {}) }));
           }

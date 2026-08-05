@@ -18,19 +18,29 @@
                             lightGold: '#F3E5AB',
                             emerald: '#006B3F',
                             accent: '#134074'
+                        },
+                        amerta: {
+                            purple: '#6F3188',
+                            gold: '#CC8E3A',
+                            goldLight: '#FFD45A',
+                            navy: '#2D2B6E',
+                            coral: '#E6506E',
+                            orange: '#FFB248'
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        jost: ['Jost', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts -->
+    <!-- Google Fonts — Jost & Inter for Amerta Karsa branding -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Leaflet CSS -->
@@ -51,7 +61,7 @@
                     <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-2">
                         PK LPDP <span class="text-lpdp-gold">280</span>
                     </h1>
-                    <p class="text-xs text-slate-400 font-medium">Twibbon & Life Grand Map Generator</p>
+                    <p class="text-xs text-slate-400 font-medium">Amerta Karsa — Twibbon & Life Grand Map Generator</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
@@ -146,7 +156,7 @@
                 <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
                     <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>Preview WYSIWYG — Halaman <span id="lgm-page-num">1</span>/7</span>
+                        <span>Preview WYSIWYG — Halaman <span id="lgm-page-num">1</span>/6</span>
                     </span>
                     <span class="text-slate-400 hidden sm:flex items-center gap-1">
                         <i class="fa-solid fa-pen-to-square text-lpdp-gold"></i> Edit langsung di panel kanan
@@ -344,7 +354,7 @@
                         <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
                             <i class="fa-solid fa-file-lines text-lpdp-gold"></i> Navigasi Halaman
                         </h2>
-                        <span class="text-xs text-slate-400 font-medium">Halaman <span id="labelPg">1</span>/<span id="totalPg">7</span></span>
+                        <span class="text-xs text-slate-400 font-medium">Halaman <span id="labelPg">1</span>/<span id="totalPg">6</span></span>
                     </div>
                     <div id="pager" class="flex flex-wrap gap-2 mb-3"></div>
                     <div class="flex gap-2">
@@ -388,7 +398,7 @@
                         <button id="lgm-export-all" class="w-full py-3 px-4 bg-lpdp-navy hover:bg-lpdp-accent border border-lpdp-gold/40 text-lpdp-gold font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2">
                             <i class="fa-solid fa-file-zipper"></i> Download Semua (ZIP)
                         </button>
-                        <p class="text-[10px] text-slate-400 mt-1">Unduh 7 halaman sekaligus dalam ZIP.</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Unduh 6 halaman sekaligus dalam ZIP.</p>
                     </div>
                 </div>
             </div><!-- /lgm-controls -->

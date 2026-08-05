@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         offCanvas.height = CANVAS_HEIGHT;
         const oCtx = offCanvas.getContext('2d');
 
-        oCtx.fillStyle = '#06172E';
+        oCtx.fillStyle = '#2D2B6E';
         oCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
         oCtx.globalCompositeOperation = 'destination-out';
@@ -152,11 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
         oCtx.fill();
 
         oCtx.globalCompositeOperation = 'source-over';
-        oCtx.strokeStyle = '#D4AF37';
+        oCtx.strokeStyle = '#CC8E3A';
         oCtx.lineWidth = 10;
         oCtx.strokeRect(80, 160, 920, 1030);
 
-        oCtx.fillStyle = '#D4AF37';
+        oCtx.fillStyle = '#FFD45A';
         oCtx.font = 'bold 28px sans-serif';
         oCtx.textAlign = 'center';
         oCtx.fillText('PK LPDP 280', CANVAS_WIDTH / 2, 70);
@@ -311,14 +311,14 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTransformedImage(lgmImage, lgmTransform);
         } else {
             // Draw placeholder grid guide for LGM
-            ctx.fillStyle = '#06172E';
+            ctx.fillStyle = '#2D2B6E';
             ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
             
-            ctx.fillStyle = 'rgba(212, 175, 55, 0.15)';
-            ctx.font = 'bold 32px "Plus Jakarta Sans", sans-serif';
+            ctx.fillStyle = 'rgba(204, 142, 58, 0.15)';
+            ctx.font = 'bold 32px "Jost", sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('LIFE GRAND MAP (LGM) CANVAS', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 20);
-            ctx.font = '20px "Plus Jakarta Sans", sans-serif';
+            ctx.font = '20px "Inter", sans-serif';
             ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
             ctx.fillText('Unggah diagram LGM kamu untuk memulai', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 + 20);
         }
@@ -359,13 +359,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Top Banner
         const topGrad = ctx.createLinearGradient(0, 0, 0, 100);
-        topGrad.addColorStop(0, '#06172E');
-        topGrad.addColorStop(1, 'rgba(6, 23, 46, 0.9)');
+        topGrad.addColorStop(0, '#2D2B6E');
+        topGrad.addColorStop(1, 'rgba(45, 43, 110, 0.9)');
         ctx.fillStyle = topGrad;
         ctx.fillRect(0, 0, CANVAS_WIDTH, 90);
 
         // Gold line separator
-        ctx.strokeStyle = '#D4AF37';
+        ctx.strokeStyle = '#CC8E3A';
         ctx.lineWidth = 4;
         ctx.beginPath();
         ctx.moveTo(0, 90);
@@ -373,17 +373,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.stroke();
 
         // LGM Header Text
-        ctx.fillStyle = '#D4AF37';
-        ctx.font = 'extrabold 26px "Plus Jakarta Sans", sans-serif';
+        ctx.fillStyle = '#FFD45A';
+        ctx.font = 'bold 26px "Jost", sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText('LIFE GRAND MAP — PK LPDP 280', CANVAS_WIDTH / 2, 42);
 
         ctx.fillStyle = '#FFFFFF';
-        ctx.font = '600 15px "Plus Jakarta Sans", sans-serif';
+        ctx.font = '600 15px "Inter", sans-serif';
         ctx.fillText('LEMBAGA PENGELOLA DANA PENDIDIKAN', CANVAS_WIDTH / 2, 72);
 
         // Outer Gold Border
-        ctx.strokeStyle = '#D4AF37';
+        ctx.strokeStyle = '#CC8E3A';
         ctx.lineWidth = 8;
         ctx.strokeRect(4, 4, CANVAS_WIDTH - 8, CANVAS_HEIGHT - 8);
 
@@ -402,18 +402,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // === 1. Nama Lengkap — on purple bottom-left banner ===
         // Purple area roughly y=985..1076, x=0..~640
         ctx.fillStyle = '#FFFFFF';
-        ctx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
-        drawFitText(ctx, nama.toUpperCase(), 60, 1045, 580, 'bold 36px "Plus Jakarta Sans", sans-serif', '#FFFFFF');
+        ctx.font = 'bold 36px "Jost", sans-serif';
+        drawFitText(ctx, nama.toUpperCase(), 60, 1045, 580, 'bold 36px "Jost", sans-serif', '#FFFFFF');
 
         // === 2. Kampus Universitas — on gold banner below ===
         // Gold area roughly y=1076..1205
-        ctx.fillStyle = '#6E3087'; // purple text on gold background
-        ctx.font = 'bold 26px "Plus Jakarta Sans", sans-serif';
-        drawFitText(ctx, univ, 60, 1115, 560, 'bold 26px "Plus Jakarta Sans", sans-serif', '#6E3087');
+        ctx.fillStyle = '#6F3188'; // purple text on gold background
+        ctx.font = 'bold 26px "Jost", sans-serif';
+        drawFitText(ctx, univ, 60, 1115, 560, 'bold 26px "Jost", sans-serif', '#6F3188');
 
         // === 3. Jurusan / Prodi — on gold banner ===
-        ctx.font = '600 22px "Plus Jakarta Sans", sans-serif';
-        drawFitText(ctx, prodi, 60, 1155, 560, '600 22px "Plus Jakarta Sans", sans-serif', '#6E3087');
+        ctx.font = '600 22px "Jost", sans-serif';
+        drawFitText(ctx, prodi, 60, 1155, 560, '600 22px "Jost", sans-serif', '#6F3188');
 
         ctx.restore();
     }
