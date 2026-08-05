@@ -406,12 +406,126 @@
     };
   }
 
+  /* ---------- Export Canvas Text Overlay (pixel-perfect, no DOM text quirks) ---------- */
+  function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+    const paragraphs = text.split("\n");
+    let cy = y;
+    for (const para of paragraphs) {
+      const words = para.split(" ").filter((w) => w.length > 0);
+      if (words.length === 0) {
+        cy += lineHeight;
+        continue;
+      }
+
+      let lineWords = [];
+      let lineWidth = 0;
+
+      for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        const wordW = ctx.measureText(word).width;
+        const spaceW = lineWords.length > 0 ? ctx.measureText(" ").width : 0;
+
+        if (lineWidth + spaceW + wordW > maxWidth && lineWords.length > 0) {
+          // Flush current line — justified (wrapped line, not last)
+          drawJustifiedLine(ctx, lineWords, x, cy, maxWidth);
+          lineWords = [word];
+          lineWidth = wordW;
+          cy += lineHeight;
+        } else {
+          lineWords.push(word);
+          lineWidth += spaceW + wordW;
+        }
+      }
+
+      // Flush last line of paragraph — left-aligned
+      if (lineWords.length > 0) {
+        ctx.fillText(lineWords.join(" "), x, cy);
+        cy += lineHeight;
+      }
+    }
+  }
+
+  function drawJustifiedLine(ctx, words, x, y, maxWidth) {
+    if (words.length === 1) {
+      ctx.fillText(words[0], x, y);
+      return;
+    }
+
+    let totalWordsWidth = 0;
+    const wordWidths = [];
+    for (const w of words) {
+      const ww = ctx.measureText(w).width;
+      wordWidths.push(ww);
+      totalWordsWidth += ww;
+    }
+
+    const extraSpace = maxWidth - totalWordsWidth;
+    const gap = extraSpace / (words.length - 1);
+
+    let cx = x;
+    for (let i = 0; i < words.length; i++) {
+      ctx.fillText(words[i], cx, y);
+      cx += wordWidths[i] + gap;
+    }
+  }
+
+  function renderExportCanvas() {
+    const old = document.getElementById("lgm-export-canvas");
+    if (old) old.remove();
+
+    const canvas = document.createElement("canvas");
+    canvas.id = "lgm-export-canvas";
+    canvas.width = 1080;
+    canvas.height = 1350;
+    canvas.style.cssText = "position:absolute;left:0;top:0;width:100%;height:100%;z-index:20;pointer-events:none;";
+
+    const ctx = canvas.getContext("2d");
+
+    PAGES[cur].boxes.forEach((b) => {
+      // Title — exact coordinates from PAGES, no scaling
+      if (b.hasTitleInput && b.titlePos && (b.label || "").trim()) {
+        ctx.font = `bold ${b.titleFs}px "Jost", sans-serif`;
+        ctx.fillStyle = b.titleColor || "#6F3188";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "top";
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(b.titlePos.x, b.titlePos.y, b.titlePos.w, b.titlePos.h);
+        ctx.clip();
+        ctx.fillText(b.label, b.titlePos.x, b.titlePos.y);
+        ctx.restore();
+      }
+
+      // Body — exact coordinates from PAGES, no scaling
+      if (b.bodyPos && (b.val || "").trim()) {
+        ctx.font = `${b.bodyFs}px "Inter", sans-serif`;
+        ctx.fillStyle = b.bodyColor || "#1f2937";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "top";
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(b.bodyPos.x, b.bodyPos.y, b.bodyPos.w, b.bodyPos.h);
+        ctx.clip();
+        wrapText(ctx, b.val, b.bodyPos.x, b.bodyPos.y, b.bodyPos.w, b.bodyFs * 1.35);
+        ctx.restore();
+      }
+    });
+
+    stage.appendChild(canvas);
+    return canvas;
+  }
+
   /* ---------- Export ---------- */
   async function renderCanvasSafe() {
     try {
       await bgImg.decode();
     } catch (e) {}
     stage.classList.add("exporting");
+
+    // Draw pixel-perfect text onto canvas overlay, hide DOM text during export
+    const exportCanvas = renderExportCanvas();
+    stage.querySelectorAll(".lgm-text-overlay").forEach((el) => (el.style.display = "none"));
+
     await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
     try {
       const cv = await html2canvas(stage, {
@@ -422,6 +536,9 @@
       return cv;
     } finally {
       stage.classList.remove("exporting");
+      // Restore DOM text, remove export canvas
+      if (exportCanvas) exportCanvas.remove();
+      stage.querySelectorAll(".lgm-text-overlay").forEach((el) => (el.style.display = ""));
     }
   }
 
