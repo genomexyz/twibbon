@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Internal High-Res Dimensions
     const CANVAS_WIDTH = 1080;
-    const CANVAS_HEIGHT = 1080;
+    const CANVAS_HEIGHT = 1350;
     canvas.width = CANVAS_WIDTH;
     canvas.height = CANVAS_HEIGHT;
 
@@ -148,13 +148,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         oCtx.globalCompositeOperation = 'destination-out';
         oCtx.beginPath();
-        oCtx.roundRect(80, 160, 920, 760, 32);
+        oCtx.roundRect(80, 160, 920, 1030, 32);
         oCtx.fill();
 
         oCtx.globalCompositeOperation = 'source-over';
         oCtx.strokeStyle = '#D4AF37';
         oCtx.lineWidth = 10;
-        oCtx.strokeRect(80, 160, 920, 760);
+        oCtx.strokeRect(80, 160, 920, 1030);
 
         oCtx.fillStyle = '#D4AF37';
         oCtx.font = 'bold 28px sans-serif';
@@ -390,73 +390,30 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.restore();
     }
 
-    // Render Awardee Bio Card Overlay on Canvas (No Database required)
+    // Render Awardee Bio Text Overlay on Canvas — matched to new frame.svg layout
     function renderBioOverlayCard() {
-        const nama = (inputNama.value || 'Nama Awardee LPDP').trim();
-        const prodi = (inputProdi.value || 'Program Studi').trim();
-        const univ = (inputUniv.value || 'Universitas / PT').trim();
-        
-        let jenjangVal = selectJenjang.value;
-        if (jenjangVal === 'custom') {
-            jenjangVal = inputJenjangCustom.value.trim() || 'Awardee LPDP 280';
-        }
-        const negara = (inputNegara.value || 'Indonesia').trim();
+        const nama = (inputNama.value || 'Nama Lengkap').trim();
+        const prodi = (inputProdi.value || 'Jurusan').trim();
+        const univ = (inputUniv.value || 'Kampus Universitas').trim();
 
         ctx.save();
+        ctx.textAlign = 'left';
 
-        // Card Dimensions & Position
-        const cardW = 920;
-        const cardH = 140;
-        const cardX = (CANVAS_WIDTH - cardW) / 2;
-        const cardY = 750; // Positioned over lower quarter
+        // === 1. Nama Lengkap — on purple bottom-left banner ===
+        // Purple area roughly y=985..1076, x=0..~640
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
+        drawFitText(ctx, nama.toUpperCase(), 60, 1045, 580, 'bold 36px "Plus Jakarta Sans", sans-serif', '#FFFFFF');
 
-        // Glassmorphism Dark Navy Card Background
-        ctx.fillStyle = 'rgba(6, 23, 46, 0.92)';
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
-        ctx.shadowBlur = 15;
-        ctx.shadowOffsetY = 6;
+        // === 2. Kampus Universitas — on gold banner below ===
+        // Gold area roughly y=1076..1205
+        ctx.fillStyle = '#6E3087'; // purple text on gold background
+        ctx.font = 'bold 26px "Plus Jakarta Sans", sans-serif';
+        drawFitText(ctx, univ, 60, 1115, 560, 'bold 26px "Plus Jakarta Sans", sans-serif', '#6E3087');
 
-        ctx.beginPath();
-        ctx.roundRect(cardX, cardY, cardW, cardH, 20);
-        ctx.fill();
-
-        // Gold Border around Card
-        ctx.strokeStyle = '#D4AF37';
-        ctx.lineWidth = 3;
-        ctx.stroke();
-
-        ctx.shadowColor = 'transparent'; // Reset shadow
-
-        // 1. Awardee Name (Large & Bold)
-        ctx.textAlign = 'center';
-        drawFitText(ctx, nama.toUpperCase(), CANVAS_WIDTH / 2, cardY + 38, cardW - 60, 'bold 26px "Plus Jakarta Sans", sans-serif', '#F3E5AB');
-
-        // 2. Program Studi & Universitas
-        const prodiUnivText = `${prodi} — ${univ}`;
-        drawFitText(ctx, prodiUnivText, CANVAS_WIDTH / 2, cardY + 74, cardW - 60, '600 20px "Plus Jakarta Sans", sans-serif', '#FFFFFF');
-
-        // 3. Jenjang & Negara Pill Badge
-        const badgeText = `${jenjangVal} • ${negara}`;
-        
-        // Badge Background Pill
-        ctx.fillStyle = 'rgba(212, 175, 55, 0.18)';
-        ctx.strokeStyle = 'rgba(212, 175, 55, 0.5)';
-        ctx.lineWidth = 1.5;
-
-        const badgeW = Math.min(cardW - 100, ctx.measureText(badgeText).width + 40);
-        const badgeH = 32;
-        const badgeX = CANVAS_WIDTH / 2 - badgeW / 2;
-        const badgeY = cardY + 92;
-
-        ctx.beginPath();
-        ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 16);
-        ctx.fill();
-        ctx.stroke();
-
-        // Badge Text
-        ctx.fillStyle = '#D4AF37';
-        ctx.font = 'bold 15px "Plus Jakarta Sans", sans-serif';
-        ctx.fillText(badgeText, CANVAS_WIDTH / 2, badgeY + 21);
+        // === 3. Jurusan / Prodi — on gold banner ===
+        ctx.font = '600 22px "Plus Jakarta Sans", sans-serif';
+        drawFitText(ctx, prodi, 60, 1155, 560, '600 22px "Plus Jakarta Sans", sans-serif', '#6E3087');
 
         ctx.restore();
     }

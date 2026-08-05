@@ -29,7 +29,8 @@
 
   /* ---------- Palet warna ---------- */
   const COLOR = {
-    titleDefault: "#2e6368",
+    //titleDefault: "#2e6368",
+    titleDefault: "#6f3188",
     titleText: "#daa520",
     bodyDefault: "#f6e6c5",
     titleMulberry: "#61313e",
@@ -77,10 +78,11 @@
         anchor: { mode: "manual" },
       },
       boxes: [
-        { id: "p1a", label: "Skill 1", fs: 20, lh: 1.35, style: { bodyBg: COLOR.bodySelf, titleColor: "#f6e6c5" } },
-        { id: "p1b", label: "Skill 2", fs: 20, lh: 1.35, style: { bodyBg: COLOR.bodySelf, titleColor: "#f6e6c5" } },
-        { id: "p1c", label: "Skill 3", fs: 20, lh: 1.35, style: { bodyBg: COLOR.bodySelf, titleColor: "#f6e6c5" } },
-        { id: "p1d", label: "Skill 4", fs: 20, lh: 1.35, style: { bodyBg: COLOR.bodySelf, titleColor: "#f6e6c5" } },
+        //{ id: "p1a", label: "Skill 1", fs: 20, lh: 1.35, style: { bodyBg: COLOR.bodySelf, titleColor: "#f6e6c5" } },
+        { id: "p1a", label: "Skill 1", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
+        { id: "p1b", label: "Skill 2", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
+        { id: "p1c", label: "Skill 3", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
+        { id: "p1d", label: "Skill 4", fs: 20, lh: 1.35, style: { titleBg: "#FFD45A", titleColor: "#6F3188", bodyBg: "#FFFFFF" } },
       ],
     },
 

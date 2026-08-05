@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06172E"/>
+      <stop offset="50%" stop-color="#0B2545"/>
+      <stop offset="100%" stop-color="#134074"/>
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5AB"/>
+      <stop offset="30%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA7C11"/>
+      <stop offset="100%" stop-color="#F3E5AB"/>
+    </linearGradient>
+
+    <linearGradient id="redWhiteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E11D48"/>
+      <stop offset="50%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#E11D48"/>
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Mask for Frame Cutout with rounded square center -->
+    <mask id="frameCutout">
+      <!-- White reveals -->
+      <rect width="1080" height="1080" fill="white"/>
+      <!-- Black cuts out (transparent area) -->
+      <rect x="70" y="150" width="940" height="780" rx="36" ry="36" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- BACKGROUND OVERLAY MASKED (Fills outer border with dark navy gradient while keeping center transparent) -->
+  <rect width="1080" height="1080" fill="url(#navyGrad)" mask="url(#frameCutout)"/>
+
+  <!-- GOLDEN INNER BORDER AROUND PHOTO APERTURE -->
+  <rect x="70" y="150" width="940" height="780" rx="36" ry="36" fill="none" stroke="url(#goldGrad)" stroke-width="10" filter="url(#shadow)"/>
+  <rect x="80" y="160" width="920" height="760" rx="28" ry="28" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- TOP HEADER BANNER -->
+  <g filter="url(#shadow)">
+    <!-- Top Bar Path -->
+    <path d="M 0 0 L 1080 0 L 1080 130 L 780 130 L 750 110 L 330 110 L 300 130 L 0 130 Z" fill="url(#navyGrad)"/>
+    <path d="M 0 126 L 1080 126" stroke="url(#goldGrad)" stroke-width="5"/>
+    
+    <!-- Top Indonesian Flag Accent Ribbon -->
+    <rect x="0" y="0" width="1080" height="8" fill="url(#redWhiteGrad)"/>
+
+    <!-- Header Badge Center -->
+    <rect x="340" y="16" width="400" height="80" rx="16" fill="#06172E" stroke="url(#goldGrad)" stroke-width="2"/>
+    <text x="540" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="2">
+      LEMBAGA PENGELOLA DANA PENDIDIKAN
+    </text>
+    <text x="540" y="76" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="16" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">
+      PERSIAPAN KEBERANGKATAN
+    </text>
+  </g>
+
+  <!-- CORNER ART DECO ACCENTS -->
+  <!-- Top Left Corner -->
+  <g fill="none" stroke="url(#goldGrad)" stroke-width="3">
+    <path d="M 30 110 L 30 30 L 110 30"/>
+    <circle cx="30" cy="30" r="6" fill="#D4AF37"/>
+  </g>
+  <!-- Top Right Corner -->
+  <g fill="none" stroke="url(#goldGrad)" stroke-width="3">
+    <path d="M 1050 110 L 1050 30 L 970 30"/>
+    <circle cx="1050" cy="30" r="6" fill="#D4AF37"/>
+  </g>
+
+  <!-- BOTTOM FOOTER PANEL -->
+  <g filter="url(#shadow)">
+    <!-- Main Footer Container -->
+    <path d="M 0 910 L 1080 910 L 1080 1080 L 0 1080 Z" fill="url(#navyGrad)"/>
+    <line x1="0" y1="910" x2="1080" y2="910" stroke="url(#goldGrad)" stroke-width="6"/>
+
+    <!-- Red & White Ribbon Accent at Bottom -->
+    <rect x="0" y="1068" width="1080" height="12" fill="url(#redWhiteGrad)"/>
+
+    <!-- Batch Title Badge -->
+    <g transform="translate(540, 910)">
+      <!-- Badge Base -->
+      <path d="M -180 0 L 180 0 L 150 42 L -150 42 Z" fill="url(#goldGrad)"/>
+      <text x="0" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" fill="#06172E" text-anchor="middle" letter-spacing="3">
+        PK LPDP 280
+      </text>
+    </g>
+
+    <!-- Main Footer Text -->
+    <text x="540" y="990" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="36" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+      BERDAYA, MENGINSPIRASI &amp; MENGABDI
+    </text>
+
+    <!-- Motto / Subtitle -->
+    <text x="540" y="1032" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="18" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="6">
+      #GARDANANAWA280 — INDONESIA 2025
+    </text>
+  </g>
+
+  <!-- SIDE BADGES / EMBLEMS -->
+  <!-- Left Emblem Pin -->
+  <g transform="translate(100, 980)">
+    <circle cx="0" cy="0" r="32" fill="#06172E" stroke="url(#goldGrad)" stroke-width="3"/>
+    <text x="0" y="8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="20" fill="#D4AF37" text-anchor="middle">RI</text>
+  </g>
+
+  <!-- Right Emblem Pin -->
+  <g transform="translate(980, 980)">
+    <circle cx="0" cy="0" r="32" fill="#06172E" stroke="url(#goldGrad)" stroke-width="3"/>
+    <text x="0" y="8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="18" fill="#D4AF37" text-anchor="middle">280</text>
+  </g>
+</svg>
