@@ -48,6 +48,37 @@
     6: withBase("frame-07.png"),
   };
 
+  /*
+  const CHAR_LIMIT_BOX = {
+    "p1a": 192,
+    "p1b": 192,
+    "p1c": 192,
+    "p1d": 192,
+    "p2a": 637,
+    "p2b": 637,
+    "p3a": 506,
+    "p3b": 506,
+    "p4a": 483,
+    "p4b": 483,
+    "p5a": 400,
+    "p5b": 400,
+  }*/
+
+  const CHAR_LIMIT_BOX = {
+    "p1a": 306,
+    "p1b": 306,
+    "p1c": 306,
+    "p1d": 306,
+    "p2a": 1220,
+    "p2b": 1220,
+    "p3a": 920,
+    "p3b": 920,
+    "p4a": 900,
+    "p4b": 900,
+    "p5a": 720,
+    "p5b": 720,
+  }
+
   /* ---------- PAGES — explicit title & body positions (in 1080x1350 coords) ---------- */
   /* 
    * Pages 4-6 (indices 3,4,5) have pre-drawn titles on the template → hasTitleInput=false
@@ -133,9 +164,9 @@
       name: "Life Grand Map (2025–2035)",
       bg: FRAME[4],
       boxes: [
-        { id: "p5a", label: "2035 – 2040", hasTitleInput: false,
+        { id: "p4a", label: "2035 – 2040", hasTitleInput: false,
           bodyPos: { x: 70, y: 450, w: 394, h: 568 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
-        { id: "p5b", label: "2040 – Beyond", hasTitleInput: false,
+        { id: "p4b", label: "2040 – Beyond", hasTitleInput: false,
           bodyPos: { x: 594, y: 450, w: 394, h: 568 }, bodyFs: 18, bodyColor: "#1f2937", val: "" },
       ],
     },
@@ -199,15 +230,16 @@
   const CHAR_LIMIT = 2000;
   function updateCharCount(id, text) {
     const el = document.getElementById("wc_" + id);
+    var charlim = CHAR_LIMIT_BOX[id]
     if (!el) return;
     const n = (text || "").length;
-    const pct = Math.round((n / CHAR_LIMIT) * 100);
+    const pct = Math.round((n / charlim) * 100);
     let colorClass = "text-slate-500";
-    if (n > CHAR_LIMIT) colorClass = "text-rose-400 font-bold";
+    if (n > charlim) colorClass = "text-rose-400 font-bold";
     else if (pct >= 85) colorClass = "text-amber-400";
     else if (pct >= 60) colorClass = "text-lpdp-gold";
     el.className = "text-[11px] " + colorClass;
-    el.textContent = n + " / " + CHAR_LIMIT + " chars";
+    el.textContent = n + " / " + charlim + " chars";
   }
 
   /* ---------- Form Standar ---------- */
@@ -229,9 +261,11 @@
         '"/\>';
     }
 
+    //console.log("CEK CHAR", CHAR_LIMIT_BOX[idText.substring(3)], idText)
+
     html +=
       '<label class="block text-xs text-slate-400 mb-1 font-medium ' + (boxDef.hasTitleInput ? "mt-2" : "") + '">Description</label>' +
-      '<textarea id="' + idText + '" maxlength="' + CHAR_LIMIT + '" class="w-full bg-slate-950 border border-slate-700 text-slate-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
+      '<textarea id="' + idText + '" maxlength="' + CHAR_LIMIT_BOX[idText.substring(3)] + '" class="w-full bg-slate-950 border border-slate-700 text-slate-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-lpdp-gold transition-colors resize-none overflow-hidden" rows="4" placeholder="Tulis konten..."></textarea>' +
       '<div class="flex justify-between items-center mt-2">' +
       '<small class="text-[11px] text-slate-500" id="wc_' + boxDef.id + '"></small>' +
       "</div>";
