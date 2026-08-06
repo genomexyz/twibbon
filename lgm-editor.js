@@ -239,7 +239,8 @@
     else if (pct >= 85) colorClass = "text-amber-400";
     else if (pct >= 60) colorClass = "text-lpdp-gold";
     el.className = "text-[11px] " + colorClass;
-    el.textContent = n + " / " + charlim + " chars";
+//    el.textContent = n + " / " + charlim + " chars";
+    el.textContent = "";
   }
 
   /* ---------- Form Standar ---------- */
