@@ -630,6 +630,116 @@ document.addEventListener('DOMContentLoaded', () => {
 
     canvas.addEventListener('wheel', onWheel, { passive: false });
 
+    // === AUTOCOMPLETE FROM MEMBER DATABASE ===
+    const namaDropdown = document.getElementById('nama-dropdown');
+    let memberDB = [];
+    let activeDropdownIndex = -1;
+
+    async function loadMemberDB() {
+        try {
+            const resp = await fetch('member_pk.csv');
+            const text = await resp.text();
+            const lines = text.trim().split('\n');
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^\uFEFF/, ''));
+            const nameIdx = headers.indexOf('Nama Lengkap');
+            const prodiIdx = headers.indexOf('Program Studi Tujuan');
+            const univIdx = headers.indexOf('Universitas Tujuan Studi');
+            const negaraIdx = headers.indexOf('Negara Tujuan Studi');
+            const kotaIdx = headers.indexOf('Kota Tujuan Studi');
+
+            memberDB = lines.slice(1).map(line => {
+                const cols = line.split(',');
+                return {
+                    nama: cols[nameIdx]?.trim() || '',
+                    prodi: cols[prodiIdx]?.trim() || '',
+                    univ: cols[univIdx]?.trim() || '',
+                    negara: cols[negaraIdx]?.trim() || '',
+                    kota: cols[kotaIdx]?.trim() || ''
+                };
+            }).filter(m => m.nama);
+        } catch (e) {
+            console.error('Gagal memuat member_pk.csv:', e);
+        }
+    }
+    loadMemberDB();
+
+    function showDropdown(matches) {
+        if (!matches.length) { namaDropdown.classList.add('hidden'); return; }
+        namaDropdown.innerHTML = matches.map((m, i) =>
+            '<div class="dropdown-item" data-index="' + i + '" data-nama="' + m.nama.replace(/"/g, '&quot;') + '">' +
+            '<div class="font-medium">' + m.nama + '</div>' +
+            '<div class="member-detail">' + m.univ + ' · ' + m.kota + '</div>' +
+            '</div>'
+        ).join('');
+        namaDropdown.classList.remove('hidden');
+        activeDropdownIndex = -1;
+    }
+
+    function hideDropdown() {
+        namaDropdown.classList.add('hidden');
+        activeDropdownIndex = -1;
+    }
+
+    function selectMember(nama) {
+        const m = memberDB.find(x => x.nama === nama);
+        if (!m) return;
+        inputNama.value = m.nama;
+        inputProdi.value = m.prodi;
+        inputUniv.value = m.univ;
+        //inputNegara.value = m.negara;
+        hideDropdown();
+        renderCanvas();
+    }
+
+    inputNama.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        if (!q || !memberDB.length) { hideDropdown(); return; }
+        const matches = memberDB.filter(m => m.nama.toLowerCase().includes(q)).slice(0, 8);
+        showDropdown(matches);
+    });
+
+    inputNama.addEventListener('focus', () => {
+        const q = inputNama.value.trim().toLowerCase();
+        if (!q || !memberDB.length) return;
+        const matches = memberDB.filter(m => m.nama.toLowerCase().includes(q)).slice(0, 8);
+        showDropdown(matches);
+    });
+
+    inputNama.addEventListener('keydown', (e) => {
+        const items = namaDropdown.querySelectorAll('.dropdown-item');
+        if (!items.length || namaDropdown.classList.contains('hidden')) return;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            activeDropdownIndex = (activeDropdownIndex + 1) % items.length;
+            items.forEach((it, i) => it.classList.toggle('active', i === activeDropdownIndex));
+            items[activeDropdownIndex]?.scrollIntoView({ block: 'nearest' });
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            activeDropdownIndex = (activeDropdownIndex - 1 + items.length) % items.length;
+            items.forEach((it, i) => it.classList.toggle('active', i === activeDropdownIndex));
+            items[activeDropdownIndex]?.scrollIntoView({ block: 'nearest' });
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            const active = items[activeDropdownIndex];
+            if (active) selectMember(active.dataset.nama);
+        } else if (e.key === 'Escape') {
+            hideDropdown();
+        }
+    });
+
+    namaDropdown.addEventListener('click', (e) => {
+        const item = e.target.closest('.dropdown-item');
+        if (item) selectMember(item.dataset.nama);
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!document.getElementById('nama-autocomplete-wrapper').contains(e.target)) {
+            hideDropdown();
+        }
+    });
+
     // === BIO INPUT EVENTS (REALTIME CANVAS UPDATE) ===
     [inputNama, inputProdi, inputUniv, inputJenjangCustom, inputNegara].forEach(input => {
         if (input) {

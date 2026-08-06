@@ -1,5 +1,48 @@
 /* Custom styles for Twibbon Generator PK LPDP 280 */
 
+/* =========================================================
+   Suggestion Dropdown — Nama Awardee Autocomplete
+   ========================================================= */
+#nama-dropdown {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0f172a;
+}
+#nama-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+#nama-dropdown::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+#nama-dropdown::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #334155;
+    transition: background 0.15s ease;
+    color: #e2e8f0;
+}
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+.dropdown-item:hover,
+.dropdown-item.active {
+    background: #1e293b;
+    color: #ffd45a;
+}
+.dropdown-item .member-detail {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+.dropdown-item:hover .member-detail,
+.dropdown-item.active .member-detail {
+    color: #cbd5e1;
+}
+
 @layer utilities {
     .backdrop-blur-xs {
         backdrop-filter: blur(2px);

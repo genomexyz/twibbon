@@ -200,12 +200,11 @@
 
   /* ---------- Instruksi per halaman ---------- */
   const PAGE_INSTR = [
-    "Langkah 1 dari 6: Identifikasi & Deskripsi Potensi Diri. Isi Heading (judul) dan Description pada setiap box.",
-    "Langkah 2 dari 6: Rencana Studi & Akademik (S2). Uraikan rencana studi dan target akademik untuk empat semester pertama.",
-    "Langkah 3 dari 6: Rencana Studi & Akademik (S3). Lanjutkan pemaparan untuk empat semester terakhir.",
-    "Langkah 4 dari 6: Peta Jalan Hidup (Jangka Menengah). Tuliskan visi & rencana konkret 5–10 tahun ke depan. (Judul sudah pada template)",
-    "Langkah 5 dari 6: Peta Jalan Hidup (Jangka Panjang). Proyeksikan impian dan rencana besar 10 tahun ke atas. (Judul sudah pada template)",
-    "Langkah 6 dari 6: Rencana Kontribusi & Tujuan Utama. Rangkum rencana kontribusi serta tujuan besar pribadi. (Judul sudah pada template)",
+    "Langkah 1 dari 5: Identifikasi & Deskripsi Potensi Diri. Isi Heading (judul) dan Description pada setiap box.",
+    "Langkah 2 dari 5: Rencana Studi & Akademik Uraikan rencana studi dan target anda.",
+    "Langkah 3 dari 5: Peta Jalan Hidup (Jangka Menengah). Tuliskan visi & rencana konkret 5–10 tahun ke depan. (Judul sudah pada template)",
+    "Langkah 4 dari 5: Peta Jalan Hidup (Jangka Panjang). Proyeksikan impian dan rencana besar 10 tahun ke atas. (Judul sudah pada template)",
+    "Langkah 5 dari 5: Rencana Kontribusi & Tujuan Utama. Rangkum rencana kontribusi serta tujuan besar pribadi. (Judul sudah pada template)",
   ];
 
   /* ---------- Pager ---------- */
