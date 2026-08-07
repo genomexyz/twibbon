@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputNama = document.getElementById('input-nama');
     const inputProdi = document.getElementById('input-prodi');
     const inputUniv = document.getElementById('input-univ');
-    const selectJenjang = document.getElementById('select-jenjang');
-    const inputJenjangCustom = document.getElementById('input-jenjang-custom');
-    const inputNegara = document.getElementById('input-negara');
+    // const selectJenjang = document.getElementById('select-jenjang');       // commented out — not used in twibbon
+    // const inputJenjangCustom = document.getElementById('input-jenjang-custom'); // commented out — not used in twibbon
+    // const inputNegara = document.getElementById('input-negara');           // commented out — not used in twibbon
     const checkboxShowBio = document.getElementById('checkbox-show-bio');
 
     // Control Elements
@@ -113,9 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartScale = 1;
 
     // Frame Sources
-    const FRAME_SOURCES = [
+    /*const FRAME_SOURCES = [
         'assets/frame.svg',
         'assets/frame.png'
+    ];*/
+
+    const FRAME_SOURCES = [
+        'assets/frame.png',
+        'assets/frame.svg'
     ];
 
     // Load Frame
@@ -253,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholderTitle.textContent = 'Unggah Life Grand Map';
             placeholderSub.textContent = 'Upload file gambar diagram Life Grand Map (LGM) kamu untuk dijadikan Twibbon LGM.';
             placeholderBtnText.textContent = 'Upload Diagram LGM';
-            placeholderUploadBtn.onclick = () => (lgmInput.click() || photoInput.click());
+            placeholderUploadBtn.onclick = () => lgmInput.click();
         }
     }
 
@@ -741,20 +746,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // === BIO INPUT EVENTS (REALTIME CANVAS UPDATE) ===
-    [inputNama, inputProdi, inputUniv, inputJenjangCustom, inputNegara].forEach(input => {
+    [inputNama, inputProdi, inputUniv /* inputJenjangCustom, inputNegara */].forEach(input => {
         if (input) {
             input.addEventListener('input', renderCanvas);
         }
     });
 
-    selectJenjang.addEventListener('change', (e) => {
-        if (e.target.value === 'custom') {
-            inputJenjangCustom.classList.remove('hidden');
-        } else {
-            inputJenjangCustom.classList.add('hidden');
-        }
-        renderCanvas();
-    });
+    // selectJenjang listener removed — field commented out in HTML, not used in twibbon
+    // if (selectJenjang) { ... }
 
     checkboxShowBio.addEventListener('change', renderCanvas);
 

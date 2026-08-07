@@ -1,5 +1,15 @@
 /* Custom styles for Twibbon Generator PK LPDP 280 */
 
+/* Hidden file input that still works with JS .click() on mobile Safari */
+.hidden-file-input {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
 /* =========================================================
    Suggestion Dropdown — Nama Awardee Autocomplete
    ========================================================= */
