@@ -772,7 +772,7 @@ Melalui [bidang studi/tujuan studi], saya berkomitmen untuk terus belajar, berka
 
 Bersama Amertakarsa tekad adalah yang abadi semoga setiap langkah yang kita tempuh dapat menjadi bagian dari upaya Menyalakan Asa, Menghidupkan Bangsa. ✨
 
-#LPDP #PK280 #Amertakarsa #MenyalakanAsaMenghidupkanBangsa #DiriUntukNegeri`;
+#LPDP #PK280 #Amertakarsa #MenyalakanAsaMenghidupkanBangsa #DiriUntukNegeri #AkuPastiMengabdi`;
 
     function updateCaption() {
         if (!captionTextarea) return;
