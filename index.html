@@ -18,9 +18,10 @@ img{max-width:100%}
 /* ---------- Nav ---------- */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;background:#FBF9F6;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(45,43,110,0.1)}
 .nav-logo{height:44px;width:auto}
-.nav-links{display:flex;gap:36px;align-items:center;font-size:15px;font-weight:500;letter-spacing:0.04em}
-.btn-kontak{background:#6F3188;color:#fff;padding:10px 24px;border-radius:999px;transition:background 0.2s ease}
-.btn-kontak:hover{background:#2D2B6E;color:#fff}
+.nav-links{display:flex;gap:36px;align-items:center;font-size:15px;font-weight:500;letter-spacing:0.04em;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{white-space:nowrap}
+.nav-cta{background:#6F3188;color:#fff;padding:10px 24px;border-radius:999px;transition:background 0.2s ease}
+.nav-cta:hover{background:#2D2B6E;color:#fff}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;background:linear-gradient(160deg,#2D2B6E 0%,#4A2A7A 55%,#6F3188 100%);color:#fff;overflow:hidden}
@@ -127,7 +128,8 @@ img{max-width:100%}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1024px){
-  .nav{padding:18px 32px}
+  .nav{padding:18px 32px;gap:16px}
+  .nav-links{gap:14px 24px;font-size:14px}
   .hero-inner{padding:72px 32px 0}
   .stats-grid{padding:28px 32px}
   .section{padding:88px 32px 0}
@@ -151,7 +153,7 @@ img{max-width:100%}
 @media (max-width:768px){
   .nav{flex-direction:column;gap:14px;padding:14px 20px}
   .nav-links{flex-wrap:wrap;justify-content:center;gap:14px 22px;font-size:14px}
-  .btn-kontak{padding:8px 20px}
+  .nav-cta{padding:8px 20px}
   .section,.footer{scroll-margin-top:130px}
   .hero-inner{padding:56px 20px 0}
   .stats-grid{grid-template-columns:repeat(2,1fr);padding:24px 20px}
@@ -182,7 +184,8 @@ img{max-width:100%}
     <a href="#maskot">Maskot</a>
     <a href="#kelompok">Kelompok</a>
     <a href="#proyek-sosial">Proyek Sosial</a>
-    <a href="#kontak" class="btn-kontak">Kontak</a>
+    <a href="#kontak">Kontak</a>
+    <a href="twibbon.html" class="nav-cta">Twibbon &amp; LGM</a>
   </div>
 </nav>
 
