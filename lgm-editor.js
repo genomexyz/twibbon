@@ -201,7 +201,7 @@
   /* ---------- Instruksi per halaman ---------- */
   const PAGE_INSTR = [
     "Langkah 1 dari 5: Identifikasi & Deskripsi Potensi Diri. Isi Heading (judul) dan Description pada setiap box.",
-    "Langkah 2 dari 5: Rencana Studi & Akademik Uraikan rencana studi dan target anda.",
+    "Langkah 2 dari 5: Rencana Studi & Akademik Uraikan rencana studi dan target anda. Untuk S3, edit judul jadi 1st & 2nd Year dan 3rd year and beyond",
     "Langkah 3 dari 5: Peta Jalan Hidup (Jangka Menengah). Tuliskan visi & rencana konkret 5–10 tahun ke depan. (Judul sudah pada template)",
     "Langkah 4 dari 5: Peta Jalan Hidup (Jangka Panjang). Proyeksikan impian dan rencana besar 10 tahun ke atas. (Judul sudah pada template)",
     "Langkah 5 dari 5: Rencana Kontribusi & Tujuan Utama. Rangkum rencana kontribusi serta tujuan besar pribadi. (Judul sudah pada template)",
