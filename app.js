@@ -414,11 +414,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Gold area roughly y=1076..1205
         ctx.fillStyle = '#6F3188'; // purple text on gold background
         ctx.font = 'bold 26px "Jost", sans-serif';
-        drawFitText(ctx, univ, 60, 1115, 560, 'bold 26px "Jost", sans-serif', '#6F3188');
+        drawFitText(ctx, univ, 60, 1113, 560, 'bold 26px "Jost", sans-serif', '#6F3188');
 
         // === 3. Jurusan / Prodi — on gold banner ===
         ctx.font = '600 22px "Jost", sans-serif';
-        drawFitText(ctx, prodi, 60, 1155, 560, '600 22px "Jost", sans-serif', '#6F3188');
+        drawFitText(ctx, prodi, 60, 1147, 560, '600 22px "Jost", sans-serif', '#6F3188');
 
         ctx.restore();
     }
