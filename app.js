@@ -693,6 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
         inputUniv.value = m.univ;
         //inputNegara.value = m.negara;
         hideDropdown();
+        updateCaption();
         renderCanvas();
     }
 
@@ -756,6 +757,68 @@ document.addEventListener('DOMContentLoaded', () => {
     // if (selectJenjang) { ... }
 
     checkboxShowBio.addEventListener('change', renderCanvas);
+
+    // === CAPTION TEMPLATE AUTO-FILL ===
+    const captionTextarea = document.getElementById('caption-textarea');
+    const btnCopyCaption = document.getElementById('btn-copy-caption');
+    const copyIcon = document.getElementById('copy-icon');
+    const copyText = document.getElementById('copy-text');
+
+    const captionTemplate = `Menjaga asa tetap menyala adalah pilihan. Mengubahnya menjadi dampak nyata adalah tujuan!
+
+Saya [Nama] akan melanjutkan studi [Jenjang] Program Studi [Prodi] di [Universitas] sebagai Awardee LPDP PK-280, bersama @pk280.lpdp dan @lpdp_ri.
+
+Melalui [bidang studi/tujuan studi], saya berkomitmen untuk terus belajar, berkarya, dan mengabdi demi menghadirkan kontribusi nyata bagi Indonesia.
+
+Bersama Amertakarsa tekad adalah yang abadi semoga setiap langkah yang kita tempuh dapat menjadi bagian dari upaya Menyalakan Asa, Menghidupkan Bangsa. ✨
+
+#LPDP #PK280 #Amertakarsa #MenyalakanAsaMenghidupkanBangsa #DiriUntukNegeri`;
+
+    function updateCaption() {
+        if (!captionTextarea) return;
+        const nama = (inputNama?.value || '[Nama]').trim();
+        const prodi = (inputProdi?.value || '[Prodi]').trim();
+        const univ = (inputUniv?.value || '[Universitas]').trim();
+
+        let caption = captionTemplate;
+        caption = caption.replace(/\[Nama\]/g, nama);
+        caption = caption.replace(/\[Prodi\]/g, prodi);
+        caption = caption.replace(/\[Universitas\]/g, univ);
+
+        captionTextarea.value = caption;
+    }
+
+    [inputNama, inputProdi, inputUniv].forEach(input => {
+        if (input) input.addEventListener('input', updateCaption);
+    });
+
+    // Initial fill
+    updateCaption();
+
+    if (btnCopyCaption && captionTextarea) {
+        btnCopyCaption.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(captionTextarea.value);
+                const originalText = copyText.textContent;
+                const originalIcon = copyIcon.className;
+                copyText.textContent = 'Tersalin!';
+                copyIcon.className = 'fa-solid fa-check text-emerald-400';
+                btnCopyCaption.classList.add('border-emerald-500/50', 'text-emerald-300');
+                setTimeout(() => {
+                    copyText.textContent = originalText;
+                    copyIcon.className = originalIcon;
+                    btnCopyCaption.classList.remove('border-emerald-500/50', 'text-emerald-300');
+                }, 2000);
+            } catch (err) {
+                // Fallback for older browsers / insecure contexts
+                captionTextarea.select();
+                captionTextarea.setSelectionRange(0, 999999);
+                document.execCommand('copy');
+                copyText.textContent = 'Tersalin!';
+                setTimeout(() => copyText.textContent = 'Salin Caption', 2000);
+            }
+        });
+    }
 
     // === FILE INPUT & DROPZONE HANDLERS ===
     photoInput.addEventListener('change', (e) => {
