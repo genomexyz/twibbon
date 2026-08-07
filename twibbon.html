@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twibbon & LGM Generator PK LPDP 280</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lpdp: {
+                            navy: '#0B2545',
+                            darkNavy: '#06172E',
+                            gold: '#D4AF37',
+                            lightGold: '#F3E5AB',
+                            emerald: '#006B3F',
+                            accent: '#134074'
+                        },
+                        amerta: {
+                            purple: '#6F3188',
+                            gold: '#CC8E3A',
+                            goldLight: '#FFD45A',
+                            navy: '#2D2B6E',
+                            coral: '#E6506E',
+                            orange: '#FFB248'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        jost: ['Jost', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts — Jost & Inter for Amerta Karsa branding -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Site icon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col antialiased">
+
+    <!-- Header Navigation -->
+    <header class="bg-lpdp-darkNavy border-b border-lpdp-gold/20 shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="logo.png" alt="Logo PK LPDP 280" class="w-10 h-10 object-contain">
+                <div>
+                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-2">
+                        PK LPDP <span class="text-lpdp-gold">280</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 font-medium">Amerta Karsa — Menyalakan asa, menghidupkan bangsa</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-lpdp-gold transition-colors text-sm flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-lpdp-gold/50 bg-slate-800/50">
+                    <i class="fa-brands fa-github text-base"></i>
+                    <span class="hidden sm:inline font-medium">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mode Selector Banner Tabs -->
+    <div class="bg-slate-950/80 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-3 py-2.5">
+            <button id="tab-profile" class="active-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-lpdp-gold/40 bg-lpdp-navy text-lpdp-gold shadow-md">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <span>Twibbon Foto Profil</span>
+            </button>
+            <button id="tab-lgm" class="inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span>Life Grand Map (LGM)</span>
+            </button>
+            <button id="tab-demografi" class="inactive-tab flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:border-slate-600">
+                <i class="fa-solid fa-earth-asia"></i>
+                <span>Demografi Angkatan</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Preview Canvas Section (Left / Top) -->
+        <section class="lg:col-span-7 flex flex-col items-center sticky top-20">
+            <div id="profile-stage-wrapper" class="w-full max-w-lg bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+                <!-- Status Badge & Tip -->
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
+                    <span id="canvas-status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse" id="status-indicator"></span>
+                        <span id="status-text">Unggah foto kamu terlebih dahulu</span>
+                    </span>
+                    <span class="text-slate-400 hidden sm:flex items-center gap-1">
+                        <i class="fa-solid fa-hand-pointer text-lpdp-gold"></i> Drag / Pinch untuk Atur
+                    </span>
+                </div>
+
+                <!-- Canvas Preview Box -->
+                <div class="relative w-full bg-slate-950 rounded-xl overflow-hidden border-2 border-dashed border-slate-700 hover:border-lpdp-gold/50 transition-all group shadow-inner flex items-center justify-center select-none" id="canvas-wrapper" style="aspect-ratio: 1080 / 1350;">
+                    
+                    <!-- Interactive Canvas -->
+                    <canvas id="twibbon-canvas" class="w-full h-full object-contain cursor-grab active:cursor-grabbing relative z-10 touch-none"></canvas>
+
+                    <!-- Initial Placeholder State (Before Photo Upload) -->
+                    <div id="canvas-placeholder" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-20 pointer-events-none bg-slate-900/90 backdrop-blur-xs transition-opacity duration-300">
+                        <div class="w-16 h-16 rounded-full bg-lpdp-navy/80 border border-lpdp-gold/40 flex items-center justify-center mb-4 text-lpdp-gold text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-cloud-arrow-up" id="placeholder-icon"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-1" id="placeholder-title">Pilih Foto Kamu</h3>
+                        <p class="text-xs text-slate-400 max-w-xs mb-4" id="placeholder-sub">Format JPG, PNG, atau WEBP. Foto dapat digeser, diperbesar/dikecilkan & diputar secara langsung.</p>
+                        <button id="placeholder-upload-btn" class="pointer-events-auto px-5 py-2.5 bg-gradient-to-r from-lpdp-gold to-amber-500 hover:from-amber-400 hover:to-amber-600 text-slate-950 font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fa-solid fa-image"></i>
+                            <span id="placeholder-btn-text">Upload Foto</span>
+                        </button>
+                    </div>
+
+                    <!-- Visual Dragging Helper Overlay -->
+                    <div id="gesture-hint" class="hidden absolute top-3 left-3 z-20 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700 text-[11px] text-slate-300 pointer-events-none transition-opacity duration-500">
+                        <i class="fa-solid fa-arrows-up-down-left-right text-lpdp-gold mr-1"></i> Drag untuk menggeser gambar
+                    </div>
+                </div>
+
+                <!-- Canvas Control Quick Bar (Below Canvas) -->
+                <div class="mt-4 flex items-center justify-between text-xs text-slate-400 bg-slate-900/60 rounded-xl p-2.5 border border-slate-700/50">
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-slate-300"><i class="fa-solid fa-magnifying-glass text-lpdp-gold mr-1"></i> Zoom:</span>
+                        <span id="zoom-value" class="font-bold text-white w-10">100%</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="btn-zoom-out" title="Perkecil" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-200 flex items-center justify-center transition-colors border border-slate-700">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input type="range" id="zoom-slider" min="10" max="300" value="100" class="w-24 sm:w-32 accent-amber-400 cursor-pointer">
+                        <button id="btn-zoom-in" title="Perbesar" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-200 flex items-center justify-center transition-colors border border-slate-700">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LGM Stage Preview (hidden in Profile mode) -->
+            <div id="lgm-stage-wrapper" class="hidden w-full bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Preview WYSIWYG — Halaman <span id="lgm-page-num">1</span>/6</span>
+                    </span>
+                    <span class="text-slate-400 hidden sm:flex items-center gap-1">
+                        <i class="fa-solid fa-pen-to-square text-lpdp-gold"></i> Edit langsung di panel kanan
+                    </span>
+                </div>
+                <div id="lgm-stage" class="lgm-stage relative w-full bg-white rounded-xl overflow-hidden shadow-inner">
+                    <img id="lgm-bg" class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none" alt="Background halaman" />
+                </div>
+            </div>
+
+            <!-- Demografi Map Preview (hidden in Profile/LGM mode) -->
+            <div id="demografi-stage-wrapper" class="hidden w-full bg-slate-800/80 rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-2xl backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-300">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-700 border border-slate-600 font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Peta Distribusi Awardee PK 280</span>
+                    </span>
+                    <span class="text-slate-400 hidden sm:flex items-center gap-1">
+                        <i class="fa-solid fa-circle-nodes text-lpdp-gold"></i> Hover garis untuk detail
+                    </span>
+                </div>
+                <div id="demografi-map" class="w-full h-[720px] rounded-xl overflow-hidden shadow-inner bg-slate-900"></div>
+            </div>
+        </section>
+
+        <!-- Control Panel Section (Right / Bottom) -->
+        <section class="lg:col-span-5 flex flex-col gap-5">
+
+            <!-- Profile Controls -->
+            <div id="profile-controls" class="flex flex-col gap-5">
+
+            <!-- Awardee Bio Information Card (No Database Required) -->
+            <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-lpdp-gold"></i> Data Awardee
+                    </h2>
+                    <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-slate-300 font-medium">
+                        <input type="checkbox" id="checkbox-show-bio" checked class="w-4 h-4 rounded accent-lpdp-gold">
+                        <span>Tampilkan Teks</span>
+                    </label>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <!-- Nama Lengkap -->
+                    <div class="sm:col-span-2">
+                        <label class="block text-slate-400 mb-1 font-medium">Nama Lengkap & Gelar</label>
+                        <div class="relative" id="nama-autocomplete-wrapper">
+                            <i class="fa-solid fa-user absolute left-3 top-2.5 text-slate-500 z-10"></i>
+                            <input type="text" id="input-nama" placeholder="Contoh: Ahmad Fadhil, S.T." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors relative z-10" autocomplete="off">
+                            <div id="nama-dropdown" class="hidden absolute left-0 right-0 top-full mt-1 bg-slate-800 border border-slate-600 rounded-xl shadow-xl z-50 max-h-60 overflow-y-auto"></div>
+                        </div>
+                    </div>
+
+                    <!-- Program Studi -->
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-medium">Program Studi</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-graduation-cap absolute left-3 top-2.5 text-slate-500"></i>
+                            <input type="text" id="input-prodi" placeholder="Contoh: Teknik Informatika" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Universitas / Perguruan Tinggi -->
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-medium">Universitas / PT</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-building-columns absolute left-3 top-2.5 text-slate-500"></i>
+                            <input type="text" id="input-univ" placeholder="Contoh: ITB / Imperial College" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Jenjang Studi -->
+                    <!--<div>
+                        <label class="block text-slate-400 mb-1 font-medium">Jenjang Studi</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-award absolute left-3 top-2.5 text-slate-500 z-10"></i>
+                            <select id="select-jenjang" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 focus:outline-none focus:border-lpdp-gold transition-colors appearance-none cursor-pointer">
+                                <option value="Magister Dalam Negeri">Magister Dalam Negeri</option>
+                                <option value="Magister Luar Negeri">Magister Luar Negeri</option>
+                                <option value="Doktor Dalam Negeri">Doktor Dalam Negeri</option>
+                                <option value="Doktor Luar Negeri">Doktor Luar Negeri</option>
+                                <option value="custom">Kustom Teks...</option>
+                            </select>
+                        </div>
+                        <input type="text" id="input-jenjang-custom" placeholder="Tulis Jenjang Kustom..." class="hidden w-full mt-2 bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-slate-100 text-xs focus:outline-none focus:border-lpdp-gold">
+                    </div>-->
+
+                    <!-- Negara Tujuan -->
+                    <!--<div>
+                        <label class="block text-slate-400 mb-1 font-medium">Negara Tujuan</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-earth-asia absolute left-3 top-2.5 text-slate-500"></i>
+                            <input type="text" id="input-negara" placeholder="Contoh: Indonesia / Inggris" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors">
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            
+            <!-- Upload Card -->
+            <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                <h2 class="text-sm font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-upload text-lpdp-gold"></i> <span id="upload-card-title">1. Unggah Foto Profil</span>
+                </h2>
+                
+                <!-- File Dropzone for Profile Photo -->
+                <div id="dropzone" class="border-2 border-dashed border-slate-600 hover:border-lpdp-gold bg-slate-900/50 rounded-xl p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-center group">
+                    <input type="file" id="photo-input" accept="image/*" class="hidden-file-input">
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400 group-hover:text-lpdp-gold mb-1.5 transition-colors"></i>
+                    <p class="text-xs font-semibold text-slate-200" id="dropzone-label">Klik atau seret Foto Profil ke sini</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Mendukung format JPG, PNG, WEBP</p>
+                </div>
+
+                <!-- Secondary File Dropzone for Life Grand Map (Shown in LGM Mode or toggle) -->
+                <div id="lgm-dropzone-wrapper" class="hidden mt-3 pt-3 border-t border-slate-700">
+                    <label class="block text-xs font-semibold text-slate-300 mb-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-map text-lpdp-gold"></i> Unggah Gambar Life Grand Map (LGM):
+                    </label>
+                    <div id="dropzone-lgm" class="border-2 border-dashed border-slate-600 hover:border-lpdp-gold bg-slate-900/50 rounded-xl p-3.5 text-center cursor-pointer transition-all flex flex-col items-center justify-center group">
+                        <input type="file" id="lgm-input" accept="image/*" class="hidden-file-input">
+                        <i class="fa-solid fa-file-image text-xl text-slate-400 group-hover:text-lpdp-gold mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-200">Upload Gambar Roadmap LGM</p>
+                        <p class="text-[10px] text-slate-400">File PNG/JPG diagram Life Grand Map kamu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position & Fine Control Adjustments Card -->
+            <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm flex flex-col gap-4">
+                <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-lpdp-gold"></i> 2. Penyesuaian Gambar (<span id="active-target-text">Foto</span>)
+                </h2>
+
+                <!-- Control Buttons Grid -->
+                <div class="grid grid-cols-2 gap-2.5">
+                    <!-- Rotate Left -->
+                    <button id="btn-rotate-left" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-rotate-left text-lpdp-gold"></i>
+                        <span>Putar Kiri</span>
+                    </button>
+                    <!-- Rotate Right -->
+                    <button id="btn-rotate-right" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-rotate-right text-lpdp-gold"></i>
+                        <span>Putar Kanan</span>
+                    </button>
+
+                    <!-- Flip Horizontal -->
+                    <button id="btn-flip-h" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-arrows-left-right text-lpdp-gold"></i>
+                        <span>Cermin Horisontal</span>
+                    </button>
+
+                    <!-- Reset Center -->
+                    <button id="btn-reset" class="flex items-center justify-center gap-2 py-2.5 px-3 bg-slate-900/80 hover:bg-rose-900/40 border border-slate-700 hover:border-rose-500/50 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                        <i class="fa-solid fa-arrows-to-dot text-rose-400"></i>
+                        <span>Reset Posisi</span>
+                    </button>
+                </div>
+
+                <!-- Frame Selection Optional Info -->
+                <div class="pt-2 border-t border-slate-700/60">
+                    <div class="flex items-center justify-between text-xs mb-2">
+                        <span class="text-slate-300 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-layer-group text-lpdp-gold"></i> Frame Twibbon:
+                        </span>
+                        <span class="text-lpdp-gold font-semibold bg-lpdp-gold/10 px-2 py-0.5 rounded border border-lpdp-gold/30">
+                            PK LPDP 280 (Fixed)
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Action Card -->
+            <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl p-5 border border-lpdp-gold/30 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-lpdp-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <h2 class="text-sm font-bold text-white mb-2 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-download text-lpdp-gold"></i> 3. Unduh Hasil
+                </h2>
+                <p class="text-xs text-slate-300 mb-4" id="download-desc">
+                    Unduh gambar resolusi tinggi (1080 x 1350 px) siap dipasang di media sosial.
+                </p>
+
+                <button id="btn-download" disabled class="w-full py-3.5 px-4 bg-gradient-to-r from-lpdp-gold via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 disabled:from-slate-700 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed text-slate-950 font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-download text-base group-hover:bounce"></i>
+                    <span id="download-text">Unduh Twibbon High-Res</span>
+                </button>
+            </div>
+
+            <!-- Caption Template Card -->
+            <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-pen-nib text-lpdp-gold"></i> Caption Postingan
+                    </h2>
+                    <!--<span class="text-[10px] text-slate-400 font-medium bg-slate-900 px-2 py-0.5 rounded border border-slate-700">Auto-fill dari data di atas</span>-->
+                </div>
+                <textarea id="caption-textarea" rows="10" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors resize-none leading-relaxed font-sans"></textarea>
+                <!--<p class="text-[10px] text-slate-400 mt-2 mb-3">Teks dalam <span class="text-amber-400 font-semibold">[kurung]</span> akan terisi otomatis dari data kamu. Sisanya bisa diedit langsung di atas.</p>-->
+                <button id="btn-copy-caption" class="w-full py-2.5 px-4 bg-slate-700 hover:bg-slate-600 border border-slate-600 rounded-xl text-xs font-bold text-slate-200 transition-all flex items-center justify-center gap-2 active:scale-95">
+                    <i class="fa-solid fa-copy" id="copy-icon"></i>
+                    <span id="copy-text">Salin Caption</span>
+                </button>
+            </div>
+
+            </div><!-- /profile-controls -->
+
+            <!-- LGM Controls (hidden in Profile mode) -->
+            <div id="lgm-controls" class="hidden flex-col gap-5">
+                <!-- Navigasi -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-file-lines text-lpdp-gold"></i> Navigasi Halaman
+                        </h2>
+                        <span class="text-xs text-slate-400 font-medium">Halaman <span id="labelPg">1</span>/<span id="totalPg">6</span></span>
+                    </div>
+                    <div id="pager" class="flex flex-wrap gap-2 mb-3"></div>
+                    <div class="flex gap-2">
+                        <button id="lgm-prev" class="flex-1 py-2 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                            <i class="fa-solid fa-chevron-left mr-1"></i> Prev
+                        </button>
+                        <button id="lgm-next" class="flex-1 py-2 px-3 bg-slate-900/80 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-medium text-slate-200 transition-colors active:scale-95">
+                            Next <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Instructions -->
+                <div id="pageInstruction" class="text-xs text-slate-300 bg-lpdp-navy/40 border border-lpdp-gold/20 rounded-xl px-4 py-3"></div>
+
+                <!-- Inputs -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-pen-to-square text-lpdp-gold"></i> Isi Halaman <span id="labelPg2">1</span>
+                    </h2>
+                    <div id="lgm-inputs-area" class="flex flex-col gap-3"></div>
+                </div>
+
+                <!-- Actions -->
+                <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl p-5 border border-lpdp-gold/30 shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-lpdp-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <h2 class="text-sm font-bold text-white mb-2 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-download text-lpdp-gold"></i> Unduh Hasil
+                    </h2>
+                    <div class="grid gap-2 mt-3">
+                        <button id="lgm-save" class="w-full py-2.5 px-4 bg-slate-700 hover:bg-slate-600 border border-slate-600 rounded-xl text-xs font-bold text-slate-200 transition-all">
+                            <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan (Local)
+                        </button>
+                        <p class="text-[10px] text-slate-400 mt-1 mb-2">Simpan progres di browser untuk dilanjutkan nanti.</p>
+
+                        <button id="lgm-export" class="w-full py-3 px-4 bg-gradient-to-r from-lpdp-gold via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download Halaman Ini
+                        </button>
+                        <p class="text-[10px] text-slate-400 mt-1 mb-2">Unduh halaman aktif sebagai PNG.</p>
+
+                        <button id="lgm-export-all" class="w-full py-3 px-4 bg-lpdp-navy hover:bg-lpdp-accent border border-lpdp-gold/40 text-lpdp-gold font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-file-zipper"></i> Download Semua (ZIP)
+                        </button>
+                        <p class="text-[10px] text-slate-400 mt-1">Unduh 6 halaman sekaligus dalam ZIP.</p>
+                    </div>
+                </div>
+            </div><!-- /lgm-controls -->
+
+            <!-- Demografi Controls (hidden in Profile/LGM mode) -->
+            <div id="demografi-controls" class="hidden flex-col gap-5">
+                <!-- Search -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-magnifying-glass text-lpdp-gold"></i> Cari Awardee
+                    </h2>
+                    <div class="relative">
+                        <i class="fa-solid fa-search absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+                        <input type="text" id="demografi-search" placeholder="Ketik nama awardee..." 
+                               class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-lpdp-gold transition-colors"/>
+                    </div>
+                    <div id="demografi-search-results" class="mt-2 text-[11px] text-slate-400"></div>
+                </div>
+
+                <!-- Legend -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-layer-group text-lpdp-gold"></i> Legenda Rumpun Studi
+                    </h2>
+                    <div id="demografi-legend" class="grid grid-cols-1 gap-2 text-xs"></div>
+                </div>
+
+                <!-- Stats -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-chart-pie text-lpdp-gold"></i> Statistik Angkatan
+                    </h2>
+                    <div id="demografi-stats" class="grid grid-cols-2 gap-3 text-xs"></div>
+                </div>
+
+                <!-- Toggle controls -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl backdrop-blur-sm">
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-eye text-lpdp-gold"></i> Tampilan
+                    </h2>
+                    <div class="flex flex-col gap-2">
+                        <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+                            <input type="checkbox" id="toggle-lines" checked class="w-4 h-4 rounded accent-lpdp-gold">
+                            <span>Tampilkan Garis Pergerakan</span>
+                        </label>
+                        <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+                            <input type="checkbox" id="toggle-markers" checked class="w-4 h-4 rounded accent-lpdp-gold">
+                            <span>Tampilkan Marker Kota</span>
+                        </label>
+                    </div>
+                </div>
+            </div><!-- /demografi-controls -->
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-lpdp-darkNavy border-t border-slate-800 py-6 mt-auto text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© 2025 <strong class="text-slate-300">Persiapan Keberangkatan LPDP Angkatan 280</strong>. All rights reserved.</p>
+            <p class="flex items-center gap-1 text-slate-400">
+                Dibuat untuk Kelompok PK LPDP 280
+            </p>
+        </div>
+    </footer>
+
+    <!-- Export Libraries for LGM -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- LGM Editor -->
+    <script src="lgm-editor.js"></script>
+    <!-- Demografi Map -->
+    <script src="demografi.js"></script>
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
